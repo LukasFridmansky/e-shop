@@ -1,6 +1,13 @@
 <script>
     let isPageLoaded = false;
 
+    function stopLoading() {
+        setTimeout(() => {
+            isPageLoaded = true;
+        }, 3000);
+    }
+    stopLoading();
+
     window.addEventListener('load', function () {
 		isPageLoaded = true;
 	})
@@ -33,6 +40,7 @@
 	    width: 100vw;
 	    height: 100vh;
         position: fixed;
+        z-index: 99999;
 	    background: linear-gradient(to right,var(--primary-color), var(--secondary-color));
     }
     .logo-conatiner{

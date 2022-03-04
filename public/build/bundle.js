@@ -10451,7 +10451,7 @@ var app = (function (exports) {
 
     const file$1 = "src\\components\\Loader.svelte";
 
-    // (26:4) {:else}
+    // (33:4) {:else}
     function create_else_block(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[2].default;
@@ -10502,14 +10502,14 @@ var app = (function (exports) {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(26:4) {:else}",
+    		source: "(33:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (10:4) {#if !isPageLoaded}
+    // (17:4) {#if !isPageLoaded}
     function create_if_block(ctx) {
     	let div8;
     	let div1;
@@ -10549,28 +10549,28 @@ var app = (function (exports) {
     			div5 = element("div");
     			t6 = space();
     			div6 = element("div");
-    			attr_dev(i, "class", "fas fa-bolt svelte-s3mkin");
-    			add_location(i, file$1, 13, 5, 280);
-    			attr_dev(span, "class", "x-blue svelte-s3mkin");
-    			add_location(span, file$1, 14, 12, 321);
-    			attr_dev(div0, "class", "logo svelte-s3mkin");
-    			add_location(div0, file$1, 12, 16, 255);
-    			attr_dev(div1, "class", "logo-conatiner svelte-s3mkin");
-    			add_location(div1, file$1, 11, 12, 209);
-    			attr_dev(div2, "class", "dot svelte-s3mkin");
-    			add_location(div2, file$1, 18, 16, 440);
-    			attr_dev(div3, "class", "dot svelte-s3mkin");
-    			add_location(div3, file$1, 19, 16, 481);
-    			attr_dev(div4, "class", "dot svelte-s3mkin");
-    			add_location(div4, file$1, 20, 16, 522);
-    			attr_dev(div5, "class", "dot svelte-s3mkin");
-    			add_location(div5, file$1, 21, 16, 563);
-    			attr_dev(div6, "class", "dot svelte-s3mkin");
-    			add_location(div6, file$1, 22, 16, 604);
-    			attr_dev(div7, "class", "container svelte-s3mkin");
-    			add_location(div7, file$1, 17, 12, 399);
-    			attr_dev(div8, "class", "body svelte-s3mkin");
-    			add_location(div8, file$1, 10, 8, 177);
+    			attr_dev(i, "class", "fas fa-bolt svelte-1fv3e9c");
+    			add_location(i, file$1, 20, 5, 420);
+    			attr_dev(span, "class", "x-blue svelte-1fv3e9c");
+    			add_location(span, file$1, 21, 12, 461);
+    			attr_dev(div0, "class", "logo svelte-1fv3e9c");
+    			add_location(div0, file$1, 19, 16, 395);
+    			attr_dev(div1, "class", "logo-conatiner svelte-1fv3e9c");
+    			add_location(div1, file$1, 18, 12, 349);
+    			attr_dev(div2, "class", "dot svelte-1fv3e9c");
+    			add_location(div2, file$1, 25, 16, 580);
+    			attr_dev(div3, "class", "dot svelte-1fv3e9c");
+    			add_location(div3, file$1, 26, 16, 621);
+    			attr_dev(div4, "class", "dot svelte-1fv3e9c");
+    			add_location(div4, file$1, 27, 16, 662);
+    			attr_dev(div5, "class", "dot svelte-1fv3e9c");
+    			add_location(div5, file$1, 28, 16, 703);
+    			attr_dev(div6, "class", "dot svelte-1fv3e9c");
+    			add_location(div6, file$1, 29, 16, 744);
+    			attr_dev(div7, "class", "container svelte-1fv3e9c");
+    			add_location(div7, file$1, 24, 12, 539);
+    			attr_dev(div8, "class", "body svelte-1fv3e9c");
+    			add_location(div8, file$1, 17, 8, 317);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div8, anchor);
@@ -10603,7 +10603,7 @@ var app = (function (exports) {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(10:4) {#if !isPageLoaded}",
+    		source: "(17:4) {#if !isPageLoaded}",
     		ctx
     	});
 
@@ -10630,7 +10630,7 @@ var app = (function (exports) {
     		c: function create() {
     			main = element("main");
     			if_block.c();
-    			add_location(main, file$1, 8, 0, 136);
+    			add_location(main, file$1, 15, 0, 276);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -10698,6 +10698,17 @@ var app = (function (exports) {
     	validate_slots('Loader', slots, ['default']);
     	let isPageLoaded = false;
 
+    	function stopLoading() {
+    		setTimeout(
+    			() => {
+    				$$invalidate(0, isPageLoaded = true);
+    			},
+    			3000
+    		);
+    	}
+
+    	stopLoading();
+
     	window.addEventListener('load', function () {
     		$$invalidate(0, isPageLoaded = true);
     	});
@@ -10712,7 +10723,7 @@ var app = (function (exports) {
     		if ('$$scope' in $$props) $$invalidate(1, $$scope = $$props.$$scope);
     	};
 
-    	$$self.$capture_state = () => ({ isPageLoaded });
+    	$$self.$capture_state = () => ({ isPageLoaded, stopLoading });
 
     	$$self.$inject_state = $$props => {
     		if ('isPageLoaded' in $$props) $$invalidate(0, isPageLoaded = $$props.isPageLoaded);
