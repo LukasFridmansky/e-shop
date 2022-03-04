@@ -1,0 +1,25 @@
+export default [{
+        id: 0,
+        title: 'Doprava',
+        subtitle: 'nad ',
+        bold_subtitle: '100€ zadarmo',
+        type: 'Rýchlo a spoľahlivo',
+        image: 'https://www.pngall.com/wp-content/uploads/5/Box-Transparent.png',
+    },
+    {
+        id: 1,
+        title: 'Prislušenstvo',
+        subtitle: 'pri nákupe nad',
+        bold_subtitle: '120€ zadarmo',
+        type: 'Špeciálna ponuka',
+        image: 'https://images.samsung.com/is/image/samsung/p6pim/in/galaxy-s21/gallery/in-galaxy-buds-pro-r190-sm-r190nzkainu-363149145?$720_576_PNG$',
+    },
+    {
+        id: 2,
+        title: 'Do konca týždňa',
+        subtitle: 'zľavy',
+        bold_subtitle: 'až 60%',
+        type: 'Black Friday',
+        image: 'https://coachsportland.co.uk/wp-content/uploads/2019/11/Black-Friday-High-Quality-PNG.png',
+    },
+]

@@ -1,0 +1,95 @@
+:root {
+    --primary-color: #fff;
+    --secondary-color: #f7f8fa;
+    --font-color: #212529;
+    --blue-font-color: #2a96ff;
+    --darkblue-font-color: #003d7b;
+    --toggle-color: #4d4d4d;
+    --toggle: linear-gradient(to bottom, #fafafa, #dddddd);
+    --red-font-color: #df2f2f;
+    --font-color-unchanged: #fff;
+    --dark-color-unchanged: #212529;
+    --light-blue-color: #f6fafa;
+    --grey-font-color: #7e7e7e;
+    --grey-color-unchanged: #7e7e7e;
+    --font-color-light: #2125292e;
+    --background1: #09090990;
+    --background2: #2125292e;
+    --background3: #090909db;
+}
+
+.dark {
+    --primary-color: #222;
+    --secondary-color: #2b2b2b;
+    --font-color: #f7f8fa;
+    --toggle-color: #f7f8fa;
+    --toggle: linear-gradient(to bottom, #444, #222);
+    --grey-font-color: #d6d6d6;
+    --font-color-light: #f7f8fa2e;
+    --background1: #f7f8fa98;
+    --background2: #f7f8fa59;
+    --background3: #f7f8fa2e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--font-color);
+    transition: color .5s;
+    transition: background .5s;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    height: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+    background: var(--primary-color);
+}
+
+body {
+    font-size: 15px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    user-select: none;
+}
+
+*::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    z-index: 10000;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--font-color);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--blue-font-color);
+    transition: .5s;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--darkblue-font-color);
+    transition: .5s;
+}
+
+::selection {
+    color: var(--secondary-color);
+    background: var(--font-color);
+}
