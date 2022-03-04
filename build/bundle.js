@@ -10451,7 +10451,7 @@ var app = (function (exports) {
 
     const file$1 = "src\\components\\Loader.svelte";
 
-    // (33:4) {:else}
+    // (34:4) {:else}
     function create_else_block(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[2].default;
@@ -10502,14 +10502,14 @@ var app = (function (exports) {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(33:4) {:else}",
+    		source: "(34:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:4) {#if !isPageLoaded}
+    // (18:4) {#if !isPageLoaded}
     function create_if_block(ctx) {
     	let div8;
     	let div1;
@@ -10550,27 +10550,27 @@ var app = (function (exports) {
     			t6 = space();
     			div6 = element("div");
     			attr_dev(i, "class", "fas fa-bolt svelte-1fv3e9c");
-    			add_location(i, file$1, 20, 5, 420);
+    			add_location(i, file$1, 21, 5, 448);
     			attr_dev(span, "class", "x-blue svelte-1fv3e9c");
-    			add_location(span, file$1, 21, 12, 461);
+    			add_location(span, file$1, 22, 12, 489);
     			attr_dev(div0, "class", "logo svelte-1fv3e9c");
-    			add_location(div0, file$1, 19, 16, 395);
+    			add_location(div0, file$1, 20, 16, 423);
     			attr_dev(div1, "class", "logo-conatiner svelte-1fv3e9c");
-    			add_location(div1, file$1, 18, 12, 349);
+    			add_location(div1, file$1, 19, 12, 377);
     			attr_dev(div2, "class", "dot svelte-1fv3e9c");
-    			add_location(div2, file$1, 25, 16, 580);
+    			add_location(div2, file$1, 26, 16, 608);
     			attr_dev(div3, "class", "dot svelte-1fv3e9c");
-    			add_location(div3, file$1, 26, 16, 621);
+    			add_location(div3, file$1, 27, 16, 649);
     			attr_dev(div4, "class", "dot svelte-1fv3e9c");
-    			add_location(div4, file$1, 27, 16, 662);
+    			add_location(div4, file$1, 28, 16, 690);
     			attr_dev(div5, "class", "dot svelte-1fv3e9c");
-    			add_location(div5, file$1, 28, 16, 703);
+    			add_location(div5, file$1, 29, 16, 731);
     			attr_dev(div6, "class", "dot svelte-1fv3e9c");
-    			add_location(div6, file$1, 29, 16, 744);
+    			add_location(div6, file$1, 30, 16, 772);
     			attr_dev(div7, "class", "container svelte-1fv3e9c");
-    			add_location(div7, file$1, 24, 12, 539);
+    			add_location(div7, file$1, 25, 12, 567);
     			attr_dev(div8, "class", "body svelte-1fv3e9c");
-    			add_location(div8, file$1, 17, 8, 317);
+    			add_location(div8, file$1, 18, 8, 345);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div8, anchor);
@@ -10603,7 +10603,7 @@ var app = (function (exports) {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(17:4) {#if !isPageLoaded}",
+    		source: "(18:4) {#if !isPageLoaded}",
     		ctx
     	});
 
@@ -10630,7 +10630,7 @@ var app = (function (exports) {
     		c: function create() {
     			main = element("main");
     			if_block.c();
-    			add_location(main, file$1, 15, 0, 276);
+    			add_location(main, file$1, 16, 0, 304);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -10702,6 +10702,7 @@ var app = (function (exports) {
     		setTimeout(
     			() => {
     				$$invalidate(0, isPageLoaded = true);
+    				window.stop();
     			},
     			3000
     		);
