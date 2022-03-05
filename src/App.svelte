@@ -156,7 +156,7 @@
 		<div class="container footer">
 			<div class="column">
 				<div class="logo">
-					<a href="./">
+					<a href="./#">
 						<i class="fas fa-bolt"></i>
 						Electro<span class="x-blue">X</span>
 					</a>
