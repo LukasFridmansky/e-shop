@@ -41,12 +41,20 @@ var app = (function (exports) {
     function is_empty(obj) {
         return Object.keys(obj).length === 0;
     }
+    function validate_store(store, name) {
+        if (store != null && typeof store.subscribe !== 'function') {
+            throw new Error(`'${name}' is not a store with a 'subscribe' method`);
+        }
+    }
     function subscribe(store, ...callbacks) {
         if (store == null) {
             return noop;
         }
         const unsub = store.subscribe(...callbacks);
         return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+    }
+    function component_subscribe(component, store, callback) {
+        component.$$.on_destroy.push(subscribe(store, callback));
     }
     function create_slot(definition, ctx, $$scope, fn) {
         if (definition) {
@@ -4564,15 +4572,15 @@ var app = (function (exports) {
     			if (!src_url_equal(img.src, img_src_value = /*category*/ ctx[1].image)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", /*category*/ ctx[1].title);
     			attr_dev(img, "class", "svelte-1clujdb");
-    			add_location(img, file$c, 33, 28, 1164);
+    			add_location(img, file$c, 33, 28, 1159);
     			attr_dev(div0, "class", "category-image svelte-1clujdb");
-    			add_location(div0, file$c, 32, 24, 1106);
+    			add_location(div0, file$c, 32, 24, 1101);
     			attr_dev(div1, "class", "category-title svelte-1clujdb");
-    			add_location(div1, file$c, 35, 24, 1273);
+    			add_location(div1, file$c, 35, 24, 1268);
     			attr_dev(div2, "class", "category-card svelte-1clujdb");
-    			add_location(div2, file$c, 31, 20, 1053);
+    			add_location(div2, file$c, 31, 20, 1048);
     			attr_dev(a, "href", "#/obchod/" + /*category*/ ctx[1].title.toLowerCase().split(' ').join('_'));
-    			add_location(a, file$c, 30, 16, 960);
+    			add_location(a, file$c, 30, 16, 955);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -4701,34 +4709,34 @@ var app = (function (exports) {
     			t15 = space();
     			create_component(product.$$.fragment);
     			document.title = "Náš obchod";
-    			attr_dev(a, "href", "./public");
+    			attr_dev(a, "href", "./#");
     			add_location(a, file$c, 18, 12, 512);
     			attr_dev(span, "class", "blue");
-    			add_location(span, file$c, 18, 43, 543);
+    			add_location(span, file$c, 18, 38, 538);
     			attr_dev(div0, "class", "nav svelte-1clujdb");
     			add_location(div0, file$c, 17, 8, 481);
     			attr_dev(div1, "class", "container");
     			add_location(div1, file$c, 16, 4, 448);
     			attr_dev(div2, "class", "title svelte-1clujdb");
-    			add_location(div2, file$c, 23, 8, 709);
+    			add_location(div2, file$c, 23, 8, 704);
     			attr_dev(div3, "class", "line svelte-1clujdb");
-    			add_location(div3, file$c, 25, 12, 786);
+    			add_location(div3, file$c, 25, 12, 781);
     			attr_dev(div4, "class", "line svelte-1clujdb");
-    			add_location(div4, file$c, 26, 12, 824);
+    			add_location(div4, file$c, 26, 12, 819);
     			attr_dev(div5, "class", "lines svelte-1clujdb");
-    			add_location(div5, file$c, 24, 8, 753);
+    			add_location(div5, file$c, 24, 8, 748);
     			attr_dev(div6, "class", "categories svelte-1clujdb");
-    			add_location(div6, file$c, 28, 8, 874);
+    			add_location(div6, file$c, 28, 8, 869);
     			attr_dev(div7, "class", "title svelte-1clujdb");
-    			add_location(div7, file$c, 41, 8, 1458);
+    			add_location(div7, file$c, 41, 8, 1453);
     			attr_dev(div8, "class", "line svelte-1clujdb");
-    			add_location(div8, file$c, 43, 12, 1542);
+    			add_location(div8, file$c, 43, 12, 1537);
     			attr_dev(div9, "class", "line svelte-1clujdb");
-    			add_location(div9, file$c, 44, 12, 1580);
+    			add_location(div9, file$c, 44, 12, 1575);
     			attr_dev(div10, "class", "lines svelte-1clujdb");
-    			add_location(div10, file$c, 42, 8, 1509);
+    			add_location(div10, file$c, 42, 8, 1504);
     			attr_dev(div11, "class", "container");
-    			add_location(div11, file$c, 22, 4, 676);
+    			add_location(div11, file$c, 22, 4, 671);
     			attr_dev(main, "class", "svelte-1clujdb");
     			add_location(main, file$c, 15, 0, 436);
     		},
@@ -4948,36 +4956,36 @@ var app = (function (exports) {
     			create_component(product.$$.fragment);
     			attr_dev(div0, "class", "title svelte-1ux46jy");
     			add_location(div0, file$b, 49, 8, 1571);
-    			attr_dev(a0, "href", "./");
+    			attr_dev(a0, "href", "./#");
     			add_location(a0, file$b, 51, 12, 1656);
     			attr_dev(a1, "href", "./#/obchod");
-    			add_location(a1, file$b, 51, 37, 1681);
+    			add_location(a1, file$b, 51, 38, 1682);
     			attr_dev(span, "class", "blue");
-    			add_location(span, file$b, 51, 71, 1715);
+    			add_location(span, file$b, 51, 72, 1716);
     			attr_dev(div1, "class", "nav svelte-1ux46jy");
     			add_location(div1, file$b, 50, 8, 1625);
     			option0.__value = "1";
     			option0.value = option0.__value;
-    			add_location(option0, file$b, 56, 20, 1939);
+    			add_location(option0, file$b, 56, 20, 1940);
     			option1.__value = "2";
     			option1.value = option1.__value;
-    			add_location(option1, file$b, 57, 20, 2013);
+    			add_location(option1, file$b, 57, 20, 2014);
     			option2.__value = "3";
     			option2.value = option2.__value;
-    			add_location(option2, file$b, 58, 20, 2089);
+    			add_location(option2, file$b, 58, 20, 2090);
     			option3.__value = "4";
     			option3.value = option3.__value;
-    			add_location(option3, file$b, 59, 20, 2163);
+    			add_location(option3, file$b, 59, 20, 2164);
     			option4.__value = "5";
     			option4.value = option4.__value;
-    			add_location(option4, file$b, 60, 20, 2236);
+    			add_location(option4, file$b, 60, 20, 2237);
     			attr_dev(select, "class", "svelte-1ux46jy");
     			if (/*selected*/ ctx[1] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[5].call(select));
-    			add_location(select, file$b, 55, 16, 1887);
+    			add_location(select, file$b, 55, 16, 1888);
     			attr_dev(form, "class", "svelte-1ux46jy");
-    			add_location(form, file$b, 54, 12, 1820);
+    			add_location(form, file$b, 54, 12, 1821);
     			attr_dev(div2, "class", "filter");
-    			add_location(div2, file$b, 53, 8, 1786);
+    			add_location(div2, file$b, 53, 8, 1787);
     			attr_dev(div3, "class", "container");
     			add_location(div3, file$b, 48, 4, 1538);
     			attr_dev(main, "class", "svelte-1ux46jy");
@@ -5181,7 +5189,7 @@ var app = (function (exports) {
     			div = element("div");
     			div.textContent = "Zľava";
     			attr_dev(div, "class", "sale-box svelte-fjrb6j");
-    			add_location(div, file$a, 55, 24, 1832);
+    			add_location(div, file$a, 55, 24, 1833);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -5218,13 +5226,13 @@ var app = (function (exports) {
     			t = space();
     			i1 = element("i");
     			attr_dev(i0, "class", i0_class_value = "fas fa-chevron-left " + (/*img*/ ctx[3] == 0 ? 'active' : '') + " svelte-fjrb6j");
-    			add_location(i0, file$a, 61, 20, 2129);
+    			add_location(i0, file$a, 61, 20, 2130);
 
     			attr_dev(i1, "class", i1_class_value = "fas fa-chevron-right " + (/*img*/ ctx[3] == /*product*/ ctx[5][0].image_urls.length - 1
     			? 'active'
     			: '') + " svelte-fjrb6j");
 
-    			add_location(i1, file$a, 62, 20, 2257);
+    			add_location(i1, file$a, 62, 20, 2258);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, i0, anchor);
@@ -5280,7 +5288,7 @@ var app = (function (exports) {
     			div = element("div");
     			div.textContent = `${/*product*/ ctx[5][0].price.toFixed(2).toString().split('.').join(',')} €`;
     			attr_dev(div, "class", "new-price svelte-fjrb6j");
-    			add_location(div, file$a, 73, 24, 3036);
+    			add_location(div, file$a, 73, 24, 3037);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -5316,9 +5324,9 @@ var app = (function (exports) {
     			div1 = element("div");
     			div1.textContent = `${/*product*/ ctx[5][0].discount_price.toFixed(2).toString().split('.').join(',')} €`;
     			attr_dev(div0, "class", "old-price svelte-fjrb6j");
-    			add_location(div0, file$a, 70, 24, 2762);
+    			add_location(div0, file$a, 70, 24, 2763);
     			attr_dev(div1, "class", "new-price svelte-fjrb6j");
-    			add_location(div1, file$a, 71, 24, 2880);
+    			add_location(div1, file$a, 71, 24, 2881);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -5371,21 +5379,21 @@ var app = (function (exports) {
     			span = element("span");
     			t3 = space();
     			attr_dev(i, "class", "fas fa-caret-down arrow svelte-fjrb6j");
-    			add_location(i, file$a, 85, 70, 3910);
+    			add_location(i, file$a, 85, 70, 3911);
     			attr_dev(div, "class", "description svelte-fjrb6j");
-    			add_location(div, file$a, 85, 32, 3872);
+    			add_location(div, file$a, 85, 32, 3873);
     			attr_dev(input, "type", "radio");
     			attr_dev(input, "name", "color");
     			input.__value = /*color*/ ctx[14];
     			input.value = input.__value;
     			attr_dev(input, "class", "svelte-fjrb6j");
     			/*$$binding_groups*/ ctx[9][0].push(input);
-    			add_location(input, file$a, 86, 32, 3989);
+    			add_location(input, file$a, 86, 32, 3990);
     			attr_dev(span, "class", "design svelte-fjrb6j");
-    			add_location(span, file$a, 87, 32, 4100);
+    			add_location(span, file$a, 87, 32, 4101);
     			set_style(label, "--radio-color", /*color*/ ctx[14].hex);
     			attr_dev(label, "class", "svelte-fjrb6j");
-    			add_location(label, file$a, 84, 28, 3796);
+    			add_location(label, file$a, 84, 28, 3797);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, label, anchor);
@@ -5644,14 +5652,14 @@ var app = (function (exports) {
     			t45 = text(" Pridať do wishlistu");
     			attr_dev(div0, "class", "title svelte-fjrb6j");
     			add_location(div0, file$a, 44, 8, 1190);
-    			attr_dev(a0, "href", "./");
+    			attr_dev(a0, "href", "./#");
     			add_location(a0, file$a, 46, 12, 1301);
     			attr_dev(a1, "href", "./#/obchod");
-    			add_location(a1, file$a, 46, 37, 1326);
+    			add_location(a1, file$a, 46, 38, 1327);
     			attr_dev(a2, "href", a2_href_value = "./#/obchod/" + /*params*/ ctx[0].category);
-    			add_location(a2, file$a, 46, 71, 1360);
+    			add_location(a2, file$a, 46, 72, 1361);
     			attr_dev(span, "class", "blue");
-    			add_location(span, file$a, 46, 136, 1425);
+    			add_location(span, file$a, 46, 137, 1426);
     			attr_dev(div1, "class", "nav svelte-fjrb6j");
     			add_location(div1, file$a, 45, 8, 1270);
     			attr_dev(div2, "class", "title-container svelte-fjrb6j");
@@ -5659,79 +5667,79 @@ var app = (function (exports) {
     			if (!src_url_equal(img_1.src, img_1_src_value = /*product*/ ctx[5][0].image_urls[/*img*/ ctx[3]])) attr_dev(img_1, "src", img_1_src_value);
     			attr_dev(img_1, "alt", "");
     			attr_dev(img_1, "class", "svelte-fjrb6j");
-    			add_location(img_1, file$a, 53, 20, 1704);
+    			add_location(img_1, file$a, 53, 20, 1705);
     			attr_dev(div3, "class", "img-index svelte-fjrb6j");
-    			add_location(div3, file$a, 57, 20, 1914);
+    			add_location(div3, file$a, 57, 20, 1915);
     			attr_dev(div4, "class", "product-images svelte-fjrb6j");
-    			add_location(div4, file$a, 52, 16, 1654);
+    			add_location(div4, file$a, 52, 16, 1655);
     			attr_dev(div5, "class", "arrows svelte-fjrb6j");
-    			add_location(div5, file$a, 59, 16, 2027);
+    			add_location(div5, file$a, 59, 16, 2028);
     			attr_dev(div6, "class", "left-container svelte-fjrb6j");
-    			add_location(div6, file$a, 51, 12, 1608);
+    			add_location(div6, file$a, 51, 12, 1609);
     			attr_dev(div7, "class", "product-title svelte-fjrb6j");
-    			add_location(div7, file$a, 67, 16, 2566);
+    			add_location(div7, file$a, 67, 16, 2567);
     			attr_dev(div8, "class", "price svelte-fjrb6j");
-    			add_location(div8, file$a, 68, 16, 2662);
+    			add_location(div8, file$a, 68, 16, 2663);
     			attr_dev(div9, "class", "short-description svelte-fjrb6j");
-    			add_location(div9, file$a, 76, 16, 3197);
-    			add_location(b0, file$a, 77, 60, 3326);
+    			add_location(div9, file$a, 76, 16, 3198);
+    			add_location(b0, file$a, 77, 60, 3327);
     			attr_dev(div10, "class", "producer product-info svelte-fjrb6j");
-    			add_location(div10, file$a, 77, 16, 3282);
-    			add_location(b1, file$a, 78, 67, 3429);
+    			add_location(div10, file$a, 77, 16, 3283);
+    			add_location(b1, file$a, 78, 67, 3430);
     			attr_dev(div11, "class", "availability product-info svelte-fjrb6j");
-    			add_location(div11, file$a, 78, 16, 3378);
-    			add_location(b2, file$a, 79, 65, 3534);
+    			add_location(div11, file$a, 78, 16, 3379);
+    			add_location(b2, file$a, 79, 65, 3535);
     			attr_dev(div12, "class", "category product-info svelte-fjrb6j");
-    			add_location(div12, file$a, 79, 16, 3485);
-    			add_location(b3, file$a, 80, 54, 3622);
+    			add_location(div12, file$a, 79, 16, 3486);
+    			add_location(b3, file$a, 80, 54, 3623);
     			attr_dev(div13, "class", "color-title product-info svelte-fjrb6j");
-    			add_location(div13, file$a, 80, 16, 3584);
+    			add_location(div13, file$a, 80, 16, 3585);
     			attr_dev(form, "class", "svelte-fjrb6j");
-    			add_location(form, file$a, 82, 20, 3700);
+    			add_location(form, file$a, 82, 20, 3701);
     			attr_dev(div14, "class", "color svelte-fjrb6j");
-    			add_location(div14, file$a, 81, 16, 3659);
+    			add_location(div14, file$a, 81, 16, 3660);
     			attr_dev(i0, "class", "fas fa-truck svelte-fjrb6j");
-    			add_location(i0, file$a, 93, 68, 4364);
+    			add_location(i0, file$a, 93, 68, 4365);
     			attr_dev(a3, "href", "#/shipping");
     			attr_dev(a3, "class", "svelte-fjrb6j");
-    			add_location(a3, file$a, 93, 47, 4343);
+    			add_location(a3, file$a, 93, 47, 4344);
     			attr_dev(div15, "class", "shipping link svelte-fjrb6j");
-    			add_location(div15, file$a, 93, 20, 4316);
+    			add_location(div15, file$a, 93, 20, 4317);
     			attr_dev(i1, "class", "fas fa-envelope svelte-fjrb6j");
-    			add_location(i1, file$a, 94, 67, 4479);
+    			add_location(i1, file$a, 94, 67, 4480);
     			attr_dev(a4, "href", "#/kontakt");
     			attr_dev(a4, "class", "svelte-fjrb6j");
-    			add_location(a4, file$a, 94, 47, 4459);
+    			add_location(a4, file$a, 94, 47, 4460);
     			attr_dev(div16, "class", "question link svelte-fjrb6j");
-    			add_location(div16, file$a, 94, 20, 4432);
+    			add_location(div16, file$a, 94, 20, 4433);
     			attr_dev(div17, "class", "info-links svelte-fjrb6j");
-    			add_location(div17, file$a, 92, 16, 4270);
+    			add_location(div17, file$a, 92, 16, 4271);
     			attr_dev(i2, "class", "fas fa-chevron-up svelte-fjrb6j");
-    			add_location(i2, file$a, 100, 82, 4839);
-    			add_location(div18, file$a, 100, 28, 4785);
+    			add_location(i2, file$a, 100, 82, 4840);
+    			add_location(div18, file$a, 100, 28, 4786);
     			attr_dev(i3, "class", "fas fa-chevron-down svelte-fjrb6j");
-    			add_location(i3, file$a, 101, 81, 4961);
-    			add_location(div19, file$a, 101, 28, 4908);
+    			add_location(i3, file$a, 101, 81, 4962);
+    			add_location(div19, file$a, 101, 28, 4909);
     			attr_dev(div20, "class", "counter-arrows svelte-fjrb6j");
-    			add_location(div20, file$a, 99, 24, 4727);
+    			add_location(div20, file$a, 99, 24, 4728);
     			attr_dev(div21, "class", "counter svelte-fjrb6j");
-    			add_location(div21, file$a, 97, 20, 4647);
+    			add_location(div21, file$a, 97, 20, 4648);
     			attr_dev(i4, "class", "fas fa-cart-plus svelte-fjrb6j");
-    			add_location(i4, file$a, 105, 24, 5193);
+    			add_location(i4, file$a, 105, 24, 5194);
     			attr_dev(div22, "class", "add-to-card svelte-fjrb6j");
-    			add_location(div22, file$a, 104, 20, 5084);
+    			add_location(div22, file$a, 104, 20, 5085);
     			attr_dev(div23, "class", "add-to-card-counter svelte-fjrb6j");
-    			add_location(div23, file$a, 96, 16, 4592);
+    			add_location(div23, file$a, 96, 16, 4593);
     			attr_dev(i5, "class", "fas fa-heart svelte-fjrb6j");
-    			add_location(i5, file$a, 109, 20, 5408);
+    			add_location(i5, file$a, 109, 20, 5409);
     			attr_dev(div24, "class", "add-to-wishlist svelte-fjrb6j");
-    			add_location(div24, file$a, 108, 16, 5312);
+    			add_location(div24, file$a, 108, 16, 5313);
     			attr_dev(div25, "class", "product-information svelte-fjrb6j");
-    			add_location(div25, file$a, 66, 12, 2515);
+    			add_location(div25, file$a, 66, 12, 2516);
     			attr_dev(div26, "class", "product-container svelte-fjrb6j");
-    			add_location(div26, file$a, 50, 8, 1563);
+    			add_location(div26, file$a, 50, 8, 1564);
     			attr_dev(div27, "class", "container");
-    			add_location(div27, file$a, 49, 4, 1530);
+    			add_location(div27, file$a, 49, 4, 1531);
     			attr_dev(main, "class", "svelte-fjrb6j");
     			add_location(main, file$a, 42, 0, 1139);
     		},
@@ -6221,103 +6229,103 @@ var app = (function (exports) {
     			document.title = "Kontakt";
     			attr_dev(div0, "class", "title svelte-1pglro3");
     			add_location(div0, file$9, 11, 8, 167);
-    			attr_dev(a, "href", "./");
+    			attr_dev(a, "href", "./#");
     			add_location(a, file$9, 13, 12, 248);
     			attr_dev(span, "class", "blue");
-    			add_location(span, file$9, 13, 37, 273);
+    			add_location(span, file$9, 13, 38, 274);
     			attr_dev(div1, "class", "nav svelte-1pglro3");
     			add_location(div1, file$9, 12, 8, 217);
     			attr_dev(div2, "class", "title-container svelte-1pglro3");
     			add_location(div2, file$9, 10, 4, 128);
     			attr_dev(i0, "class", "fas fa-map-marker-alt svelte-1pglro3");
-    			add_location(i0, file$9, 18, 35, 454);
+    			add_location(i0, file$9, 18, 35, 455);
     			attr_dev(div3, "class", "item-icon svelte-1pglro3");
-    			add_location(div3, file$9, 18, 12, 431);
+    			add_location(div3, file$9, 18, 12, 432);
     			attr_dev(div4, "class", "contact-item-title svelte-1pglro3");
-    			add_location(div4, file$9, 19, 12, 511);
+    			add_location(div4, file$9, 19, 12, 512);
     			attr_dev(div5, "class", "contact-item-info svelte-1pglro3");
-    			add_location(div5, file$9, 20, 12, 569);
+    			add_location(div5, file$9, 20, 12, 570);
     			attr_dev(div6, "class", "contact-info-item svelte-1pglro3");
-    			add_location(div6, file$9, 17, 8, 386);
+    			add_location(div6, file$9, 17, 8, 387);
     			attr_dev(i1, "class", "fas fa-phone-alt svelte-1pglro3");
-    			add_location(i1, file$9, 23, 35, 729);
+    			add_location(i1, file$9, 23, 35, 730);
     			attr_dev(div7, "class", "item-icon svelte-1pglro3");
-    			add_location(div7, file$9, 23, 12, 706);
+    			add_location(div7, file$9, 23, 12, 707);
     			attr_dev(div8, "class", "contact-item-title svelte-1pglro3");
-    			add_location(div8, file$9, 24, 12, 781);
+    			add_location(div8, file$9, 24, 12, 782);
     			attr_dev(div9, "class", "contact-item-info svelte-1pglro3");
-    			add_location(div9, file$9, 25, 12, 840);
+    			add_location(div9, file$9, 25, 12, 841);
     			attr_dev(div10, "class", "contact-info-item svelte-1pglro3");
-    			add_location(div10, file$9, 22, 8, 661);
+    			add_location(div10, file$9, 22, 8, 662);
     			attr_dev(i2, "class", "fas fa-envelope svelte-1pglro3");
-    			add_location(i2, file$9, 28, 35, 987);
+    			add_location(i2, file$9, 28, 35, 988);
     			attr_dev(div11, "class", "item-icon svelte-1pglro3");
-    			add_location(div11, file$9, 28, 12, 964);
+    			add_location(div11, file$9, 28, 12, 965);
     			attr_dev(div12, "class", "contact-item-title svelte-1pglro3");
-    			add_location(div12, file$9, 29, 12, 1038);
+    			add_location(div12, file$9, 29, 12, 1039);
     			attr_dev(div13, "class", "contact-item-info svelte-1pglro3");
-    			add_location(div13, file$9, 30, 12, 1095);
+    			add_location(div13, file$9, 30, 12, 1096);
     			attr_dev(div14, "class", "contact-info-item svelte-1pglro3");
-    			add_location(div14, file$9, 27, 8, 919);
+    			add_location(div14, file$9, 27, 8, 920);
     			attr_dev(div15, "class", "contact-info container svelte-1pglro3");
-    			add_location(div15, file$9, 16, 4, 340);
+    			add_location(div15, file$9, 16, 4, 341);
     			attr_dev(div16, "class", "form-subtitle svelte-1pglro3");
-    			add_location(div16, file$9, 34, 8, 1220);
+    			add_location(div16, file$9, 34, 8, 1221);
     			attr_dev(div17, "class", "form-title svelte-1pglro3");
-    			add_location(div17, file$9, 37, 8, 1302);
+    			add_location(div17, file$9, 37, 8, 1303);
     			attr_dev(div18, "class", "label-title svelte-1pglro3");
-    			add_location(div18, file$9, 43, 20, 1522);
+    			add_location(div18, file$9, 43, 20, 1523);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "class", "i-text svelte-1pglro3");
-    			add_location(input0, file$9, 44, 20, 1592);
+    			add_location(input0, file$9, 44, 20, 1593);
     			attr_dev(label0, "class", "svelte-1pglro3");
-    			add_location(label0, file$9, 42, 16, 1493);
+    			add_location(label0, file$9, 42, 16, 1494);
     			attr_dev(div19, "class", "label-title svelte-1pglro3");
-    			add_location(div19, file$9, 47, 20, 1699);
+    			add_location(div19, file$9, 47, 20, 1700);
     			attr_dev(input1, "type", "email");
     			attr_dev(input1, "class", "i-text svelte-1pglro3");
-    			add_location(input1, file$9, 48, 20, 1757);
+    			add_location(input1, file$9, 48, 20, 1758);
     			attr_dev(label1, "class", "svelte-1pglro3");
-    			add_location(label1, file$9, 46, 16, 1670);
+    			add_location(label1, file$9, 46, 16, 1671);
     			attr_dev(div20, "class", "label-title svelte-1pglro3");
-    			add_location(div20, file$9, 51, 20, 1865);
+    			add_location(div20, file$9, 51, 20, 1866);
     			attr_dev(input2, "type", "tel");
     			attr_dev(input2, "class", "i-text svelte-1pglro3");
-    			add_location(input2, file$9, 52, 20, 1933);
+    			add_location(input2, file$9, 52, 20, 1934);
     			attr_dev(label2, "class", "svelte-1pglro3");
-    			add_location(label2, file$9, 50, 16, 1836);
+    			add_location(label2, file$9, 50, 16, 1837);
     			attr_dev(div21, "class", "label-title svelte-1pglro3");
-    			add_location(div21, file$9, 55, 20, 2039);
+    			add_location(div21, file$9, 55, 20, 2040);
     			attr_dev(input3, "type", "text");
     			attr_dev(input3, "class", "i-text svelte-1pglro3");
-    			add_location(input3, file$9, 56, 20, 2099);
+    			add_location(input3, file$9, 56, 20, 2100);
     			attr_dev(label3, "class", "svelte-1pglro3");
-    			add_location(label3, file$9, 54, 16, 2010);
+    			add_location(label3, file$9, 54, 16, 2011);
     			attr_dev(div22, "class", "label-title svelte-1pglro3");
-    			add_location(div22, file$9, 59, 20, 2223);
+    			add_location(div22, file$9, 59, 20, 2224);
     			attr_dev(textarea, "cols", "30");
     			attr_dev(textarea, "rows", "10");
     			attr_dev(textarea, "class", "svelte-1pglro3");
-    			add_location(textarea, file$9, 60, 20, 2287);
+    			add_location(textarea, file$9, 60, 20, 2288);
     			attr_dev(label4, "class", "textarea svelte-1pglro3");
-    			add_location(label4, file$9, 58, 16, 2177);
+    			add_location(label4, file$9, 58, 16, 2178);
     			attr_dev(input4, "type", "submit");
     			input4.value = "Odoslať správu";
     			attr_dev(input4, "class", "svelte-1pglro3");
-    			add_location(input4, file$9, 62, 16, 2372);
+    			add_location(input4, file$9, 62, 16, 2373);
     			attr_dev(form, "action", "javascript:void(0);");
     			attr_dev(form, "class", "svelte-1pglro3");
-    			add_location(form, file$9, 41, 12, 1440);
+    			add_location(form, file$9, 41, 12, 1441);
     			if (!src_url_equal(img.src, img_src_value = "img/contact.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
     			attr_dev(img, "class", "svelte-1pglro3");
-    			add_location(img, file$9, 65, 16, 2494);
+    			add_location(img, file$9, 65, 16, 2495);
     			attr_dev(div23, "class", "contact-img svelte-1pglro3");
-    			add_location(div23, file$9, 64, 12, 2451);
+    			add_location(div23, file$9, 64, 12, 2452);
     			attr_dev(div24, "class", "flex-container svelte-1pglro3");
-    			add_location(div24, file$9, 40, 8, 1398);
+    			add_location(div24, file$9, 40, 8, 1399);
     			attr_dev(div25, "class", "form container svelte-1pglro3");
-    			add_location(div25, file$9, 33, 4, 1182);
+    			add_location(div25, file$9, 33, 4, 1183);
     			attr_dev(iframe, "class", "gmap_iframe svelte-1pglro3");
     			attr_dev(iframe, "width", "100%");
     			attr_dev(iframe, "title", "Map");
@@ -6326,13 +6334,13 @@ var app = (function (exports) {
     			attr_dev(iframe, "marginheight", "0");
     			attr_dev(iframe, "marginwidth", "0");
     			if (!src_url_equal(iframe.src, iframe_src_value = "https://maps.google.com/maps?width=1532&height=426&hl=en&q=University of Oxford&t=&z=14&ie=UTF8&iwloc=B&output=embed")) attr_dev(iframe, "src", iframe_src_value);
-    			add_location(iframe, file$9, 71, 12, 2674);
+    			add_location(iframe, file$9, 71, 12, 2675);
     			attr_dev(div26, "class", "gmap_canvas svelte-1pglro3");
-    			add_location(div26, file$9, 70, 30, 2635);
+    			add_location(div26, file$9, 70, 30, 2636);
     			attr_dev(div27, "class", "mapouter svelte-1pglro3");
-    			add_location(div27, file$9, 70, 8, 2613);
+    			add_location(div27, file$9, 70, 8, 2614);
     			attr_dev(div28, "class", "map");
-    			add_location(div28, file$9, 69, 4, 2586);
+    			add_location(div28, file$9, 69, 4, 2587);
     			attr_dev(main, "class", "svelte-1pglro3");
     			add_location(main, file$9, 9, 0, 116);
     		},
@@ -6504,8 +6512,8 @@ var app = (function (exports) {
     			attr_dev(div2, "class", "flex-container svelte-1ypqovn");
     			add_location(div2, file$8, 13, 12, 229);
     			attr_dev(div3, "class", "button svelte-1ypqovn");
-    			add_location(div3, file$8, 18, 16, 445);
-    			attr_dev(a, "href", "#/");
+    			add_location(div3, file$8, 18, 16, 446);
+    			attr_dev(a, "href", "./#");
     			attr_dev(a, "class", "button-a svelte-1ypqovn");
     			add_location(a, file$8, 17, 12, 397);
     			attr_dev(div4, "class", "container error-container svelte-1ypqovn");
@@ -6643,20 +6651,20 @@ var app = (function (exports) {
     			t8 = space();
     			th4 = element("th");
     			th4.textContent = "Cena";
-    			attr_dev(th0, "class", "svelte-7evxfj");
-    			add_location(th0, file$7, 53, 20, 1834);
-    			attr_dev(th1, "class", "svelte-7evxfj");
-    			add_location(th1, file$7, 54, 20, 1872);
-    			attr_dev(span, "class", "per-piece svelte-7evxfj");
-    			add_location(span, file$7, 55, 29, 1917);
-    			attr_dev(th2, "class", "svelte-7evxfj");
-    			add_location(th2, file$7, 55, 20, 1908);
-    			attr_dev(th3, "class", "svelte-7evxfj");
-    			add_location(th3, file$7, 56, 20, 1980);
-    			attr_dev(th4, "class", "svelte-7evxfj");
-    			add_location(th4, file$7, 57, 20, 2019);
-    			attr_dev(tr, "class", "svelte-7evxfj");
-    			add_location(tr, file$7, 52, 16, 1808);
+    			attr_dev(th0, "class", "svelte-hmo14h");
+    			add_location(th0, file$7, 53, 20, 1829);
+    			attr_dev(th1, "class", "svelte-hmo14h");
+    			add_location(th1, file$7, 54, 20, 1867);
+    			attr_dev(span, "class", "per-piece svelte-hmo14h");
+    			add_location(span, file$7, 55, 29, 1912);
+    			attr_dev(th2, "class", "svelte-hmo14h");
+    			add_location(th2, file$7, 55, 20, 1903);
+    			attr_dev(th3, "class", "svelte-hmo14h");
+    			add_location(th3, file$7, 56, 20, 1975);
+    			attr_dev(th4, "class", "svelte-hmo14h");
+    			add_location(th4, file$7, 57, 20, 2014);
+    			attr_dev(tr, "class", "svelte-hmo14h");
+    			add_location(tr, file$7, 52, 16, 1803);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -6692,23 +6700,19 @@ var app = (function (exports) {
     function create_else_block_2(ctx) {
     	let t0;
     	let a;
-    	let div;
 
     	const block = {
     		c: function create() {
     			t0 = text("Tvoj košík je prázdny\r\n                ");
     			a = element("a");
-    			div = element("div");
-    			div.textContent = "Prezerať obchod";
-    			attr_dev(div, "class", "button svelte-7evxfj");
-    			add_location(div, file$7, 99, 20, 4375);
+    			a.textContent = "Prezerať obchod";
     			attr_dev(a, "href", "#/obchod");
-    			add_location(a, file$7, 98, 16, 4334);
+    			attr_dev(a, "class", "button-a svelte-hmo14h");
+    			add_location(a, file$7, 98, 16, 4329);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
     			insert_dev(target, a, anchor);
-    			append_dev(a, div);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t0);
@@ -6781,8 +6785,8 @@ var app = (function (exports) {
     			t2 = space();
     			t3 = text(t3_value);
     			t4 = text(" €");
-    			attr_dev(b, "class", "old-price svelte-7evxfj");
-    			add_location(b, file$7, 67, 32, 2628);
+    			attr_dev(b, "class", "old-price svelte-hmo14h");
+    			add_location(b, file$7, 67, 32, 2623);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, b, anchor);
@@ -6981,37 +6985,37 @@ var app = (function (exports) {
     			span2 = element("span");
     			i2 = element("i");
     			attr_dev(a, "href", a_href_value = "#/obchod/" + categories[/*cart*/ ctx[10][0].category].title.toLowerCase().split(' ').join('_') + "/" + (/*cart*/ ctx[10][0].title + ' ' + /*cart*/ ctx[10][0].version).toLowerCase().split(' ').join('_'));
-    			add_location(a, file$7, 62, 24, 2182);
-    			attr_dev(td0, "class", "svelte-7evxfj");
-    			add_location(td0, file$7, 62, 20, 2178);
-    			attr_dev(td1, "class", "svelte-7evxfj");
-    			add_location(td1, file$7, 63, 20, 2420);
+    			add_location(a, file$7, 62, 24, 2177);
+    			attr_dev(td0, "class", "svelte-hmo14h");
+    			add_location(td0, file$7, 62, 20, 2173);
+    			attr_dev(td1, "class", "svelte-hmo14h");
+    			add_location(td1, file$7, 63, 20, 2415);
     			attr_dev(span0, "class", "price-num");
-    			add_location(span0, file$7, 65, 24, 2510);
-    			attr_dev(td2, "class", "price svelte-7evxfj");
-    			add_location(td2, file$7, 64, 20, 2466);
-    			attr_dev(i0, "class", "fas fa-chevron-up svelte-7evxfj");
-    			add_location(i0, file$7, 77, 83, 3225);
-    			add_location(div0, file$7, 77, 28, 3170);
-    			attr_dev(i1, "class", "fas fa-chevron-down svelte-7evxfj");
-    			add_location(i1, file$7, 78, 83, 3349);
-    			add_location(div1, file$7, 78, 28, 3294);
-    			attr_dev(div2, "class", "counter-arrows svelte-7evxfj");
-    			add_location(div2, file$7, 76, 24, 3112);
-    			attr_dev(td3, "class", "counter svelte-7evxfj");
-    			add_location(td3, file$7, 74, 20, 3031);
+    			add_location(span0, file$7, 65, 24, 2505);
+    			attr_dev(td2, "class", "price svelte-hmo14h");
+    			add_location(td2, file$7, 64, 20, 2461);
+    			attr_dev(i0, "class", "fas fa-chevron-up svelte-hmo14h");
+    			add_location(i0, file$7, 77, 83, 3220);
+    			add_location(div0, file$7, 77, 28, 3165);
+    			attr_dev(i1, "class", "fas fa-chevron-down svelte-hmo14h");
+    			add_location(i1, file$7, 78, 83, 3344);
+    			add_location(div1, file$7, 78, 28, 3289);
+    			attr_dev(div2, "class", "counter-arrows svelte-hmo14h");
+    			add_location(div2, file$7, 76, 24, 3107);
+    			attr_dev(td3, "class", "counter svelte-hmo14h");
+    			add_location(td3, file$7, 74, 20, 3026);
     			attr_dev(span1, "class", "price-num");
-    			add_location(span1, file$7, 82, 24, 3515);
-    			attr_dev(i2, "class", "fas fa-trash svelte-7evxfj");
-    			add_location(i2, file$7, 91, 32, 4067);
-    			attr_dev(span2, "class", "remove-from-cart icon svelte-7evxfj");
-    			add_location(span2, file$7, 90, 28, 3997);
-    			attr_dev(span3, "class", "icons svelte-7evxfj");
-    			add_location(span3, file$7, 89, 24, 3947);
-    			attr_dev(td4, "class", "price svelte-7evxfj");
-    			add_location(td4, file$7, 81, 20, 3471);
-    			attr_dev(tr, "class", "cart-item svelte-7evxfj");
-    			add_location(tr, file$7, 61, 16, 2134);
+    			add_location(span1, file$7, 82, 24, 3510);
+    			attr_dev(i2, "class", "fas fa-trash svelte-hmo14h");
+    			add_location(i2, file$7, 91, 32, 4062);
+    			attr_dev(span2, "class", "remove-from-cart icon svelte-hmo14h");
+    			add_location(span2, file$7, 90, 28, 3992);
+    			attr_dev(span3, "class", "icons svelte-hmo14h");
+    			add_location(span3, file$7, 89, 24, 3942);
+    			attr_dev(td4, "class", "price svelte-hmo14h");
+    			add_location(td4, file$7, 81, 20, 3466);
+    			attr_dev(tr, "class", "cart-item svelte-hmo14h");
+    			add_location(tr, file$7, 61, 16, 2129);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -7204,42 +7208,42 @@ var app = (function (exports) {
     			td14 = element("td");
     			t30 = text(t30_value);
     			t31 = text(" €");
-    			attr_dev(td0, "class", "svelte-7evxfj");
-    			add_location(td0, file$7, 104, 20, 4560);
-    			attr_dev(td1, "class", "svelte-7evxfj");
-    			add_location(td1, file$7, 105, 20, 4600);
-    			attr_dev(td2, "class", "svelte-7evxfj");
-    			add_location(td2, file$7, 106, 20, 4632);
-    			attr_dev(td3, "class", "svelte-7evxfj");
-    			add_location(td3, file$7, 107, 20, 4664);
-    			attr_dev(td4, "class", "svelte-7evxfj");
-    			add_location(td4, file$7, 108, 20, 4709);
-    			attr_dev(tr0, "class", "subtotal svelte-7evxfj");
-    			add_location(tr0, file$7, 103, 16, 4517);
-    			attr_dev(td5, "class", "svelte-7evxfj");
-    			add_location(td5, file$7, 111, 20, 4840);
-    			attr_dev(td6, "class", "svelte-7evxfj");
-    			add_location(td6, file$7, 112, 20, 4878);
-    			attr_dev(td7, "class", "svelte-7evxfj");
-    			add_location(td7, file$7, 113, 20, 4910);
-    			attr_dev(td8, "class", "svelte-7evxfj");
-    			add_location(td8, file$7, 114, 20, 4942);
-    			attr_dev(td9, "class", "svelte-7evxfj");
-    			add_location(td9, file$7, 115, 20, 4974);
-    			attr_dev(tr1, "class", "svelte-7evxfj");
-    			add_location(tr1, file$7, 110, 16, 4814);
-    			attr_dev(td10, "class", "svelte-7evxfj");
-    			add_location(td10, file$7, 118, 20, 5119);
-    			attr_dev(td11, "class", "svelte-7evxfj");
-    			add_location(td11, file$7, 119, 20, 5155);
-    			attr_dev(td12, "class", "svelte-7evxfj");
-    			add_location(td12, file$7, 120, 20, 5187);
-    			attr_dev(td13, "class", "svelte-7evxfj");
-    			add_location(td13, file$7, 121, 20, 5219);
-    			attr_dev(td14, "class", "svelte-7evxfj");
-    			add_location(td14, file$7, 122, 20, 5264);
-    			attr_dev(tr2, "class", "total svelte-7evxfj");
-    			add_location(tr2, file$7, 117, 16, 5079);
+    			attr_dev(td0, "class", "svelte-hmo14h");
+    			add_location(td0, file$7, 104, 20, 4546);
+    			attr_dev(td1, "class", "svelte-hmo14h");
+    			add_location(td1, file$7, 105, 20, 4586);
+    			attr_dev(td2, "class", "svelte-hmo14h");
+    			add_location(td2, file$7, 106, 20, 4618);
+    			attr_dev(td3, "class", "svelte-hmo14h");
+    			add_location(td3, file$7, 107, 20, 4650);
+    			attr_dev(td4, "class", "svelte-hmo14h");
+    			add_location(td4, file$7, 108, 20, 4695);
+    			attr_dev(tr0, "class", "subtotal svelte-hmo14h");
+    			add_location(tr0, file$7, 103, 16, 4503);
+    			attr_dev(td5, "class", "svelte-hmo14h");
+    			add_location(td5, file$7, 111, 20, 4826);
+    			attr_dev(td6, "class", "svelte-hmo14h");
+    			add_location(td6, file$7, 112, 20, 4864);
+    			attr_dev(td7, "class", "svelte-hmo14h");
+    			add_location(td7, file$7, 113, 20, 4896);
+    			attr_dev(td8, "class", "svelte-hmo14h");
+    			add_location(td8, file$7, 114, 20, 4928);
+    			attr_dev(td9, "class", "svelte-hmo14h");
+    			add_location(td9, file$7, 115, 20, 4960);
+    			attr_dev(tr1, "class", "svelte-hmo14h");
+    			add_location(tr1, file$7, 110, 16, 4800);
+    			attr_dev(td10, "class", "svelte-hmo14h");
+    			add_location(td10, file$7, 118, 20, 5105);
+    			attr_dev(td11, "class", "svelte-hmo14h");
+    			add_location(td11, file$7, 119, 20, 5141);
+    			attr_dev(td12, "class", "svelte-hmo14h");
+    			add_location(td12, file$7, 120, 20, 5173);
+    			attr_dev(td13, "class", "svelte-hmo14h");
+    			add_location(td13, file$7, 121, 20, 5205);
+    			attr_dev(td14, "class", "svelte-hmo14h");
+    			add_location(td14, file$7, 122, 20, 5250);
+    			attr_dev(tr2, "class", "total svelte-hmo14h");
+    			add_location(tr2, file$7, 117, 16, 5065);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr0, anchor);
@@ -7309,30 +7313,26 @@ var app = (function (exports) {
 
     // (127:8) {#if cart_list.length > 0}
     function create_if_block$5(ctx) {
-    	let div1;
+    	let div;
     	let a;
-    	let div0;
 
     	const block = {
     		c: function create() {
-    			div1 = element("div");
+    			div = element("div");
     			a = element("a");
-    			div0 = element("div");
-    			div0.textContent = "Pre dokončenie objednávky sa prihláste";
-    			attr_dev(div0, "class", "button b-login svelte-7evxfj");
-    			add_location(div0, file$7, 129, 20, 5539);
+    			a.textContent = "Pre dokončenie objednávky sa prihláste";
     			attr_dev(a, "href", "#/login");
-    			add_location(a, file$7, 128, 16, 5499);
-    			attr_dev(div1, "class", "button-container svelte-7evxfj");
-    			add_location(div1, file$7, 127, 12, 5451);
+    			attr_dev(a, "class", "button-a b-login svelte-hmo14h");
+    			add_location(a, file$7, 128, 16, 5485);
+    			attr_dev(div, "class", "button-container svelte-hmo14h");
+    			add_location(div, file$7, 127, 12, 5437);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div1, anchor);
-    			append_dev(div1, a);
-    			append_dev(a, div0);
+    			insert_dev(target, div, anchor);
+    			append_dev(div, a);
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(div);
     		}
     	};
 
@@ -7434,29 +7434,29 @@ var app = (function (exports) {
     			t14 = space();
     			if (if_block2) if_block2.c();
     			t15 = space();
-    			attr_dev(div0, "class", "title svelte-7evxfj");
+    			attr_dev(div0, "class", "title svelte-hmo14h");
     			add_location(div0, file$7, 39, 8, 1341);
-    			attr_dev(a, "href", "./public");
+    			attr_dev(a, "href", "./#");
     			add_location(a, file$7, 41, 12, 1412);
     			attr_dev(span, "class", "blue");
-    			add_location(span, file$7, 41, 43, 1443);
-    			attr_dev(div1, "class", "nav svelte-7evxfj");
+    			add_location(span, file$7, 41, 38, 1438);
+    			attr_dev(div1, "class", "nav svelte-hmo14h");
     			add_location(div1, file$7, 40, 8, 1381);
-    			attr_dev(div2, "class", "title-container svelte-7evxfj");
+    			attr_dev(div2, "class", "title-container svelte-hmo14h");
     			add_location(div2, file$7, 38, 4, 1302);
-    			attr_dev(div3, "class", "cart-title svelte-7evxfj");
-    			add_location(div3, file$7, 45, 8, 1546);
-    			attr_dev(div4, "class", "blue-line svelte-7evxfj");
-    			add_location(div4, file$7, 47, 12, 1650);
-    			attr_dev(div5, "class", "line svelte-7evxfj");
-    			add_location(div5, file$7, 48, 12, 1693);
-    			attr_dev(div6, "class", "lines svelte-7evxfj");
-    			add_location(div6, file$7, 46, 8, 1617);
-    			attr_dev(table, "class", "svelte-7evxfj");
-    			add_location(table, file$7, 50, 8, 1743);
+    			attr_dev(div3, "class", "cart-title svelte-hmo14h");
+    			add_location(div3, file$7, 45, 8, 1541);
+    			attr_dev(div4, "class", "blue-line svelte-hmo14h");
+    			add_location(div4, file$7, 47, 12, 1645);
+    			attr_dev(div5, "class", "line svelte-hmo14h");
+    			add_location(div5, file$7, 48, 12, 1688);
+    			attr_dev(div6, "class", "lines svelte-hmo14h");
+    			add_location(div6, file$7, 46, 8, 1612);
+    			attr_dev(table, "class", "svelte-hmo14h");
+    			add_location(table, file$7, 50, 8, 1738);
     			attr_dev(div7, "class", "container cart");
-    			add_location(div7, file$7, 44, 4, 1508);
-    			attr_dev(main, "class", "svelte-7evxfj");
+    			add_location(div7, file$7, 44, 4, 1503);
+    			attr_dev(main, "class", "svelte-hmo14h");
     			add_location(main, file$7, 37, 0, 1290);
     			document.title = "Košík";
     		},
@@ -7740,12 +7740,12 @@ var app = (function (exports) {
     			t1 = space();
     			th1 = element("th");
     			th1.textContent = "Cena";
-    			attr_dev(th0, "class", "svelte-1q04ukp");
-    			add_location(th0, file$6, 35, 20, 1048);
-    			attr_dev(th1, "class", "svelte-1q04ukp");
-    			add_location(th1, file$6, 36, 20, 1086);
-    			attr_dev(tr, "class", "svelte-1q04ukp");
-    			add_location(tr, file$6, 34, 16, 1022);
+    			attr_dev(th0, "class", "svelte-1f8nksn");
+    			add_location(th0, file$6, 35, 20, 1043);
+    			attr_dev(th1, "class", "svelte-1f8nksn");
+    			add_location(th1, file$6, 36, 20, 1081);
+    			attr_dev(tr, "class", "svelte-1f8nksn");
+    			add_location(tr, file$6, 34, 16, 1017);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -7773,26 +7773,19 @@ var app = (function (exports) {
     function create_else_block_1$1(ctx) {
     	let t0;
     	let a;
-    	let div;
-    	let t2;
 
     	const block = {
     		c: function create() {
     			t0 = text("Tvoj zoznam prijaní je prázdny\r\n                ");
     			a = element("a");
-    			div = element("div");
-    			div.textContent = "Prezerať obchod";
-    			t2 = space();
-    			attr_dev(div, "class", "button svelte-1q04ukp");
-    			add_location(div, file$6, 64, 20, 2514);
+    			a.textContent = "Prezerať obchod\r\n                ";
     			attr_dev(a, "href", "#/obchod");
-    			add_location(a, file$6, 63, 16, 2473);
+    			attr_dev(a, "class", "button-a svelte-1f8nksn");
+    			add_location(a, file$6, 63, 16, 2468);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
     			insert_dev(target, a, anchor);
-    			append_dev(a, div);
-    			append_dev(a, t2);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t0);
@@ -7865,8 +7858,8 @@ var app = (function (exports) {
     			t2 = space();
     			t3 = text(t3_value);
     			t4 = text(" €");
-    			attr_dev(b, "class", "old-price svelte-1q04ukp");
-    			add_location(b, file$6, 45, 32, 1484);
+    			attr_dev(b, "class", "old-price svelte-1f8nksn");
+    			add_location(b, file$6, 45, 32, 1479);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, b, anchor);
@@ -7955,25 +7948,25 @@ var app = (function (exports) {
     			i1 = element("i");
     			t4 = space();
     			attr_dev(a, "href", "#/");
-    			add_location(a, file$6, 41, 24, 1248);
-    			attr_dev(td0, "class", "svelte-1q04ukp");
-    			add_location(td0, file$6, 41, 20, 1244);
+    			add_location(a, file$6, 41, 24, 1243);
+    			attr_dev(td0, "class", "svelte-1f8nksn");
+    			add_location(td0, file$6, 41, 20, 1239);
     			attr_dev(span0, "class", "price-num");
-    			add_location(span0, file$6, 43, 24, 1369);
-    			attr_dev(i0, "class", "fas fa-cart-plus svelte-1q04ukp");
-    			add_location(i0, file$6, 53, 32, 2024);
-    			attr_dev(span1, "class", "add-to-cart icon svelte-1q04ukp");
-    			add_location(span1, file$6, 52, 28, 1905);
-    			attr_dev(i1, "class", "fas fa-trash svelte-1q04ukp");
-    			add_location(i1, file$6, 56, 32, 2238);
-    			attr_dev(span2, "class", "remove-from-wishlist icon svelte-1q04ukp");
-    			add_location(span2, file$6, 55, 28, 2123);
-    			attr_dev(span3, "class", "icons svelte-1q04ukp");
-    			add_location(span3, file$6, 51, 24, 1855);
-    			attr_dev(td1, "class", "price svelte-1q04ukp");
-    			add_location(td1, file$6, 42, 20, 1325);
-    			attr_dev(tr, "class", "wish-item svelte-1q04ukp");
-    			add_location(tr, file$6, 40, 16, 1200);
+    			add_location(span0, file$6, 43, 24, 1364);
+    			attr_dev(i0, "class", "fas fa-cart-plus svelte-1f8nksn");
+    			add_location(i0, file$6, 53, 32, 2019);
+    			attr_dev(span1, "class", "add-to-cart icon svelte-1f8nksn");
+    			add_location(span1, file$6, 52, 28, 1900);
+    			attr_dev(i1, "class", "fas fa-trash svelte-1f8nksn");
+    			add_location(i1, file$6, 56, 32, 2233);
+    			attr_dev(span2, "class", "remove-from-wishlist icon svelte-1f8nksn");
+    			add_location(span2, file$6, 55, 28, 2118);
+    			attr_dev(span3, "class", "icons svelte-1f8nksn");
+    			add_location(span3, file$6, 51, 24, 1850);
+    			attr_dev(td1, "class", "price svelte-1f8nksn");
+    			add_location(td1, file$6, 42, 20, 1320);
+    			attr_dev(tr, "class", "wish-item svelte-1f8nksn");
+    			add_location(tr, file$6, 40, 16, 1195);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -8116,29 +8109,29 @@ var app = (function (exports) {
     			}
 
     			document.title = "Tvoj wishlist";
-    			attr_dev(div0, "class", "title svelte-1q04ukp");
+    			attr_dev(div0, "class", "title svelte-1f8nksn");
     			add_location(div0, file$6, 21, 8, 543);
-    			attr_dev(a, "href", "./public");
+    			attr_dev(a, "href", "./#");
     			add_location(a, file$6, 23, 12, 617);
     			attr_dev(span, "class", "blue");
-    			add_location(span, file$6, 23, 43, 648);
-    			attr_dev(div1, "class", "nav svelte-1q04ukp");
+    			add_location(span, file$6, 23, 38, 643);
+    			attr_dev(div1, "class", "nav svelte-1f8nksn");
     			add_location(div1, file$6, 22, 8, 586);
-    			attr_dev(div2, "class", "title-container svelte-1q04ukp");
+    			attr_dev(div2, "class", "title-container svelte-1f8nksn");
     			add_location(div2, file$6, 20, 4, 504);
-    			attr_dev(div3, "class", "wish-title svelte-1q04ukp");
-    			add_location(div3, file$6, 27, 8, 758);
-    			attr_dev(div4, "class", "blue-line svelte-1q04ukp");
-    			add_location(div4, file$6, 29, 12, 865);
-    			attr_dev(div5, "class", "line svelte-1q04ukp");
-    			add_location(div5, file$6, 30, 12, 908);
-    			attr_dev(div6, "class", "lines svelte-1q04ukp");
-    			add_location(div6, file$6, 28, 8, 832);
-    			attr_dev(table, "class", "svelte-1q04ukp");
-    			add_location(table, file$6, 32, 8, 958);
+    			attr_dev(div3, "class", "wish-title svelte-1f8nksn");
+    			add_location(div3, file$6, 27, 8, 753);
+    			attr_dev(div4, "class", "blue-line svelte-1f8nksn");
+    			add_location(div4, file$6, 29, 12, 860);
+    			attr_dev(div5, "class", "line svelte-1f8nksn");
+    			add_location(div5, file$6, 30, 12, 903);
+    			attr_dev(div6, "class", "lines svelte-1f8nksn");
+    			add_location(div6, file$6, 28, 8, 827);
+    			attr_dev(table, "class", "svelte-1f8nksn");
+    			add_location(table, file$6, 32, 8, 953);
     			attr_dev(div7, "class", "container wishlist");
-    			add_location(div7, file$6, 26, 4, 716);
-    			attr_dev(main, "class", "svelte-1q04ukp");
+    			add_location(div7, file$6, 26, 4, 711);
+    			attr_dev(main, "class", "svelte-1f8nksn");
     			add_location(main, file$6, 19, 0, 492);
     		},
     		l: function claim(nodes) {
@@ -8337,7 +8330,7 @@ var app = (function (exports) {
     			div = element("div");
     			div.textContent = "Kategórie";
     			attr_dev(div, "class", "results-title svelte-1qqqwqi");
-    			add_location(div, file$5, 59, 20, 2087);
+    			add_location(div, file$5, 59, 20, 2088);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8378,14 +8371,14 @@ var app = (function (exports) {
     			div1 = element("div");
     			t1 = text(t1_value);
     			attr_dev(i, "class", "fas fa-folder-open svelte-1qqqwqi");
-    			add_location(i, file$5, 65, 51, 2426);
+    			add_location(i, file$5, 65, 51, 2427);
     			attr_dev(div0, "class", "category-icon svelte-1qqqwqi");
-    			add_location(div0, file$5, 65, 24, 2399);
+    			add_location(div0, file$5, 65, 24, 2400);
     			attr_dev(div1, "class", "result-title svelte-1qqqwqi");
-    			add_location(div1, file$5, 66, 24, 2492);
+    			add_location(div1, file$5, 66, 24, 2493);
     			attr_dev(a, "href", a_href_value = "#/obchod/" + /*category*/ ctx[9].title.toLowerCase().split(' ').join('_'));
     			attr_dev(a, "class", "category svelte-1qqqwqi");
-    			add_location(a, file$5, 64, 20, 2285);
+    			add_location(a, file$5, 64, 20, 2286);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -8427,7 +8420,7 @@ var app = (function (exports) {
     			div = element("div");
     			div.textContent = "Produkty";
     			attr_dev(div, "class", "results-title svelte-1qqqwqi");
-    			add_location(div, file$5, 72, 20, 2728);
+    			add_location(div, file$5, 72, 20, 2729);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8474,14 +8467,14 @@ var app = (function (exports) {
     			if (!src_url_equal(img.src, img_src_value = /*product*/ ctx[6].image_urls[0])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*product*/ ctx[6].title + ' ' + /*product*/ ctx[6].version);
     			attr_dev(img, "class", "svelte-1qqqwqi");
-    			add_location(img, file$5, 79, 28, 3187);
+    			add_location(img, file$5, 79, 28, 3188);
     			attr_dev(div0, "class", "product-img svelte-1qqqwqi");
-    			add_location(div0, file$5, 78, 24, 3132);
+    			add_location(div0, file$5, 78, 24, 3133);
     			attr_dev(div1, "class", "result-title svelte-1qqqwqi");
-    			add_location(div1, file$5, 81, 24, 3326);
+    			add_location(div1, file$5, 81, 24, 3327);
     			attr_dev(a, "href", a_href_value = "#/obchod/" + categories[/*product*/ ctx[6].category].title.toLowerCase().split(' ').join('_') + "/" + (/*product*/ ctx[6].title + ' ' + /*product*/ ctx[6].version).toLowerCase().split(' ').join('_'));
     			attr_dev(a, "class", "product svelte-1qqqwqi");
-    			add_location(a, file$5, 77, 20, 2922);
+    			add_location(a, file$5, 77, 20, 2923);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -8596,12 +8589,12 @@ var app = (function (exports) {
     			attr_dev(div1, "class", "title-container svelte-1qqqwqi");
     			add_location(div1, file$5, 48, 8, 1636);
     			attr_dev(div2, "class", "button svelte-1qqqwqi");
-    			add_location(div2, file$5, 53, 16, 1856);
-    			attr_dev(a, "href", "#/");
+    			add_location(div2, file$5, 53, 16, 1857);
+    			attr_dev(a, "href", "./#");
     			attr_dev(a, "class", "button-a svelte-1qqqwqi");
     			add_location(a, file$5, 52, 12, 1808);
     			attr_dev(div3, "class", "results svelte-1qqqwqi");
-    			add_location(div3, file$5, 57, 12, 1983);
+    			add_location(div3, file$5, 57, 12, 1984);
     			attr_dev(div4, "class", "container");
     			add_location(div4, file$5, 51, 8, 1771);
     			attr_dev(div5, "class", "search-container svelte-1qqqwqi");
@@ -10549,27 +10542,27 @@ var app = (function (exports) {
     			div5 = element("div");
     			t6 = space();
     			div6 = element("div");
-    			attr_dev(i, "class", "fas fa-bolt svelte-1fv3e9c");
+    			attr_dev(i, "class", "fas fa-bolt svelte-nyd882");
     			add_location(i, file$1, 21, 5, 448);
-    			attr_dev(span, "class", "x-blue svelte-1fv3e9c");
+    			attr_dev(span, "class", "x-blue svelte-nyd882");
     			add_location(span, file$1, 22, 12, 489);
-    			attr_dev(div0, "class", "logo svelte-1fv3e9c");
+    			attr_dev(div0, "class", "logo svelte-nyd882");
     			add_location(div0, file$1, 20, 16, 423);
-    			attr_dev(div1, "class", "logo-conatiner svelte-1fv3e9c");
+    			attr_dev(div1, "class", "logo-conatiner svelte-nyd882");
     			add_location(div1, file$1, 19, 12, 377);
-    			attr_dev(div2, "class", "dot svelte-1fv3e9c");
+    			attr_dev(div2, "class", "dot svelte-nyd882");
     			add_location(div2, file$1, 26, 16, 608);
-    			attr_dev(div3, "class", "dot svelte-1fv3e9c");
+    			attr_dev(div3, "class", "dot svelte-nyd882");
     			add_location(div3, file$1, 27, 16, 649);
-    			attr_dev(div4, "class", "dot svelte-1fv3e9c");
+    			attr_dev(div4, "class", "dot svelte-nyd882");
     			add_location(div4, file$1, 28, 16, 690);
-    			attr_dev(div5, "class", "dot svelte-1fv3e9c");
+    			attr_dev(div5, "class", "dot svelte-nyd882");
     			add_location(div5, file$1, 29, 16, 731);
-    			attr_dev(div6, "class", "dot svelte-1fv3e9c");
+    			attr_dev(div6, "class", "dot svelte-nyd882");
     			add_location(div6, file$1, 30, 16, 772);
-    			attr_dev(div7, "class", "container svelte-1fv3e9c");
+    			attr_dev(div7, "class", "container svelte-nyd882");
     			add_location(div7, file$1, 25, 12, 567);
-    			attr_dev(div8, "class", "body svelte-1fv3e9c");
+    			attr_dev(div8, "class", "body svelte-nyd882");
     			add_location(div8, file$1, 18, 8, 345);
     		},
     		m: function mount(target, anchor) {
@@ -10758,11 +10751,11 @@ var app = (function (exports) {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[28] = list[i];
+    	child_ctx[19] = list[i];
     	return child_ctx;
     }
 
-    // (147:3) {#each services as service}
+    // (142:3) {#each services as service}
     function create_each_block(ctx) {
     	let div4;
     	let div0;
@@ -10770,11 +10763,11 @@ var app = (function (exports) {
     	let t0;
     	let div3;
     	let div1;
-    	let t1_value = /*service*/ ctx[28].title + "";
+    	let t1_value = /*service*/ ctx[19].title + "";
     	let t1;
     	let t2;
     	let div2;
-    	let t3_value = /*service*/ ctx[28].subtitle + "";
+    	let t3_value = /*service*/ ctx[19].subtitle + "";
     	let t3;
     	let t4;
 
@@ -10791,18 +10784,18 @@ var app = (function (exports) {
     			div2 = element("div");
     			t3 = text(t3_value);
     			t4 = space();
-    			attr_dev(i, "class", /*service*/ ctx[28].icon);
-    			add_location(i, file, 149, 6, 4412);
+    			attr_dev(i, "class", /*service*/ ctx[19].icon);
+    			add_location(i, file, 144, 6, 4510);
     			attr_dev(div0, "class", "icon");
-    			add_location(div0, file, 148, 5, 4386);
+    			add_location(div0, file, 143, 5, 4484);
     			attr_dev(div1, "class", "s-title");
-    			add_location(div1, file, 152, 6, 4496);
+    			add_location(div1, file, 147, 6, 4594);
     			attr_dev(div2, "class", "s-subtitle");
-    			add_location(div2, file, 153, 6, 4546);
+    			add_location(div2, file, 148, 6, 4644);
     			attr_dev(div3, "class", "service-info");
-    			add_location(div3, file, 151, 5, 4462);
+    			add_location(div3, file, 146, 5, 4560);
     			attr_dev(div4, "class", "service");
-    			add_location(div4, file, 147, 4, 4358);
+    			add_location(div4, file, 142, 4, 4456);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -10827,7 +10820,7 @@ var app = (function (exports) {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(147:3) {#each services as service}",
+    		source: "(142:3) {#each services as service}",
     		ctx
     	});
 
@@ -10842,235 +10835,233 @@ var app = (function (exports) {
     	};
 
     	let scrolling_timeout;
-    	let link;
-    	let t0;
     	let main;
     	let loader;
-    	let t1;
+    	let t0;
     	let search;
-    	let t2;
+    	let t1;
     	let cart_1;
-    	let t3;
+    	let t2;
     	let header;
     	let div6;
     	let div2;
     	let div0;
     	let a0;
     	let i0;
+    	let t3;
     	let t4;
-    	let t5;
     	let div1;
     	let a1;
     	let i1;
+    	let t5;
     	let t6;
-    	let t7;
     	let div5;
     	let i4;
     	let div3;
     	let i2;
-    	let t8;
+    	let t7;
     	let div4;
     	let i3;
-    	let t9;
+    	let t8;
     	let nav;
     	let div15;
     	let div7;
     	let a2;
     	let i5;
-    	let t10;
+    	let t9;
     	let span0;
-    	let t12;
+    	let t11;
     	let div8;
     	let ul0;
     	let li0;
     	let a3;
-    	let t14;
+    	let t13;
     	let li1;
     	let a4;
-    	let t16;
+    	let t15;
     	let li2;
     	let a5;
-    	let t18;
+    	let t17;
     	let div13;
     	let div9;
     	let a6;
     	let i6;
-    	let t19;
+    	let t18;
     	let div11;
     	let i7;
-    	let t20;
+    	let t19;
     	let div10;
-    	let t21_value = /*cart*/ ctx[5].length + "";
+    	let t20_value = /*cart*/ ctx[5].length + "";
+    	let t20;
     	let t21;
-    	let t22;
     	let div12;
     	let i8;
-    	let t23;
+    	let t22;
     	let div14;
     	let span1;
-    	let t24;
+    	let t23;
     	let span2;
-    	let t25;
+    	let t24;
     	let span3;
     	let nav_class_value;
-    	let t26;
+    	let t25;
     	let router;
-    	let t27;
+    	let t26;
     	let div17;
     	let div16;
-    	let t28;
+    	let t27;
     	let footer;
     	let div37;
     	let div24;
     	let div18;
     	let a7;
     	let i9;
-    	let t29;
+    	let t28;
     	let span4;
-    	let t31;
+    	let t30;
     	let div23;
     	let div19;
     	let b0;
-    	let t33;
+    	let t32;
     	let a8;
-    	let t35;
+    	let t34;
     	let div20;
     	let b1;
-    	let t37;
+    	let t36;
     	let a9;
-    	let t39;
+    	let t38;
     	let div21;
     	let b2;
-    	let t41;
+    	let t40;
     	let a10;
-    	let t43;
+    	let t42;
     	let div22;
     	let a11;
     	let i10;
-    	let t44;
+    	let t43;
     	let a12;
     	let i11;
-    	let t45;
+    	let t44;
     	let a13;
     	let i12;
-    	let t46;
+    	let t45;
     	let a14;
     	let i13;
-    	let t47;
+    	let t46;
     	let a15;
     	let i14;
-    	let t48;
+    	let t47;
     	let div28;
     	let div25;
-    	let t50;
+    	let t49;
     	let div26;
-    	let t51;
+    	let t50;
     	let div27;
     	let ul1;
     	let li3;
     	let a16;
-    	let t53;
+    	let t52;
     	let li4;
     	let a17;
-    	let t55;
+    	let t54;
     	let li5;
     	let a18;
-    	let t57;
+    	let t56;
     	let li6;
     	let a19;
-    	let t59;
+    	let t58;
     	let li7;
     	let a20;
-    	let t61;
+    	let t60;
     	let li8;
     	let a21;
-    	let t63;
+    	let t62;
     	let div32;
     	let div29;
-    	let t65;
+    	let t64;
     	let div30;
-    	let t66;
+    	let t65;
     	let div31;
     	let ul2;
     	let li9;
     	let a22;
-    	let t68;
+    	let t67;
     	let li10;
     	let a23;
-    	let t70;
+    	let t69;
     	let li11;
     	let a24;
-    	let t72;
+    	let t71;
     	let li12;
     	let a25;
-    	let t74;
+    	let t73;
     	let li13;
     	let a26;
-    	let t76;
+    	let t75;
     	let li14;
     	let a27;
-    	let t78;
+    	let t77;
     	let div36;
     	let div33;
-    	let t80;
+    	let t79;
     	let div34;
-    	let t81;
+    	let t80;
     	let div35;
-    	let t83;
+    	let t82;
     	let form;
     	let input0;
-    	let t84;
+    	let t83;
     	let input1;
-    	let t85;
+    	let t84;
     	let div41;
     	let div40;
     	let div38;
-    	let t86;
+    	let t85;
     	let a28;
-    	let t88;
+    	let t87;
     	let a29;
-    	let t90;
+    	let t89;
     	let div39;
-    	let t91;
+    	let t90;
     	let a30;
     	let i15;
-    	let t92;
+    	let t91;
     	let a31;
     	let i16;
-    	let t93;
+    	let t92;
     	let a32;
     	let i17;
-    	let t94;
+    	let t93;
     	let a33;
     	let i18;
-    	let t95;
+    	let t94;
     	let a34;
     	let i19;
-    	let t96;
+    	let t95;
     	let div43;
-    	let t97;
+    	let t96;
     	let div42;
-    	let t98;
+    	let t97;
     	let div45;
-    	let t99;
+    	let t98;
     	let div44;
-    	let t100;
+    	let t99;
     	let div47;
-    	let t101;
+    	let t100;
     	let div46;
-    	let t102;
+    	let t101;
     	let div49;
-    	let t103;
+    	let t102;
     	let div48;
-    	let t104;
+    	let t103;
     	let div51;
-    	let t105;
+    	let t104;
     	let div50;
-    	let t106;
+    	let t105;
     	let div53;
-    	let t107;
+    	let t106;
     	let div52;
-    	let t108;
+    	let t107;
     	let backtotop;
     	let current;
     	let mounted;
@@ -11112,82 +11103,80 @@ var app = (function (exports) {
 
     	const block = {
     		c: function create() {
-    			link = element("link");
-    			t0 = space();
     			main = element("main");
     			create_component(loader.$$.fragment);
-    			t1 = space();
+    			t0 = space();
     			create_component(search.$$.fragment);
-    			t2 = space();
+    			t1 = space();
     			create_component(cart_1.$$.fragment);
-    			t3 = space();
+    			t2 = space();
     			header = element("header");
     			div6 = element("div");
     			div2 = element("div");
     			div0 = element("div");
     			a0 = element("a");
     			i0 = element("i");
-    			t4 = text("+421 234 567 890");
-    			t5 = space();
+    			t3 = text("+421 234 567 890");
+    			t4 = space();
     			div1 = element("div");
     			a1 = element("a");
     			i1 = element("i");
-    			t6 = text("1910 Blvd, The Bronx, NY, USA");
-    			t7 = space();
+    			t5 = text("1910 Blvd, The Bronx, NY, USA");
+    			t6 = space();
     			div5 = element("div");
     			i4 = element("i");
     			div3 = element("div");
     			i2 = element("i");
-    			t8 = space();
+    			t7 = space();
     			div4 = element("div");
     			i3 = element("i");
-    			t9 = space();
+    			t8 = space();
     			nav = element("nav");
     			div15 = element("div");
     			div7 = element("div");
     			a2 = element("a");
     			i5 = element("i");
-    			t10 = text("\r\n\t\t\t\t\tElectro");
+    			t9 = text("\r\n\t\t\t\t\tElectro");
     			span0 = element("span");
     			span0.textContent = "X";
-    			t12 = space();
+    			t11 = space();
     			div8 = element("div");
     			ul0 = element("ul");
     			li0 = element("li");
     			a3 = element("a");
     			a3.textContent = "Domov";
-    			t14 = space();
+    			t13 = space();
     			li1 = element("li");
     			a4 = element("a");
     			a4.textContent = "Obchod";
-    			t16 = space();
+    			t15 = space();
     			li2 = element("li");
     			a5 = element("a");
     			a5.textContent = "Kontakt";
-    			t18 = space();
+    			t17 = space();
     			div13 = element("div");
     			div9 = element("div");
     			a6 = element("a");
     			i6 = element("i");
-    			t19 = space();
+    			t18 = space();
     			div11 = element("div");
     			i7 = element("i");
-    			t20 = space();
+    			t19 = space();
     			div10 = element("div");
-    			t21 = text(t21_value);
-    			t22 = space();
+    			t20 = text(t20_value);
+    			t21 = space();
     			div12 = element("div");
     			i8 = element("i");
-    			t23 = space();
+    			t22 = space();
     			div14 = element("div");
     			span1 = element("span");
-    			t24 = space();
+    			t23 = space();
     			span2 = element("span");
-    			t25 = space();
+    			t24 = space();
     			span3 = element("span");
-    			t26 = space();
+    			t25 = space();
     			create_component(router.$$.fragment);
-    			t27 = space();
+    			t26 = space();
     			div17 = element("div");
     			div16 = element("div");
 
@@ -11195,536 +11184,531 @@ var app = (function (exports) {
     				each_blocks[i].c();
     			}
 
-    			t28 = space();
+    			t27 = space();
     			footer = element("footer");
     			div37 = element("div");
     			div24 = element("div");
     			div18 = element("div");
     			a7 = element("a");
     			i9 = element("i");
-    			t29 = text("\r\n\t\t\t\t\t\tElectro");
+    			t28 = text("\r\n\t\t\t\t\t\tElectro");
     			span4 = element("span");
     			span4.textContent = "X";
-    			t31 = space();
+    			t30 = space();
     			div23 = element("div");
     			div19 = element("div");
     			b0 = element("b");
     			b0.textContent = "Tel. č.:";
-    			t33 = space();
+    			t32 = space();
     			a8 = element("a");
     			a8.textContent = "+421 234 567 890";
-    			t35 = space();
+    			t34 = space();
     			div20 = element("div");
     			b1 = element("b");
     			b1.textContent = "Email:";
-    			t37 = space();
+    			t36 = space();
     			a9 = element("a");
     			a9.textContent = "info@elektrox.sk";
-    			t39 = space();
+    			t38 = space();
     			div21 = element("div");
     			b2 = element("b");
     			b2.textContent = "Adresa:";
-    			t41 = space();
+    			t40 = space();
     			a10 = element("a");
     			a10.textContent = "1910 Blvd, The Bronx, NY, USA";
-    			t43 = space();
+    			t42 = space();
     			div22 = element("div");
     			a11 = element("a");
     			i10 = element("i");
-    			t44 = space();
+    			t43 = space();
     			a12 = element("a");
     			i11 = element("i");
-    			t45 = space();
+    			t44 = space();
     			a13 = element("a");
     			i12 = element("i");
-    			t46 = space();
+    			t45 = space();
     			a14 = element("a");
     			i13 = element("i");
-    			t47 = space();
+    			t46 = space();
     			a15 = element("a");
     			i14 = element("i");
-    			t48 = space();
+    			t47 = space();
     			div28 = element("div");
     			div25 = element("div");
     			div25.textContent = "Informácie";
-    			t50 = space();
+    			t49 = space();
     			div26 = element("div");
-    			t51 = space();
+    			t50 = space();
     			div27 = element("div");
     			ul1 = element("ul");
     			li3 = element("li");
     			a16 = element("a");
     			a16.textContent = "O nás";
-    			t53 = space();
+    			t52 = space();
     			li4 = element("li");
     			a17 = element("a");
     			a17.textContent = "Kontakt";
-    			t55 = space();
+    			t54 = space();
     			li5 = element("li");
     			a18 = element("a");
     			a18.textContent = "Zásady ochrany osobných údajov";
-    			t57 = space();
+    			t56 = space();
     			li6 = element("li");
     			a19 = element("a");
     			a19.textContent = "Podmienky";
-    			t59 = space();
+    			t58 = space();
     			li7 = element("li");
     			a20 = element("a");
     			a20.textContent = "Informácie o dodaní";
-    			t61 = space();
+    			t60 = space();
     			li8 = element("li");
     			a21 = element("a");
     			a21.textContent = "Objednávky a vrátenie tovaru";
-    			t63 = space();
+    			t62 = space();
     			div32 = element("div");
     			div29 = element("div");
     			div29.textContent = "Zákaznik";
-    			t65 = space();
+    			t64 = space();
     			div30 = element("div");
-    			t66 = space();
+    			t65 = space();
     			div31 = element("div");
     			ul2 = element("ul");
     			li9 = element("li");
     			a22 = element("a");
     			a22.textContent = "Pomoc a FAQs";
-    			t68 = space();
+    			t67 = space();
     			li10 = element("li");
     			a23 = element("a");
     			a23.textContent = "Môj účet";
-    			t70 = space();
+    			t69 = space();
     			li11 = element("li");
     			a24 = element("a");
     			a24.textContent = "História objednávok";
-    			t72 = space();
+    			t71 = space();
     			li12 = element("li");
     			a25 = element("a");
     			a25.textContent = "Wishlist";
-    			t74 = space();
+    			t73 = space();
     			li13 = element("li");
     			a26 = element("a");
     			a26.textContent = "Newsletter";
-    			t76 = space();
+    			t75 = space();
     			li14 = element("li");
     			a27 = element("a");
     			a27.textContent = "Zásady nákupu";
-    			t78 = space();
+    			t77 = space();
     			div36 = element("div");
     			div33 = element("div");
     			div33.textContent = "Newsletter";
-    			t80 = space();
+    			t79 = space();
     			div34 = element("div");
-    			t81 = space();
+    			t80 = space();
     			div35 = element("div");
     			div35.textContent = "Prihláste sa k odberu nášho newslettera a už vám nič neujde.";
-    			t83 = space();
+    			t82 = space();
     			form = element("form");
     			input0 = element("input");
-    			t84 = space();
+    			t83 = space();
     			input1 = element("input");
-    			t85 = space();
+    			t84 = space();
     			div41 = element("div");
     			div40 = element("div");
     			div38 = element("div");
-    			t86 = text("Copyright 2022 ElektroX. Vytvoril ");
+    			t85 = text("Copyright 2022 ElektroX. Vytvoril ");
     			a28 = element("a");
     			a28.textContent = "Lukáš Fridmanský";
-    			t88 = text(" na základe dizajnu z ");
+    			t87 = text(" na základe dizajnu z ");
     			a29 = element("a");
     			a29.textContent = "Envytheme";
-    			t90 = space();
+    			t89 = space();
     			div39 = element("div");
-    			t91 = text("Akceptujeme platbu cez: \r\n\t\t\t\t");
+    			t90 = text("Akceptujeme platbu cez: \r\n\t\t\t\t");
     			a30 = element("a");
     			i15 = element("i");
-    			t92 = space();
+    			t91 = space();
     			a31 = element("a");
     			i16 = element("i");
-    			t93 = space();
+    			t92 = space();
     			a32 = element("a");
     			i17 = element("i");
-    			t94 = space();
+    			t93 = space();
     			a33 = element("a");
     			i18 = element("i");
-    			t95 = space();
+    			t94 = space();
     			a34 = element("a");
     			i19 = element("i");
-    			t96 = space();
+    			t95 = space();
     			div43 = element("div");
-    			t97 = text("Produkt bol úspešne pridaný do košíka\r\n\t\t");
+    			t96 = text("Produkt bol úspešne pridaný do košíka\r\n\t\t");
     			div42 = element("div");
-    			t98 = space();
+    			t97 = space();
     			div45 = element("div");
-    			t99 = text("Produkt sa už nachádza v košíku\r\n\t\t");
+    			t98 = text("Produkt sa už nachádza v košíku\r\n\t\t");
     			div44 = element("div");
-    			t100 = space();
+    			t99 = space();
     			div47 = element("div");
-    			t101 = text("Produkt bol úspešne odstranený z košíka\r\n\t\t");
+    			t100 = text("Produkt bol úspešne odstranený z košíka\r\n\t\t");
     			div46 = element("div");
-    			t102 = space();
+    			t101 = space();
     			div49 = element("div");
-    			t103 = text("Produkt bol úspešne pridaný do wishlistu\r\n\t\t");
+    			t102 = text("Produkt bol úspešne pridaný do wishlistu\r\n\t\t");
     			div48 = element("div");
-    			t104 = space();
+    			t103 = space();
     			div51 = element("div");
-    			t105 = text("Produkt sa už nachádza vo wishliste\r\n\t\t");
+    			t104 = text("Produkt sa už nachádza vo wishliste\r\n\t\t");
     			div50 = element("div");
-    			t106 = space();
+    			t105 = space();
     			div53 = element("div");
-    			t107 = text("Produkt bol úspešne odstranený z wishlistu\r\n\t\t");
+    			t106 = text("Produkt bol úspešne odstranený z wishlistu\r\n\t\t");
     			div52 = element("div");
-    			t108 = space();
+    			t107 = space();
     			create_component(backtotop.$$.fragment);
-    			attr_dev(link, "rel", "stylesheet");
-    			attr_dev(link, "href", "css/navigation.css");
-    			add_location(link, file, 73, 1, 2021);
     			attr_dev(i0, "class", "fa fa-phone");
-    			add_location(i0, file, 85, 6, 2342);
+    			add_location(i0, file, 77, 6, 2263);
     			attr_dev(a0, "href", "tel:+421234567890");
-    			add_location(a0, file, 84, 5, 2306);
+    			add_location(a0, file, 76, 5, 2227);
     			attr_dev(div0, "class", "mobile_number");
-    			add_location(div0, file, 83, 4, 2272);
+    			add_location(div0, file, 75, 4, 2193);
     			attr_dev(i1, "class", "fas fa-map-marker-alt");
-    			add_location(i1, file, 89, 88, 2525);
+    			add_location(i1, file, 81, 88, 2446);
     			attr_dev(a1, "href", "https://maps.google.com/?q=1910 Blvd, The Bronx, NY, USA");
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file, 89, 5, 2442);
+    			add_location(a1, file, 81, 5, 2363);
     			attr_dev(div1, "class", "address");
-    			add_location(div1, file, 88, 4, 2414);
+    			add_location(div1, file, 80, 4, 2335);
     			attr_dev(div2, "class", "basic-info");
-    			add_location(div2, file, 82, 3, 2242);
+    			add_location(div2, file, 74, 3, 2163);
     			attr_dev(i2, "class", "fas fa-sun");
-    			add_location(i2, file, 95, 6, 2723);
+    			add_location(i2, file, 87, 6, 2644);
     			attr_dev(div3, "class", "sun sun-logo");
-    			add_location(div3, file, 94, 5, 2689);
+    			add_location(div3, file, 86, 5, 2610);
     			attr_dev(i3, "class", "fas fa-moon");
-    			add_location(i3, file, 98, 6, 2805);
+    			add_location(i3, file, 90, 6, 2726);
     			attr_dev(div4, "class", "moon moon-logo");
-    			add_location(div4, file, 97, 5, 2769);
+    			add_location(div4, file, 89, 5, 2690);
     			attr_dev(i4, "class", "indicator");
-    			add_location(i4, file, 93, 4, 2661);
+    			add_location(i4, file, 85, 4, 2582);
     			attr_dev(div5, "class", "toggle");
     			attr_dev(div5, "id", "toggle");
-    			add_location(div5, file, 92, 3, 2623);
+    			add_location(div5, file, 84, 3, 2544);
     			attr_dev(div6, "class", "container header");
-    			add_location(div6, file, 81, 2, 2206);
-    			add_location(header, file, 80, 1, 2194);
+    			add_location(div6, file, 73, 2, 2127);
+    			add_location(header, file, 72, 1, 2115);
     			attr_dev(i5, "class", "fas fa-bolt");
-    			add_location(i5, file, 108, 5, 3033);
+    			add_location(i5, file, 100, 5, 2954);
     			attr_dev(span0, "class", "x-blue");
-    			add_location(span0, file, 109, 12, 3074);
+    			add_location(span0, file, 101, 12, 2995);
     			attr_dev(a2, "href", "./");
-    			add_location(a2, file, 107, 4, 3013);
+    			add_location(a2, file, 99, 4, 2934);
     			attr_dev(div7, "class", "logo");
-    			add_location(div7, file, 106, 3, 2989);
+    			add_location(div7, file, 98, 3, 2910);
     			attr_dev(a3, "href", "./#");
-    			add_location(a3, file, 114, 26, 3188);
+    			add_location(a3, file, 107, 6, 3117);
     			attr_dev(li0, "class", "nav-item");
-    			add_location(li0, file, 114, 5, 3167);
+    			add_location(li0, file, 106, 5, 3088);
     			attr_dev(a4, "href", "#/obchod");
-    			add_location(a4, file, 116, 6, 3252);
+    			add_location(a4, file, 110, 6, 3240);
     			attr_dev(li1, "class", "nav-item");
-    			add_location(li1, file, 115, 5, 3223);
+    			add_location(li1, file, 109, 5, 3211);
     			attr_dev(a5, "href", "#/kontakt");
-    			add_location(a5, file, 119, 26, 3329);
+    			add_location(a5, file, 113, 6, 3369);
     			attr_dev(li2, "class", "nav-item");
-    			add_location(li2, file, 119, 5, 3308);
-    			add_location(ul0, file, 113, 4, 3156);
+    			add_location(li2, file, 112, 5, 3340);
+    			add_location(ul0, file, 105, 4, 3077);
     			attr_dev(div8, "class", "nav-bar");
-    			add_location(div8, file, 112, 3, 3129);
+    			add_location(div8, file, 104, 3, 3050);
     			attr_dev(i6, "class", "fas fa-heart");
-    			add_location(i6, file, 125, 6, 3540);
+    			add_location(i6, file, 120, 6, 3639);
     			attr_dev(a6, "href", "#/wishlist");
-    			add_location(a6, file, 124, 5, 3459);
+    			add_location(a6, file, 119, 5, 3558);
     			attr_dev(div9, "class", "wishlist nav-icon");
-    			add_location(div9, file, 123, 4, 3421);
+    			add_location(div9, file, 118, 4, 3520);
     			attr_dev(i7, "class", "fas fa-shopping-bag");
-    			add_location(i7, file, 129, 5, 3705);
+    			add_location(i7, file, 124, 5, 3804);
     			attr_dev(div10, "class", "num-of-items");
-    			add_location(div10, file, 130, 5, 3747);
+    			add_location(div10, file, 125, 5, 3846);
     			attr_dev(div11, "class", "basket nav-icon");
-    			add_location(div11, file, 128, 4, 3597);
+    			add_location(div11, file, 123, 4, 3696);
     			attr_dev(i8, "class", "fas fa-search");
-    			add_location(i8, file, 133, 5, 3913);
+    			add_location(i8, file, 128, 5, 4012);
     			attr_dev(div12, "class", "search nav-icon");
-    			add_location(div12, file, 132, 4, 3810);
+    			add_location(div12, file, 127, 4, 3909);
     			attr_dev(div13, "class", "nav-icons");
-    			add_location(div13, file, 122, 3, 3392);
+    			add_location(div13, file, 117, 3, 3491);
     			attr_dev(span1, "class", "h-line");
-    			add_location(span1, file, 137, 20, 4067);
+    			add_location(span1, file, 132, 20, 4166);
     			attr_dev(span2, "class", "h-line");
-    			add_location(span2, file, 138, 20, 4117);
+    			add_location(span2, file, 133, 20, 4216);
     			attr_dev(span3, "class", "h-line");
-    			add_location(span3, file, 139, 20, 4167);
+    			add_location(span3, file, 134, 20, 4266);
     			attr_dev(div14, "class", "hamburger");
-    			add_location(div14, file, 136, 3, 3970);
+    			add_location(div14, file, 131, 3, 4069);
     			attr_dev(div15, "class", "container navigation");
-    			add_location(div15, file, 105, 2, 2950);
+    			add_location(div15, file, 97, 2, 2871);
     			attr_dev(nav, "class", nav_class_value = /*scroll_position*/ ctx[0] > 150 ? 'scrolled' : '');
-    			add_location(nav, file, 104, 1, 2891);
+    			add_location(nav, file, 96, 1, 2812);
     			attr_dev(div16, "class", "container services");
-    			add_location(div16, file, 145, 2, 4288);
+    			add_location(div16, file, 140, 2, 4386);
     			attr_dev(div17, "class", "pre-footer");
-    			add_location(div17, file, 144, 1, 4260);
+    			add_location(div17, file, 139, 1, 4358);
     			attr_dev(i9, "class", "fas fa-bolt");
-    			add_location(i9, file, 164, 6, 4772);
+    			add_location(i9, file, 159, 6, 4870);
     			attr_dev(span4, "class", "x-blue");
-    			add_location(span4, file, 165, 13, 4814);
+    			add_location(span4, file, 160, 13, 4912);
     			attr_dev(a7, "href", "./");
-    			add_location(a7, file, 163, 5, 4751);
+    			add_location(a7, file, 158, 5, 4849);
     			attr_dev(div18, "class", "logo");
-    			add_location(div18, file, 162, 4, 4726);
-    			add_location(b0, file, 170, 6, 4947);
+    			add_location(div18, file, 157, 4, 4824);
+    			add_location(b0, file, 165, 6, 5045);
     			attr_dev(a8, "href", "tel:+421234567890");
-    			add_location(a8, file, 170, 22, 4963);
+    			add_location(a8, file, 165, 22, 5061);
     			attr_dev(div19, "class", "tel-number menu-item");
-    			add_location(div19, file, 169, 5, 4905);
-    			add_location(b1, file, 173, 6, 5067);
+    			add_location(div19, file, 164, 5, 5003);
+    			add_location(b1, file, 168, 6, 5165);
     			attr_dev(a9, "href", "mailto:info@elektrox.sk");
-    			add_location(a9, file, 173, 20, 5081);
+    			add_location(a9, file, 168, 20, 5179);
     			attr_dev(div20, "class", "mail menu-item");
-    			add_location(div20, file, 172, 5, 5031);
-    			add_location(b2, file, 176, 6, 5194);
+    			add_location(div20, file, 167, 5, 5129);
+    			add_location(b2, file, 171, 6, 5292);
     			attr_dev(a10, "href", "https://maps.google.com/?q=1910 Blvd, The Bronx, NY, USA");
     			attr_dev(a10, "target", "_blank");
-    			add_location(a10, file, 176, 21, 5209);
+    			add_location(a10, file, 171, 21, 5307);
     			attr_dev(div21, "class", "address menu-item");
-    			add_location(div21, file, 175, 5, 5155);
+    			add_location(div21, file, 170, 5, 5253);
     			attr_dev(i10, "class", "fab fa-facebook");
-    			add_location(i10, file, 180, 7, 5419);
+    			add_location(i10, file, 175, 7, 5517);
     			attr_dev(a11, "href", "https://facebook.com");
-    			add_location(a11, file, 179, 6, 5379);
+    			add_location(a11, file, 174, 6, 5477);
     			attr_dev(i11, "class", "fab fa-twitter");
-    			add_location(i11, file, 183, 7, 5509);
+    			add_location(i11, file, 178, 7, 5607);
     			attr_dev(a12, "href", "https://twitter.com");
-    			add_location(a12, file, 182, 6, 5470);
+    			add_location(a12, file, 177, 6, 5568);
     			attr_dev(i12, "class", "fab fa-instagram");
-    			add_location(i12, file, 186, 7, 5600);
+    			add_location(i12, file, 181, 7, 5698);
     			attr_dev(a13, "href", "https://instagram.com");
-    			add_location(a13, file, 185, 6, 5559);
+    			add_location(a13, file, 180, 6, 5657);
     			attr_dev(i13, "class", "fab fa-linkedin");
-    			add_location(i13, file, 189, 7, 5692);
+    			add_location(i13, file, 184, 7, 5790);
     			attr_dev(a14, "href", "https://linkedin.com");
-    			add_location(a14, file, 188, 6, 5652);
+    			add_location(a14, file, 183, 6, 5750);
     			attr_dev(i14, "class", "fab fa-pinterest");
-    			add_location(i14, file, 192, 7, 5784);
+    			add_location(i14, file, 187, 7, 5882);
     			attr_dev(a15, "href", "https://pinterest.com");
-    			add_location(a15, file, 191, 6, 5743);
+    			add_location(a15, file, 186, 6, 5841);
     			attr_dev(div22, "class", "social-icons");
-    			add_location(div22, file, 178, 5, 5345);
+    			add_location(div22, file, 173, 5, 5443);
     			attr_dev(div23, "class", "contact-menu");
-    			add_location(div23, file, 168, 4, 4872);
+    			add_location(div23, file, 163, 4, 4970);
     			attr_dev(div24, "class", "column");
-    			add_location(div24, file, 161, 3, 4700);
+    			add_location(div24, file, 156, 3, 4798);
     			attr_dev(div25, "class", "column-title");
-    			add_location(div25, file, 198, 4, 5895);
+    			add_location(div25, file, 193, 4, 5993);
     			attr_dev(div26, "class", "blue-line");
-    			add_location(div26, file, 199, 4, 5943);
+    			add_location(div26, file, 194, 4, 6041);
     			attr_dev(a16, "href", "#/");
-    			add_location(a16, file, 202, 10, 6032);
-    			add_location(li3, file, 202, 6, 6028);
+    			add_location(a16, file, 197, 10, 6130);
+    			add_location(li3, file, 197, 6, 6126);
     			attr_dev(a17, "href", "#/kontakt");
-    			add_location(a17, file, 203, 10, 6110);
-    			add_location(li4, file, 203, 6, 6106);
+    			add_location(a17, file, 198, 10, 6169);
+    			add_location(li4, file, 198, 6, 6165);
     			attr_dev(a18, "href", "#/zasady_ochrany_osobnych_udajov");
-    			add_location(a18, file, 204, 10, 6197);
-    			add_location(li5, file, 204, 6, 6193);
+    			add_location(a18, file, 199, 10, 6217);
+    			add_location(li5, file, 199, 6, 6213);
     			attr_dev(a19, "href", "#/podmienky");
-    			add_location(a19, file, 205, 10, 6330);
-    			add_location(li6, file, 205, 6, 6326);
+    			add_location(a19, file, 200, 10, 6311);
+    			add_location(li6, file, 200, 6, 6307);
     			attr_dev(a20, "href", "#/doprava");
-    			add_location(a20, file, 206, 10, 6421);
-    			add_location(li7, file, 206, 6, 6417);
+    			add_location(a20, file, 201, 10, 6363);
+    			add_location(li7, file, 201, 6, 6359);
     			attr_dev(a21, "href", "#/reklamacie");
-    			add_location(a21, file, 207, 10, 6520);
-    			add_location(li8, file, 207, 6, 6516);
-    			add_location(ul1, file, 201, 5, 6016);
+    			add_location(a21, file, 202, 10, 6423);
+    			add_location(li8, file, 202, 6, 6419);
+    			add_location(ul1, file, 196, 5, 6114);
     			attr_dev(div27, "class", "informations-menu");
-    			add_location(div27, file, 200, 4, 5978);
+    			add_location(div27, file, 195, 4, 6076);
     			attr_dev(div28, "class", "column");
-    			add_location(div28, file, 197, 3, 5869);
+    			add_location(div28, file, 192, 3, 5967);
     			attr_dev(div29, "class", "column-title");
-    			add_location(div29, file, 212, 4, 6685);
+    			add_location(div29, file, 207, 4, 6549);
     			attr_dev(div30, "class", "blue-line");
-    			add_location(div30, file, 213, 4, 6731);
+    			add_location(div30, file, 208, 4, 6595);
     			attr_dev(a22, "href", "#/faqs");
-    			add_location(a22, file, 216, 10, 6820);
-    			add_location(li9, file, 216, 6, 6816);
+    			add_location(a22, file, 211, 10, 6684);
+    			add_location(li9, file, 211, 6, 6680);
     			attr_dev(a23, "href", "#/login");
-    			add_location(a23, file, 217, 10, 6909);
-    			add_location(li10, file, 217, 6, 6905);
+    			add_location(a23, file, 212, 10, 6734);
+    			add_location(li10, file, 212, 6, 6730);
     			attr_dev(a24, "href", "#/login");
-    			add_location(a24, file, 218, 10, 6995);
-    			add_location(li11, file, 218, 6, 6991);
+    			add_location(a24, file, 213, 10, 6781);
+    			add_location(li11, file, 213, 6, 6777);
     			attr_dev(a25, "href", "#/wishlist");
-    			add_location(a25, file, 219, 10, 7092);
-    			add_location(li12, file, 219, 6, 7088);
+    			add_location(a25, file, 214, 10, 6839);
+    			add_location(li12, file, 214, 6, 6835);
     			attr_dev(a26, "href", "#/newsletter");
-    			add_location(a26, file, 220, 10, 7181);
-    			add_location(li13, file, 220, 6, 7177);
+    			add_location(a26, file, 215, 10, 6889);
+    			add_location(li13, file, 215, 6, 6885);
     			attr_dev(a27, "href", "#/zasady_nakupu");
-    			add_location(a27, file, 221, 10, 7274);
-    			add_location(li14, file, 221, 6, 7270);
-    			add_location(ul2, file, 215, 5, 6804);
+    			add_location(a27, file, 216, 10, 6943);
+    			add_location(li14, file, 216, 6, 6939);
+    			add_location(ul2, file, 210, 5, 6668);
     			attr_dev(div31, "class", "informations-menu");
-    			add_location(div31, file, 214, 4, 6766);
+    			add_location(div31, file, 209, 4, 6630);
     			attr_dev(div32, "class", "column");
-    			add_location(div32, file, 211, 3, 6659);
+    			add_location(div32, file, 206, 3, 6523);
     			attr_dev(div33, "class", "column-title");
-    			add_location(div33, file, 226, 4, 7427);
+    			add_location(div33, file, 221, 4, 7057);
     			attr_dev(div34, "class", "blue-line");
-    			add_location(div34, file, 227, 4, 7475);
+    			add_location(div34, file, 222, 4, 7105);
     			attr_dev(div35, "class", "column-subtitle");
-    			add_location(div35, file, 228, 4, 7510);
+    			add_location(div35, file, 223, 4, 7140);
     			attr_dev(input0, "type", "email");
     			attr_dev(input0, "placeholder", "Zadaj svoju emailovú adresu");
-    			add_location(input0, file, 230, 5, 7653);
+    			add_location(input0, file, 225, 5, 7283);
     			attr_dev(input1, "type", "submit");
     			input1.value = "Odoberať newsletter";
-    			add_location(input1, file, 231, 5, 7722);
+    			add_location(input1, file, 226, 5, 7352);
     			attr_dev(form, "action", "javascript:void(0);");
-    			add_location(form, file, 229, 4, 7611);
+    			add_location(form, file, 224, 4, 7241);
     			attr_dev(div36, "class", "column");
-    			add_location(div36, file, 225, 3, 7401);
+    			add_location(div36, file, 220, 3, 7031);
     			attr_dev(div37, "class", "container footer");
-    			add_location(div37, file, 160, 2, 4665);
-    			add_location(footer, file, 159, 1, 4653);
-    			attr_dev(a28, "href", "../../../../");
+    			add_location(div37, file, 155, 2, 4763);
+    			add_location(footer, file, 154, 1, 4751);
+    			attr_dev(a28, "href", "../../");
     			attr_dev(a28, "class", "name");
-    			add_location(a28, file, 238, 60, 7949);
+    			add_location(a28, file, 233, 60, 7579);
     			attr_dev(a29, "href", "https://medq-react.envytheme.com/");
     			attr_dev(a29, "target", "_blank");
     			attr_dev(a29, "class", "name");
-    			add_location(a29, file, 238, 138, 8027);
+    			add_location(a29, file, 233, 132, 7651);
     			attr_dev(div38, "class", "copy-left");
-    			add_location(div38, file, 238, 3, 7892);
+    			add_location(div38, file, 233, 3, 7522);
     			attr_dev(i15, "class", "fab fa-cc-visa");
-    			add_location(i15, file, 241, 30, 8210);
+    			add_location(i15, file, 236, 30, 7834);
     			attr_dev(a30, "href", "https://visa.sk");
-    			add_location(a30, file, 241, 4, 8184);
+    			add_location(a30, file, 236, 4, 7808);
     			attr_dev(i16, "class", "fab fa-cc-mastercard");
-    			add_location(i16, file, 242, 36, 8282);
+    			add_location(i16, file, 237, 36, 7906);
     			attr_dev(a31, "href", "https://mastercard.sk");
-    			add_location(a31, file, 242, 4, 8250);
+    			add_location(a31, file, 237, 4, 7874);
     			attr_dev(i17, "class", "fab fa-google-pay");
-    			add_location(i17, file, 243, 37, 8361);
+    			add_location(i17, file, 238, 37, 7985);
     			attr_dev(a32, "href", "https://pay.google.com");
-    			add_location(a32, file, 243, 4, 8328);
+    			add_location(a32, file, 238, 4, 7952);
     			attr_dev(i18, "class", "fab fa-apple-pay");
-    			add_location(i18, file, 244, 46, 8446);
+    			add_location(i18, file, 239, 46, 8070);
     			attr_dev(a33, "href", "https://apple.com/sk/apple-pay/");
-    			add_location(a33, file, 244, 4, 8404);
+    			add_location(a33, file, 239, 4, 8028);
     			attr_dev(i19, "class", "fab fa-cc-paypal");
-    			add_location(i19, file, 245, 33, 8517);
+    			add_location(i19, file, 240, 33, 8141);
     			attr_dev(a34, "href", "https://paypal.com");
-    			add_location(a34, file, 245, 4, 8488);
+    			add_location(a34, file, 240, 4, 8112);
     			attr_dev(div39, "class", "copy-right");
-    			add_location(div39, file, 239, 3, 8124);
+    			add_location(div39, file, 234, 3, 7748);
     			attr_dev(div40, "class", "container copyright");
-    			add_location(div40, file, 237, 2, 7854);
+    			add_location(div40, file, 232, 2, 7484);
     			attr_dev(div41, "class", "copyright-footer");
-    			add_location(div41, file, 236, 1, 7820);
+    			add_location(div41, file, 231, 1, 7450);
     			attr_dev(div42, "class", "card-line");
-    			add_location(div42, file, 251, 2, 8668);
+    			add_location(div42, file, 246, 2, 8292);
     			attr_dev(div43, "class", "added-to-cart info-card");
-    			add_location(div43, file, 249, 1, 8586);
+    			add_location(div43, file, 244, 1, 8210);
     			attr_dev(div44, "class", "card-line");
-    			add_location(div44, file, 255, 2, 8790);
+    			add_location(div44, file, 250, 2, 8414);
     			attr_dev(div45, "class", "cart-includes-item info-card");
-    			add_location(div45, file, 253, 1, 8709);
+    			add_location(div45, file, 248, 1, 8333);
     			attr_dev(div46, "class", "card-line");
-    			add_location(div46, file, 259, 2, 8914);
+    			add_location(div46, file, 254, 2, 8538);
     			attr_dev(div47, "class", "item-deleted info-card");
-    			add_location(div47, file, 257, 1, 8831);
+    			add_location(div47, file, 252, 1, 8455);
     			attr_dev(div48, "class", "card-line");
-    			add_location(div48, file, 263, 2, 9040);
+    			add_location(div48, file, 258, 2, 8664);
     			attr_dev(div49, "class", "added-to-wish info-card");
-    			add_location(div49, file, 261, 1, 8955);
+    			add_location(div49, file, 256, 1, 8579);
     			attr_dev(div50, "class", "card-line");
-    			add_location(div50, file, 267, 2, 9166);
+    			add_location(div50, file, 262, 2, 8790);
     			attr_dev(div51, "class", "wish-includes-item info-card");
-    			add_location(div51, file, 265, 1, 9081);
+    			add_location(div51, file, 260, 1, 8705);
     			attr_dev(div52, "class", "card-line");
-    			add_location(div52, file, 271, 2, 9303);
+    			add_location(div52, file, 266, 2, 8927);
     			attr_dev(div53, "class", "item-deleted-from-wish info-card");
-    			add_location(div53, file, 269, 1, 9207);
-    			add_location(main, file, 76, 0, 2090);
+    			add_location(div53, file, 264, 1, 8831);
+    			add_location(main, file, 68, 0, 2011);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			append_dev(document.head, link);
-    			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
     			mount_component(loader, main, null);
-    			append_dev(main, t1);
+    			append_dev(main, t0);
     			mount_component(search, main, null);
-    			append_dev(main, t2);
+    			append_dev(main, t1);
     			mount_component(cart_1, main, null);
-    			append_dev(main, t3);
+    			append_dev(main, t2);
     			append_dev(main, header);
     			append_dev(header, div6);
     			append_dev(div6, div2);
     			append_dev(div2, div0);
     			append_dev(div0, a0);
     			append_dev(a0, i0);
-    			append_dev(a0, t4);
-    			append_dev(div2, t5);
+    			append_dev(a0, t3);
+    			append_dev(div2, t4);
     			append_dev(div2, div1);
     			append_dev(div1, a1);
     			append_dev(a1, i1);
-    			append_dev(a1, t6);
-    			append_dev(div6, t7);
+    			append_dev(a1, t5);
+    			append_dev(div6, t6);
     			append_dev(div6, div5);
     			append_dev(div5, i4);
     			append_dev(i4, div3);
     			append_dev(div3, i2);
-    			append_dev(i4, t8);
+    			append_dev(i4, t7);
     			append_dev(i4, div4);
     			append_dev(div4, i3);
-    			append_dev(main, t9);
+    			append_dev(main, t8);
     			append_dev(main, nav);
     			append_dev(nav, div15);
     			append_dev(div15, div7);
     			append_dev(div7, a2);
     			append_dev(a2, i5);
-    			append_dev(a2, t10);
+    			append_dev(a2, t9);
     			append_dev(a2, span0);
-    			append_dev(div15, t12);
+    			append_dev(div15, t11);
     			append_dev(div15, div8);
     			append_dev(div8, ul0);
     			append_dev(ul0, li0);
     			append_dev(li0, a3);
-    			append_dev(ul0, t14);
+    			append_dev(ul0, t13);
     			append_dev(ul0, li1);
     			append_dev(li1, a4);
-    			append_dev(ul0, t16);
+    			append_dev(ul0, t15);
     			append_dev(ul0, li2);
     			append_dev(li2, a5);
-    			append_dev(div15, t18);
+    			append_dev(div15, t17);
     			append_dev(div15, div13);
     			append_dev(div13, div9);
     			append_dev(div9, a6);
     			append_dev(a6, i6);
-    			append_dev(div13, t19);
+    			append_dev(div13, t18);
     			append_dev(div13, div11);
     			append_dev(div11, i7);
-    			append_dev(div11, t20);
+    			append_dev(div11, t19);
     			append_dev(div11, div10);
-    			append_dev(div10, t21);
-    			append_dev(div13, t22);
+    			append_dev(div10, t20);
+    			append_dev(div13, t21);
     			append_dev(div13, div12);
     			append_dev(div12, i8);
-    			append_dev(div15, t23);
+    			append_dev(div15, t22);
     			append_dev(div15, div14);
     			append_dev(div14, span1);
-    			append_dev(div14, t24);
+    			append_dev(div14, t23);
     			append_dev(div14, span2);
-    			append_dev(div14, t25);
+    			append_dev(div14, t24);
     			append_dev(div14, span3);
-    			append_dev(main, t26);
+    			append_dev(main, t25);
     			mount_component(router, main, null);
-    			append_dev(main, t27);
+    			append_dev(main, t26);
     			append_dev(main, div17);
     			append_dev(div17, div16);
 
@@ -11732,159 +11716,159 @@ var app = (function (exports) {
     				each_blocks[i].m(div16, null);
     			}
 
-    			append_dev(main, t28);
+    			append_dev(main, t27);
     			append_dev(main, footer);
     			append_dev(footer, div37);
     			append_dev(div37, div24);
     			append_dev(div24, div18);
     			append_dev(div18, a7);
     			append_dev(a7, i9);
-    			append_dev(a7, t29);
+    			append_dev(a7, t28);
     			append_dev(a7, span4);
-    			append_dev(div24, t31);
+    			append_dev(div24, t30);
     			append_dev(div24, div23);
     			append_dev(div23, div19);
     			append_dev(div19, b0);
-    			append_dev(div19, t33);
+    			append_dev(div19, t32);
     			append_dev(div19, a8);
-    			append_dev(div23, t35);
+    			append_dev(div23, t34);
     			append_dev(div23, div20);
     			append_dev(div20, b1);
-    			append_dev(div20, t37);
+    			append_dev(div20, t36);
     			append_dev(div20, a9);
-    			append_dev(div23, t39);
+    			append_dev(div23, t38);
     			append_dev(div23, div21);
     			append_dev(div21, b2);
-    			append_dev(div21, t41);
+    			append_dev(div21, t40);
     			append_dev(div21, a10);
-    			append_dev(div23, t43);
+    			append_dev(div23, t42);
     			append_dev(div23, div22);
     			append_dev(div22, a11);
     			append_dev(a11, i10);
-    			append_dev(div22, t44);
+    			append_dev(div22, t43);
     			append_dev(div22, a12);
     			append_dev(a12, i11);
-    			append_dev(div22, t45);
+    			append_dev(div22, t44);
     			append_dev(div22, a13);
     			append_dev(a13, i12);
-    			append_dev(div22, t46);
+    			append_dev(div22, t45);
     			append_dev(div22, a14);
     			append_dev(a14, i13);
-    			append_dev(div22, t47);
+    			append_dev(div22, t46);
     			append_dev(div22, a15);
     			append_dev(a15, i14);
-    			append_dev(div37, t48);
+    			append_dev(div37, t47);
     			append_dev(div37, div28);
     			append_dev(div28, div25);
-    			append_dev(div28, t50);
+    			append_dev(div28, t49);
     			append_dev(div28, div26);
-    			append_dev(div28, t51);
+    			append_dev(div28, t50);
     			append_dev(div28, div27);
     			append_dev(div27, ul1);
     			append_dev(ul1, li3);
     			append_dev(li3, a16);
-    			append_dev(ul1, t53);
+    			append_dev(ul1, t52);
     			append_dev(ul1, li4);
     			append_dev(li4, a17);
-    			append_dev(ul1, t55);
+    			append_dev(ul1, t54);
     			append_dev(ul1, li5);
     			append_dev(li5, a18);
-    			append_dev(ul1, t57);
+    			append_dev(ul1, t56);
     			append_dev(ul1, li6);
     			append_dev(li6, a19);
-    			append_dev(ul1, t59);
+    			append_dev(ul1, t58);
     			append_dev(ul1, li7);
     			append_dev(li7, a20);
-    			append_dev(ul1, t61);
+    			append_dev(ul1, t60);
     			append_dev(ul1, li8);
     			append_dev(li8, a21);
-    			append_dev(div37, t63);
+    			append_dev(div37, t62);
     			append_dev(div37, div32);
     			append_dev(div32, div29);
-    			append_dev(div32, t65);
+    			append_dev(div32, t64);
     			append_dev(div32, div30);
-    			append_dev(div32, t66);
+    			append_dev(div32, t65);
     			append_dev(div32, div31);
     			append_dev(div31, ul2);
     			append_dev(ul2, li9);
     			append_dev(li9, a22);
-    			append_dev(ul2, t68);
+    			append_dev(ul2, t67);
     			append_dev(ul2, li10);
     			append_dev(li10, a23);
-    			append_dev(ul2, t70);
+    			append_dev(ul2, t69);
     			append_dev(ul2, li11);
     			append_dev(li11, a24);
-    			append_dev(ul2, t72);
+    			append_dev(ul2, t71);
     			append_dev(ul2, li12);
     			append_dev(li12, a25);
-    			append_dev(ul2, t74);
+    			append_dev(ul2, t73);
     			append_dev(ul2, li13);
     			append_dev(li13, a26);
-    			append_dev(ul2, t76);
+    			append_dev(ul2, t75);
     			append_dev(ul2, li14);
     			append_dev(li14, a27);
-    			append_dev(div37, t78);
+    			append_dev(div37, t77);
     			append_dev(div37, div36);
     			append_dev(div36, div33);
-    			append_dev(div36, t80);
+    			append_dev(div36, t79);
     			append_dev(div36, div34);
-    			append_dev(div36, t81);
+    			append_dev(div36, t80);
     			append_dev(div36, div35);
-    			append_dev(div36, t83);
+    			append_dev(div36, t82);
     			append_dev(div36, form);
     			append_dev(form, input0);
-    			append_dev(form, t84);
+    			append_dev(form, t83);
     			append_dev(form, input1);
-    			append_dev(main, t85);
+    			append_dev(main, t84);
     			append_dev(main, div41);
     			append_dev(div41, div40);
     			append_dev(div40, div38);
-    			append_dev(div38, t86);
+    			append_dev(div38, t85);
     			append_dev(div38, a28);
-    			append_dev(div38, t88);
+    			append_dev(div38, t87);
     			append_dev(div38, a29);
-    			append_dev(div40, t90);
+    			append_dev(div40, t89);
     			append_dev(div40, div39);
-    			append_dev(div39, t91);
+    			append_dev(div39, t90);
     			append_dev(div39, a30);
     			append_dev(a30, i15);
-    			append_dev(div39, t92);
+    			append_dev(div39, t91);
     			append_dev(div39, a31);
     			append_dev(a31, i16);
-    			append_dev(div39, t93);
+    			append_dev(div39, t92);
     			append_dev(div39, a32);
     			append_dev(a32, i17);
-    			append_dev(div39, t94);
+    			append_dev(div39, t93);
     			append_dev(div39, a33);
     			append_dev(a33, i18);
-    			append_dev(div39, t95);
+    			append_dev(div39, t94);
     			append_dev(div39, a34);
     			append_dev(a34, i19);
-    			append_dev(main, t96);
+    			append_dev(main, t95);
     			append_dev(main, div43);
-    			append_dev(div43, t97);
+    			append_dev(div43, t96);
     			append_dev(div43, div42);
-    			append_dev(main, t98);
+    			append_dev(main, t97);
     			append_dev(main, div45);
-    			append_dev(div45, t99);
+    			append_dev(div45, t98);
     			append_dev(div45, div44);
-    			append_dev(main, t100);
+    			append_dev(main, t99);
     			append_dev(main, div47);
-    			append_dev(div47, t101);
+    			append_dev(div47, t100);
     			append_dev(div47, div46);
-    			append_dev(main, t102);
+    			append_dev(main, t101);
     			append_dev(main, div49);
-    			append_dev(div49, t103);
+    			append_dev(div49, t102);
     			append_dev(div49, div48);
-    			append_dev(main, t104);
+    			append_dev(main, t103);
     			append_dev(main, div51);
-    			append_dev(div51, t105);
+    			append_dev(div51, t104);
     			append_dev(div51, div50);
-    			append_dev(main, t106);
+    			append_dev(main, t105);
     			append_dev(main, div53);
-    			append_dev(div53, t107);
+    			append_dev(div53, t106);
     			append_dev(div53, div52);
-    			append_dev(main, t108);
+    			append_dev(main, t107);
     			mount_component(backtotop, main, null);
     			current = true;
 
@@ -11896,22 +11880,13 @@ var app = (function (exports) {
     						scrolling_timeout = setTimeout_1(clear_scrolling, 100);
     						/*onwindowscroll*/ ctx[10]();
     					}),
-    					listen_dev(a6, "click", /*click_handler*/ ctx[11], false, false, false),
-    					listen_dev(div11, "click", /*click_handler_1*/ ctx[12], false, false, false),
-    					listen_dev(div12, "click", /*click_handler_2*/ ctx[13], false, false, false),
-    					listen_dev(div14, "click", /*click_handler_3*/ ctx[14], false, false, false),
-    					listen_dev(a16, "click", /*click_handler_4*/ ctx[15], false, false, false),
-    					listen_dev(a17, "click", /*click_handler_5*/ ctx[16], false, false, false),
-    					listen_dev(a18, "click", /*click_handler_6*/ ctx[17], false, false, false),
-    					listen_dev(a19, "click", /*click_handler_7*/ ctx[18], false, false, false),
-    					listen_dev(a20, "click", /*click_handler_8*/ ctx[19], false, false, false),
-    					listen_dev(a21, "click", /*click_handler_9*/ ctx[20], false, false, false),
-    					listen_dev(a22, "click", /*click_handler_10*/ ctx[21], false, false, false),
-    					listen_dev(a23, "click", /*click_handler_11*/ ctx[22], false, false, false),
-    					listen_dev(a24, "click", /*click_handler_12*/ ctx[23], false, false, false),
-    					listen_dev(a25, "click", /*click_handler_13*/ ctx[24], false, false, false),
-    					listen_dev(a26, "click", /*click_handler_14*/ ctx[25], false, false, false),
-    					listen_dev(a27, "click", /*click_handler_15*/ ctx[26], false, false, false)
+    					listen_dev(a3, "click", /*click_handler*/ ctx[11], false, false, false),
+    					listen_dev(a4, "click", /*click_handler_1*/ ctx[12], false, false, false),
+    					listen_dev(a5, "click", /*click_handler_2*/ ctx[13], false, false, false),
+    					listen_dev(a6, "click", /*click_handler_3*/ ctx[14], false, false, false),
+    					listen_dev(div11, "click", /*click_handler_4*/ ctx[15], false, false, false),
+    					listen_dev(div12, "click", /*click_handler_5*/ ctx[16], false, false, false),
+    					listen_dev(div14, "click", /*click_handler_6*/ ctx[17], false, false, false)
     				];
 
     				mounted = true;
@@ -11934,7 +11909,7 @@ var app = (function (exports) {
     			if (dirty & /*cart*/ 32) cart_1_changes.cart = /*cart*/ ctx[5];
     			if (dirty & /*totalSum*/ 16) cart_1_changes.totalSum = /*totalSum*/ ctx[4];
     			cart_1.$set(cart_1_changes);
-    			if ((!current || dirty & /*cart*/ 32) && t21_value !== (t21_value = /*cart*/ ctx[5].length + "")) set_data_dev(t21, t21_value);
+    			if ((!current || dirty & /*cart*/ 32) && t20_value !== (t20_value = /*cart*/ ctx[5].length + "")) set_data_dev(t20, t20_value);
 
     			if (!current || dirty & /*scroll_position*/ 1 && nav_class_value !== (nav_class_value = /*scroll_position*/ ctx[0] > 150 ? 'scrolled' : '')) {
     				attr_dev(nav, "class", nav_class_value);
@@ -11982,8 +11957,6 @@ var app = (function (exports) {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			detach_dev(link);
-    			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
     			destroy_component(loader);
     			destroy_component(search);
@@ -12010,9 +11983,11 @@ var app = (function (exports) {
     function instance($$self, $$props, $$invalidate) {
     	let cart;
     	let totalSum;
+    	let $location;
+    	validate_store(location$1, 'location');
+    	component_subscribe($$self, location$1, $$value => $$invalidate(9, $location = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
-    	let { params = {} } = $$props;
 
     	let routes = {
     		"/": Home,
@@ -12060,7 +12035,7 @@ var app = (function (exports) {
     		$$invalidate(3, random_num_search = Math.random());
     	}
 
-    	const writable_props = ['params'];
+    	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
@@ -12071,37 +12046,23 @@ var app = (function (exports) {
     	}
 
     	const click_handler = () => hamburgerMenu(window.innerWidth);
+    	const click_handler_1 = () => hamburgerMenu(window.innerWidth);
+    	const click_handler_2 = () => hamburgerMenu(window.innerWidth);
+    	const click_handler_3 = () => hamburgerMenu(window.innerWidth);
 
-    	const click_handler_1 = () => {
+    	const click_handler_4 = () => {
     		showCartPreview();
     		hamburgerMenu(window.innerWidth);
     	};
 
-    	const click_handler_2 = () => {
+    	const click_handler_5 = () => {
     		showSearch();
     		hamburgerMenu(window.innerWidth);
     	};
 
-    	const click_handler_3 = () => hamburgerMenu(window.innerWidth);
-    	const click_handler_4 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_5 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_6 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_7 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_8 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_9 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_10 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_11 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_12 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_13 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_14 = () => $$invalidate(0, scroll_position = 0);
-    	const click_handler_15 = () => $$invalidate(0, scroll_position = 0);
-
-    	$$self.$$set = $$props => {
-    		if ('params' in $$props) $$invalidate(9, params = $$props.params);
-    	};
+    	const click_handler_6 = () => hamburgerMenu(window.innerWidth);
 
     	$$self.$capture_state = () => ({
-    		params,
     		Router,
     		services,
     		Home,
@@ -12118,6 +12079,7 @@ var app = (function (exports) {
     		Search,
     		Loader,
     		hamburgerMenu,
+    		location: location$1,
     		routes,
     		scroll_position,
     		IsCartChanged,
@@ -12127,11 +12089,11 @@ var app = (function (exports) {
     		random_num_search,
     		showSearch,
     		totalSum,
-    		cart
+    		cart,
+    		$location
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('params' in $$props) $$invalidate(9, params = $$props.params);
     		if ('routes' in $$props) $$invalidate(6, routes = $$props.routes);
     		if ('scroll_position' in $$props) $$invalidate(0, scroll_position = $$props.scroll_position);
     		if ('show' in $$props) $$invalidate(1, show = $$props.show);
@@ -12146,7 +12108,7 @@ var app = (function (exports) {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*params*/ 512) {
+    		if ($$self.$$.dirty & /*$location*/ 512) {
     			{
     				window.scrollTo(0, 0);
     			}
@@ -12171,7 +12133,7 @@ var app = (function (exports) {
     		routes,
     		showCartPreview,
     		showSearch,
-    		params,
+    		$location,
     		onwindowscroll,
     		click_handler,
     		click_handler_1,
@@ -12179,23 +12141,14 @@ var app = (function (exports) {
     		click_handler_3,
     		click_handler_4,
     		click_handler_5,
-    		click_handler_6,
-    		click_handler_7,
-    		click_handler_8,
-    		click_handler_9,
-    		click_handler_10,
-    		click_handler_11,
-    		click_handler_12,
-    		click_handler_13,
-    		click_handler_14,
-    		click_handler_15
+    		click_handler_6
     	];
     }
 
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance, create_fragment, safe_not_equal, { params: 9 });
+    		init(this, options, instance, create_fragment, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -12203,14 +12156,6 @@ var app = (function (exports) {
     			options,
     			id: create_fragment.name
     		});
-    	}
-
-    	get params() {
-    		throw new Error("<App>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set params(value) {
-    		throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
 
@@ -12225,7 +12170,6 @@ var app = (function (exports) {
     const nav = document.querySelector(".navigation");
 
     function hamburgerMenu(width) {
-        console.log(width);
         if (width <= 750 || nav.classList.contains('active')) {
             hamburger.classList.toggle('active');
             nav.classList.toggle('active');
