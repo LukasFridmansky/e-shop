@@ -49,7 +49,7 @@
     <div class="container">
         <div class="title">{category[0].title}</div>
         <div class="nav">
-            <a href="./">Domov</a> / <a href="./#/obchod">Obchod</a> / <span class="blue">{category[0].title}</span>
+            <a href="./#">Domov</a> / <a href="./#/obchod">Obchod</a> / <span class="blue">{category[0].title}</span>
         </div>
         <div class="filter">
             <form on:change|preventDefault="{changedOption}">

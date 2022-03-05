@@ -11,7 +11,7 @@
     <div class="title-container">
         <div class="title">Kontaktujte nás</div>
         <div class="nav">
-            <a href="./">Domov</a> / <span class="blue">Kontakt</span>
+            <a href="./#">Domov</a> / <span class="blue">Kontakt</span>
         </div>
     </div>
     <div class="contact-info container">

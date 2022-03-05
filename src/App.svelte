@@ -1,6 +1,4 @@
 <script>
-    export let params = {};
-	
 	import Router from "svelte-spa-router";
     import services from './services';
 
@@ -21,8 +19,8 @@
 
 	import {hamburgerMenu} from './main'
 	
-	
-    $: {params; window.scrollTo(0, 0)}
+	import {location} from 'svelte-spa-router';
+	$: {$location; window.scrollTo(0, 0)}
 
 	let routes = {
 		"/": Home,
@@ -39,7 +37,6 @@
 		"*": NotFound
 	};
 
-
 	let scroll_position;
 
 	$: cart = JSON.parse(localStorage.getItem("cart")) ? JSON.parse(localStorage.getItem("cart")) : [];
@@ -52,7 +49,6 @@
 		}, 100);
 	}
 	IsCartChanged();
-	
 
 	let show = false;
     let random_num = Math.random();
@@ -67,12 +63,8 @@
 	function showSearch(){
         random_num_search = Math.random();
     }
-
 </script>
 
-<svelte:head>
-	<link rel='stylesheet' href='css/navigation.css'>
-</svelte:head>
 
 <main>
 	<Loader />
@@ -112,12 +104,15 @@
 			</div>
 			<div class="nav-bar">
 				<ul>
-					<li class="nav-item"><a href="./#">Domov</a></li>
 					<li class="nav-item">
-						<a href="#/obchod">Obchod</a>
-						
+						<a href="./#" on:click="{() => hamburgerMenu(window.innerWidth)}">Domov</a>
 					</li>
-					<li class="nav-item"><a href="#/kontakt">Kontakt</a></li>
+					<li class="nav-item">
+						<a href="#/obchod" on:click="{() => hamburgerMenu(window.innerWidth)}">Obchod</a>
+					</li>
+					<li class="nav-item">
+						<a href="#/kontakt" on:click="{() => hamburgerMenu(window.innerWidth)}">Kontakt</a>
+					</li>
 				</ul>
 			</div>
 			<div class="nav-icons">
@@ -141,7 +136,7 @@
             </div>
 		</div>
 	</nav>
-		<Router {routes} />
+	<Router {routes} />
 	<div class="pre-footer">
 		<div class="container services">
 			{#each services as service}
@@ -200,12 +195,12 @@
 				<div class="blue-line"></div>
 				<div class="informations-menu">
 					<ul>
-						<li><a href="#/" on:click="{() => scroll_position = 0}">O nás</a></li>
-						<li><a href="#/kontakt" on:click="{() => scroll_position = 0}">Kontakt</a></li>
-						<li><a href="#/zasady_ochrany_osobnych_udajov" on:click="{() => scroll_position = 0}">Zásady ochrany osobných údajov</a></li>
-						<li><a href="#/podmienky" on:click="{() => scroll_position = 0}">Podmienky</a></li>
-						<li><a href="#/doprava" on:click="{() => scroll_position = 0}">Informácie o dodaní</a></li>
-						<li><a href="#/reklamacie" on:click="{() => scroll_position = 0}">Objednávky a vrátenie tovaru</a></li>
+						<li><a href="#/">O nás</a></li>
+						<li><a href="#/kontakt">Kontakt</a></li>
+						<li><a href="#/zasady_ochrany_osobnych_udajov">Zásady ochrany osobných údajov</a></li>
+						<li><a href="#/podmienky">Podmienky</a></li>
+						<li><a href="#/doprava">Informácie o dodaní</a></li>
+						<li><a href="#/reklamacie">Objednávky a vrátenie tovaru</a></li>
 					</ul>
 				</div>
 			</div>
@@ -214,12 +209,12 @@
 				<div class="blue-line"></div>
 				<div class="informations-menu">
 					<ul>
-						<li><a href="#/faqs" on:click="{() => scroll_position = 0}">Pomoc a FAQs</a></li>
-						<li><a href="#/login" on:click="{() => scroll_position = 0}">Môj účet</a></li>
-						<li><a href="#/login" on:click="{() => scroll_position = 0}">História objednávok</a></li>
-						<li><a href="#/wishlist" on:click="{() => scroll_position = 0}">Wishlist</a></li>
-						<li><a href="#/newsletter" on:click="{() => scroll_position = 0}">Newsletter</a></li>
-						<li><a href="#/zasady_nakupu" on:click="{() => scroll_position = 0}">Zásady nákupu</a></li>
+						<li><a href="#/faqs">Pomoc a FAQs</a></li>
+						<li><a href="#/login">Môj účet</a></li>
+						<li><a href="#/login">História objednávok</a></li>
+						<li><a href="#/wishlist">Wishlist</a></li>
+						<li><a href="#/newsletter">Newsletter</a></li>
+						<li><a href="#/zasady_nakupu">Zásady nákupu</a></li>
 					</ul>
 				</div>
 			</div>
@@ -236,7 +231,7 @@
 	</footer>
 	<div class="copyright-footer">
 		<div class="container copyright">
-			<div class="copy-left">Copyright 2022 ElektroX. Vytvoril <a href="../../../../" class="name">Lukáš Fridmanský</a> na základe dizajnu z <a href="https://medq-react.envytheme.com/" target="_blank" class="name">Envytheme</a></div>
+			<div class="copy-left">Copyright 2022 ElektroX. Vytvoril <a href="../../" class="name">Lukáš Fridmanský</a> na základe dizajnu z <a href="https://medq-react.envytheme.com/" target="_blank" class="name">Envytheme</a></div>
 			<div class="copy-right">
 				Akceptujeme platbu cez: 
 				<a href="https://visa.sk"><i class="fab fa-cc-visa"></i></a>
@@ -274,4 +269,4 @@
 	<BackToTop />
 </main>
 
-<svelte:window bind:scrollY={scroll_position} />
+<svelte:window bind:scrollY="{scroll_position}" />

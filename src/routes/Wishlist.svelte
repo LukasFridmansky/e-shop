@@ -21,7 +21,7 @@
     <div class="title-container">
         <div class="title">Wishlist</div>
         <div class="nav">
-            <a href="./public">Domov</a> / <span class="blue">Wishlist</span>
+            <a href="./#">Domov</a> / <span class="blue">Wishlist</span>
         </div>
     </div>
     <div class="container wishlist">
@@ -61,8 +61,8 @@
                 </tr>
             {:else}
                 Tvoj zoznam prijaní je prázdny
-                <a href="#/obchod">
-                    <div class="button">Prezerať obchod</div>
+                <a href="#/obchod" class="button-a">
+                    Prezerať obchod
                 </a>
             {/each}
         </table>
@@ -72,6 +72,7 @@
 <style>
     main{
         background: var(--primary-color);
+        min-height: 500px;
     }
     .title{
         text-align: center;
@@ -162,9 +163,8 @@
         color: var(--red-font-color);
         text-decoration: line-through;
     }
-    .button{
+    .button-a{
         background: var(--blue-font-color);
-        color: var(--font-color-unchanged);
         font-weight: 600;
         cursor: pointer;
         transition: .5s;
@@ -174,11 +174,13 @@
         text-align: center;
         margin-top: 20px;
         border-radius: 5px;
+        display: block;
+        color: var(--font-color-unchanged);
     }
-    .button:hover {
+    .button-a:hover {
         background: var(--font-color);
-        color: var(--primary-color);
         box-shadow: 0 0 15px -6px rgba(0, 0, 0, 0.41);
         transition: .5s;
+        color: var(--primary-color);
     }
 </style>

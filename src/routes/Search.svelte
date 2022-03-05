@@ -50,7 +50,7 @@
             <div class="title">Výsledky vyhľadavanie pre: {search_value}</div>
         </div>
         <div class="container">
-            <a href="#/" class="button-a">
+            <a href="./#" class="button-a">
                 <div class="button">
                     Vrátiť sa na domovskú stránku
                 </div>

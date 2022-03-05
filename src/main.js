@@ -13,7 +13,6 @@ const header = document.querySelector("header");
 const nav = document.querySelector(".navigation");
 
 export function hamburgerMenu(width) {
-    console.log(width);
     if (width <= 750 || nav.classList.contains('active')) {
         hamburger.classList.toggle('active');
         nav.classList.toggle('active');

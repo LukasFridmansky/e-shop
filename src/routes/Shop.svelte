@@ -16,7 +16,7 @@
 <main>
     <div class="container">
         <div class="nav">
-            <a href="./public">Domov</a> / <span class="blue">Obchod</span>
+            <a href="./#">Domov</a> / <span class="blue">Obchod</span>
         </div>
     </div>
     <BestProducts best_products="{[products[0], products[5]]}" />

@@ -127,29 +127,29 @@
     }
     @keyframes smallExtend {
         0%,8% {
-            background-color: #909090;
+            background-color: var(--grey-font-color);
             height: 20px;
         }
         14%,34% {
-            background-color: #F8F8F8;
+            background-color: var(--font-color);
             height: 47.5px;
         }
         46%,100% {
-            background-color: #909090;
+            background-color: var(--grey-font-color);
             height: 20px;
         }
     }
     @keyframes largeExtend {
         0%,8% {
-            background-color: #909090;
+            background-color: var(--grey-font-color);
             height: 20px;
         }
         14%,34% {
-            background-color: #F8F8F8;
+            background-color: var(--font-color);
             height: 82.5px;
         }
         46%,100% {
-            background-color: #909090;
+            background-color: var(--grey-font-color);
             height: 20px;
         }
     }

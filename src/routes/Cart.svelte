@@ -39,7 +39,7 @@
     <div class="title-container">
         <div class="title">Košík</div>
         <div class="nav">
-            <a href="./public">Domov</a> / <span class="blue">Košík</span>
+            <a href="./#">Domov</a> / <span class="blue">Košík</span>
         </div>
     </div>
     <div class="container cart">
@@ -96,8 +96,8 @@
                 </tr>
             {:else}
                 Tvoj košík je prázdny
-                <a href="#/obchod">
-                    <div class="button">Prezerať obchod</div>
+                <a href="#/obchod" class="button-a">
+                    Prezerať obchod
                 </a>
             {/each}
             {#if cart_list.length > 0}
@@ -126,8 +126,8 @@
         </table>
         {#if cart_list.length > 0}
             <div class="button-container">
-                <a href="#/login">
-                    <div class="button b-login">Pre dokončenie objednávky sa prihláste</div>
+                <a href="#/login" class="button-a b-login">
+                    Pre dokončenie objednávky sa prihláste
                 </a>
             </div>
         {/if}
@@ -141,6 +141,7 @@
 <style>
     main{
         background: var(--primary-color);
+        min-height: 500px;
     }
     .title{
         text-align: center;
@@ -245,28 +246,6 @@
         color: var(--red-font-color);
         text-decoration: line-through;
     }
-    .button{
-        background: var(--blue-font-color);
-        color: var(--font-color-unchanged);
-        font-weight: 600;
-        cursor: pointer;
-        transition: .5s;
-        width: 200px;
-        font-size: 1.1em;
-        line-height: 50px;
-        text-align: center;
-        margin-top: 20px;
-        border-radius: 5px;
-    }
-    .button:hover {
-        background: var(--font-color);
-        color: var(--primary-color);
-        box-shadow: 0 0 15px -6px rgba(0, 0, 0, 0.41);
-        transition: .5s;
-    }
-    .b-login{
-        width: 350px;
-    }
     .button-container{
         margin-top: 30px;
         padding-top: 40px;
@@ -306,5 +285,29 @@
         font-weight: 800;
         color: var(--blue-font-color);
         text-transform: uppercase;
+    }
+    
+    .button-a{
+        background: var(--blue-font-color);
+        font-weight: 600;
+        cursor: pointer;
+        transition: .5s;
+        width: 200px;
+        font-size: 1.1em;
+        line-height: 50px;
+        text-align: center;
+        margin-top: 20px;
+        border-radius: 5px;
+        display: block;
+        color: var(--font-color-unchanged);
+    }
+    .button-a:hover {
+        background: var(--font-color);
+        box-shadow: 0 0 15px -6px rgba(0, 0, 0, 0.41);
+        transition: .5s;
+        color: var(--primary-color);
+    }
+    .b-login{
+        width: 350px;
     }
 </style>

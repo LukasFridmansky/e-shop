@@ -15,7 +15,7 @@
                 <div class="code">404 </div>
                 <div class="message">PAGE NOT FOUND </div>
             </div>
-            <a href="#/" class="button-a">
+            <a href="./#" class="button-a">
                 <div class="button">
                     Vrátiť sa na domovskú stránku
                 </div>

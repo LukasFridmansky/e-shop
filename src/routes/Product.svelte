@@ -44,7 +44,7 @@
     <div class="title-container">
         <div class="title">{product[0].title + ' ' + product[0].version}</div>
         <div class="nav">
-            <a href="./">Domov</a> / <a href="./#/obchod">Obchod</a> / <a href="./#/obchod/{params.category}">{category[0].title}</a> / <span class="blue">{product[0].title + ' ' + product[0].version}</span>
+            <a href="./#">Domov</a> / <a href="./#/obchod">Obchod</a> / <a href="./#/obchod/{params.category}">{category[0].title}</a> / <span class="blue">{product[0].title + ' ' + product[0].version}</span>
         </div>
     </div>
     <div class="container">
