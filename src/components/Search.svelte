@@ -71,7 +71,7 @@
                         <i class="fas fa-search"></i>
                     </div>
                 {:else}
-                    <a href="/#/vyhladavanie=/{search_value}" class="icon" type="submit" on:click="{hideSearch}" on:click="{window.reload}">
+                    <a href="./#/vyhladavanie=/{search_value}" class="icon" type="submit" on:click="{hideSearch}" on:click="{window.reload}">
                         <i class="fas fa-search"></i>
                     </a>
                 {/if}
