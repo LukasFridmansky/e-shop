@@ -9698,8 +9698,8 @@ var app = (function (exports) {
     			a = element("a");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-search svelte-8d11yt");
-    			add_location(i, file$2, 74, 24, 2784);
-    			attr_dev(a, "href", a_href_value = "/#/vyhladavanie=/" + /*search_value*/ ctx[0]);
+    			add_location(i, file$2, 74, 24, 2785);
+    			attr_dev(a, "href", a_href_value = "./#/vyhladavanie=/" + /*search_value*/ ctx[0]);
     			attr_dev(a, "class", "icon svelte-8d11yt");
     			attr_dev(a, "type", "submit");
     			add_location(a, file$2, 73, 20, 2638);
@@ -9718,7 +9718,7 @@ var app = (function (exports) {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*search_value*/ 1 && a_href_value !== (a_href_value = "/#/vyhladavanie=/" + /*search_value*/ ctx[0])) {
+    			if (dirty & /*search_value*/ 1 && a_href_value !== (a_href_value = "./#/vyhladavanie=/" + /*search_value*/ ctx[0])) {
     				attr_dev(a, "href", a_href_value);
     			}
     		},
@@ -9793,7 +9793,7 @@ var app = (function (exports) {
     			div = element("div");
     			div.textContent = "Kategórie";
     			attr_dev(div, "class", "results-title svelte-8d11yt");
-    			add_location(div, file$2, 81, 16, 3005);
+    			add_location(div, file$2, 81, 16, 3006);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9836,14 +9836,14 @@ var app = (function (exports) {
     			div1 = element("div");
     			t1 = text(t1_value);
     			attr_dev(i, "class", "fas fa-folder-open svelte-8d11yt");
-    			add_location(i, file$2, 87, 47, 3371);
+    			add_location(i, file$2, 87, 47, 3372);
     			attr_dev(div0, "class", "category-icon svelte-8d11yt");
-    			add_location(div0, file$2, 87, 20, 3344);
+    			add_location(div0, file$2, 87, 20, 3345);
     			attr_dev(div1, "class", "result-title svelte-8d11yt");
-    			add_location(div1, file$2, 88, 20, 3433);
+    			add_location(div1, file$2, 88, 20, 3434);
     			attr_dev(a, "href", a_href_value = "#/obchod/" + /*category*/ ctx[15].title.toLowerCase().split(' ').join('_'));
     			attr_dev(a, "class", "category svelte-8d11yt");
-    			add_location(a, file$2, 86, 16, 3183);
+    			add_location(a, file$2, 86, 16, 3184);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -9896,7 +9896,7 @@ var app = (function (exports) {
     			div = element("div");
     			div.textContent = "Produkty";
     			attr_dev(div, "class", "results-title svelte-8d11yt");
-    			add_location(div, file$2, 94, 16, 3645);
+    			add_location(div, file$2, 94, 16, 3646);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9945,14 +9945,14 @@ var app = (function (exports) {
     			if (!src_url_equal(img.src, img_src_value = /*product*/ ctx[12].image_urls[0])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*product*/ ctx[12].title + ' ' + /*product*/ ctx[12].version);
     			attr_dev(img, "class", "svelte-8d11yt");
-    			add_location(img, file$2, 101, 24, 4127);
+    			add_location(img, file$2, 101, 24, 4128);
     			attr_dev(div0, "class", "product-img svelte-8d11yt");
-    			add_location(div0, file$2, 100, 20, 4076);
+    			add_location(div0, file$2, 100, 20, 4077);
     			attr_dev(div1, "class", "result-title svelte-8d11yt");
-    			add_location(div1, file$2, 103, 20, 4258);
+    			add_location(div1, file$2, 103, 20, 4259);
     			attr_dev(a, "href", a_href_value = "#/obchod/" + categories[/*product*/ ctx[12].category].title.toLowerCase().split(' ').join('_') + "/" + (/*product*/ ctx[12].title + ' ' + /*product*/ ctx[12].version).toLowerCase().split(' ').join('_'));
     			attr_dev(a, "class", "product svelte-8d11yt");
-    			add_location(a, file$2, 99, 16, 3819);
+    			add_location(a, file$2, 99, 16, 3820);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -10101,11 +10101,11 @@ var app = (function (exports) {
     			attr_dev(form, "action", "javascript:void(0);");
     			add_location(form, file$2, 65, 8, 2204);
     			attr_dev(div3, "class", "results svelte-8d11yt");
-    			add_location(div3, file$2, 79, 8, 2909);
+    			add_location(div3, file$2, 79, 8, 2910);
     			attr_dev(i, "class", "fas fa-times svelte-8d11yt");
-    			add_location(i, file$2, 110, 12, 4510);
+    			add_location(i, file$2, 110, 12, 4511);
     			attr_dev(div4, "class", "quit svelte-8d11yt");
-    			add_location(div4, file$2, 109, 8, 4446);
+    			add_location(div4, file$2, 109, 8, 4447);
     			attr_dev(div5, "class", div5_class_value = "search-container background " + (/*search_value*/ ctx[0].length > 0 ? 'active' : '') + " svelte-8d11yt");
     			add_location(div5, file$2, 64, 4, 2111);
     			attr_dev(main, "class", main_class_value = "search " + (/*show_search*/ ctx[1] ? 'active' : '') + " svelte-8d11yt");
