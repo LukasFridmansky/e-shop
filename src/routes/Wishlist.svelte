@@ -1,5 +1,6 @@
 <script>
     import {addToCart, removeItemFromWish} from '../main';
+    import categories from '../categories';
 
     $: wishlist = JSON.parse(localStorage.getItem("wishlist")) ? JSON.parse(localStorage.getItem("wishlist")) : [];
 	function IsCartChanged(){
@@ -39,7 +40,7 @@
             {/if}
             {#each wishlist as wish, i}
                 <tr class="wish-item">
-                    <td><a href="#/">{wish.title + ' ' + wish.version}</a></td>
+                    <td><a href="#/obchod/{categories[wish.category].title.toLowerCase().split(' ').join('_')}/{(wish.title + ' ' + wish.version).toLowerCase().split(' ').join('_')}">{wish.title + ' ' + wish.version}</a></td>
                     <td class="price">
                         <span class="price-num">
                             {#if wish.discount_bollean}
@@ -182,5 +183,34 @@
         box-shadow: 0 0 15px -6px rgba(0, 0, 0, 0.41);
         transition: .5s;
         color: var(--primary-color);
+    }
+    @media only screen and (max-width: 750px){
+        .title-container{
+            margin-top: 80px;
+        }
+        table{
+            font-size: .8em;
+        }
+        td:nth-child(1){
+        width: 50%;
+        }
+        td:nth-child(2){
+            width: 50%;
+        }
+    }
+    @media only screen and (max-width: 500px){
+        .icons{
+            opacity: 1;
+            font-size: .3em;
+        }
+    }
+    @media only screen and (max-width: 400px){
+        table{
+            font-size: .7em;
+        }
+        td, th {
+            padding: 6px;
+            padding-left: 10px;
+        }
     }
 </style>

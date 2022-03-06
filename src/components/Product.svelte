@@ -201,4 +201,106 @@
     .new-price{
         color: var(--blue-font-color);
     }
+    @media only screen and (max-width: 1380px){
+        .products{
+            justify-content: start;
+            padding: 40px 0;
+        }
+        .product{
+            width: 250px;
+            height: 310px;
+            margin: 30px 10px 30px 0;
+        }
+        .image-box{
+            width: 100%;
+            height: 250px;
+        }
+        .links{
+            width: 120px;
+            left: 65px;
+        }
+        .link{
+            font-size: .9em;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+        }
+        .description .arrow{
+            bottom: -8px;
+        }
+    }
+    @media only screen and (max-width: 900px){
+        .product{
+            font-size: .8em;
+            width: 200px;
+            height: 260px;
+            margin: 30px 10px 30px 0;
+        }
+        .image-box{
+            width: 100%;
+            height: 200px;
+        }
+        .links{
+            width: 70px;
+            left: 65px;
+        }
+        .link{
+            font-size: .8em;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .description .arrow{
+            bottom: -6px;
+        }
+        .show-details{
+            display: none;
+        }
+        .links{
+            opacity: 1;
+            bottom: 10px;
+        }
+        .link{
+            box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.25);
+        }
+    }
+    @media only screen and (max-width: 522px){
+        .products{
+            justify-content: space-between;
+        }
+        .product{
+            margin: 30px 0 30px 0;
+        }
+        .product:hover .links{
+            bottom: 10px;
+        }
+        .image-box-background{
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 450px){
+        .products{
+            font-size: .8em;
+        }
+        .product{
+            margin: 30px 0 30px 0;
+            width: 48%;
+            height: calc((100vw - 40px)*0.48 + 50px);
+        }
+        .image-box{
+            width: 100%;
+            height: calc((100vw - 40px)*0.48);
+            position: relative;
+            box-shadow: -1px 1px 60px -53px rgba(0, 0, 0, 0.65);
+            user-select: none;
+        }
+        .sale-box{
+            width: 32px;
+            line-height: 14px;
+            height: 14px;
+        }
+        .links{
+            left: calc(((100vw - 50px)*0.48 - 70px)/2);
+        }
+    }
 </style>

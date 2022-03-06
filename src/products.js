@@ -65,7 +65,7 @@ export default [{
                 hex: '#fff'
             }
         ],
-        description_title: 'Ultra smartphone pre ultra zážitky',
+        description_title: 'Ultra smartfón pre ultra zážitky',
         description: 'smartfón • 6,8" uhlopriečka • displej Dynamic AMOLED 2X • 3200 × 1440 Quad HD+ (515 PPI) • procesor Exynos 2100 (8-jadrový) • pamäť RAM 12 GB • interná pamäť 128 GB • zadný fotoaparát so 4 objektívmi: 108 (f/1,8) + 12 (f/2,2) + 10 (f/2,4) + 10 (f/4,9) Mpx • predný fotoaparát 40 Mpx (f/2,2) • snímač odtlačku prstov • Bluetooth • NFC • 5G • GPS • Wi-Fi • USB-C • OTG • kapacita batérie 5 000 mAh • bezdrôtové nabíjanie (15 W) • rýchlonabíjanie (25 W)',
         short_description: 'Zoznámte sa s telefónom, ktorý prináša revolúciu hneď v niekoľkých aspektoch. Samsung Galaxy S21 Ultra 5G v sebe spája pokročilé mobilné technológie vrátane úžasne pevného skla na brilantnom displeji, jedinečného spracovania zadného fotoaparátu a možnosti tvorby videí v 8K rozlíšení.',
         image_urls: ['https://www.datart.sk/foto/500/1/0/9/product_4438901.jpg', 'https://www.datart.sk/foto/ilustrace/250/3/0/9/product_4438903.jpg', 'https://www.datart.sk/foto/ilustrace/250/5/0/9/product_4438905.jpg', 'https://www.datart.sk/foto/ilustrace/250/7/0/9/product_4438907.jpg', 'https://www.datart.sk/foto/ilustrace/250/2/7/9/product_4438972.jpg'],

@@ -768,6 +768,15 @@ input[type=submit]:hover {
     .hamburger {
         display: block;
     }
+    .info-card {
+        bottom: 15px;
+        width: 250px;
+        font-size: .8em;
+        padding: 15px 15px 15px 10px;
+    }
+    .info-card.active {
+        left: 15px;
+    }
 }
 
 @media only screen and (max-width: 602px) {
@@ -805,7 +814,7 @@ input[type=submit]:hover {
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 520px) {
     .nav-bar {
         font-size: 1em;
     }

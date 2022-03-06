@@ -14,10 +14,13 @@
         }
     }
 
+    let width = window.innerWidth;
+
 	function IsCartChanged(){
 		cart_list = JSON.parse(localStorage.getItem("cart")) ? JSON.parse(localStorage.getItem("cart")) : [];
 		totalSum = JSON.parse(localStorage.getItem("totalSum")) ? JSON.parse(localStorage.getItem("totalSum")) : 0;
-        calculateNumOfItems()
+        calculateNumOfItems();
+        width = window.innerWidth;
 		setTimeout(() => {
 			IsCartChanged();
 		}, 100);
@@ -48,82 +51,144 @@
             <div class="blue-line"></div>
             <div class="line"></div>
         </div>
-        <table>
-            {#if cart_list.length > 0}
-                <tr>
-                    <th>Produkt</th>
-                    <th>Farba</th>
-                    <th>Cena <span class="per-piece">za ks</span></th>
-                    <th>Množstvo</th>
-                    <th>Cena</th>
-                </tr>
-            {/if}
-            {#each cart_list as cart, i}
-                <tr class="cart-item">
-                    <td><a href="#/obchod/{categories[cart[0].category].title.toLowerCase().split(' ').join('_')}/{(cart[0].title + ' ' + cart[0].version).toLowerCase().split(' ').join('_')}">{cart[0].title + ' ' + cart[0].version}</a></td>
-                    <td>{cart[1].title}</td>
-                    <td class="price">
-                        <span class="price-num">
-                            {#if cart[0].discount_bollean}
-                                <b class="old-price">{cart[0].price.toString().split('.').join(',')} €</b>
-                                {cart[0].discount_price.toString().split('.').join(',')} €
-                            {:else}
-                                {cart[0].price.toString().split('.').join(',')} €
-                            {/if}
-                        </span>
-                    </td>
-                    <td class="counter">
-                        {cart[2]}
-                        <div class="counter-arrows">
-                            <div on:click={() => changeNumOfItems(i, cart[2] + 1)}><i class="fas fa-chevron-up"></i></div>
-                            <div on:click={() => changeNumOfItems(i, cart[2] - 1)}><i class="fas fa-chevron-down"></i></div>
-                        </div>
-                    </td>
-                    <td class="price">
-                        <span class="price-num">
-                            {#if cart[0].discount_bollean}
-                                {(cart[0].discount_price*cart[2]).toFixed(2).toString().split('.').join(',')} €
-                            {:else}
-                                {(cart[0].price*cart[2]).toFixed(2).toString().split('.').join(',')} €
-                            {/if}
-                        </span>
-                        <span class="icons">
-                            <span class="remove-from-cart icon">
-                                <i class="fas fa-trash" on:click="{() => removeItemFromCart(i)}"></i>
+        {#if width > 630}
+            <table>
+                {#if cart_list.length > 0}
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Farba</th>
+                        <th>Cena <span class="per-piece">za ks</span></th>
+                        <th>Množstvo</th>
+                        <th>Cena</th>
+                    </tr>
+                {/if}
+                {#each cart_list as cart, i}
+                    <tr class="cart-item">
+                        <td><a href="#/obchod/{categories[cart[0].category].title.toLowerCase().split(' ').join('_')}/{(cart[0].title + ' ' + cart[0].version).toLowerCase().split(' ').join('_')}">{cart[0].title + ' ' + cart[0].version}</a></td>
+                        <td>{cart[1].title}</td>
+                        <td class="price">
+                            <span class="price-num">
+                                {#if cart[0].discount_bollean}
+                                    <b class="old-price">{cart[0].price.toString().split('.').join(',')} €</b>
+                                    {cart[0].discount_price.toString().split('.').join(',')} €
+                                {:else}
+                                    {cart[0].price.toString().split('.').join(',')} €
+                                {/if}
                             </span>
-                        </span>
-                    </td>
-                </tr>
-            {:else}
-                Tvoj košík je prázdny
-                <a href="#/obchod" class="button-a">
-                    Prezerať obchod
-                </a>
-            {/each}
-            {#if cart_list.length > 0}
-                <tr class="subtotal">
-                    <td>Medisúčet</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>{num_of_items}</td>
-                    <td>{totalSum.toFixed(2).toString().split('.').join(',')} €</td>
-                </tr>
-                <tr>
-                    <td>Doprava</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>{shipping.toFixed(2).toString().split('.').join(',')} €</td>
-                </tr>
-                <tr class="total">
-                    <td>Spolu</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>{num_of_items}</td>
-                    <td>{(totalSum + shipping).toFixed(2).toString().split('.').join(',')} €</td>
-                </tr>
-            {/if}
-        </table>
+                        </td>
+                        <td class="counter">
+                            {cart[2]}
+                            <div class="counter-arrows">
+                                <div on:click={() => changeNumOfItems(i, cart[2] + 1)}><i class="fas fa-chevron-up"></i></div>
+                                <div on:click={() => changeNumOfItems(i, cart[2] - 1)}><i class="fas fa-chevron-down"></i></div>
+                            </div>
+                        </td>
+                        <td class="price">
+                            <span class="price-num">
+                                {#if cart[0].discount_bollean}
+                                    {(cart[0].discount_price*cart[2]).toFixed(2).toString().split('.').join(',')} €
+                                {:else}
+                                    {(cart[0].price*cart[2]).toFixed(2).toString().split('.').join(',')} €
+                                {/if}
+                            </span>
+                            <span class="icons">
+                                <span class="remove-from-cart icon">
+                                    <i class="fas fa-trash" on:click="{() => removeItemFromCart(i)}"></i>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                {:else}
+                    Tvoj košík je prázdny
+                    <a href="#/obchod" class="button-a">
+                        Prezerať obchod
+                    </a>
+                {/each}
+                {#if cart_list.length > 0}
+                    <tr class="subtotal">
+                        <td>Medisúčet</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>{num_of_items}</td>
+                        <td>{totalSum.toFixed(2).toString().split('.').join(',')} €</td>
+                    </tr>
+                    <tr>
+                        <td>Doprava</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>{shipping.toFixed(2).toString().split('.').join(',')} €</td>
+                    </tr>
+                    <tr class="total">
+                        <td>Spolu</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>{num_of_items}</td>
+                        <td>{(totalSum + shipping).toFixed(2).toString().split('.').join(',')} €</td>
+                    </tr>
+                {/if}
+            </table>
+        {:else}
+            <table>
+                {#if cart_list.length > 0}
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Cena</th>
+                    </tr>
+                {/if}
+                {#each cart_list as cart, i}
+                    <tr class="cart-item">
+                        <td>
+                            <a href="#/obchod/{categories[cart[0].category].title.toLowerCase().split(' ').join('_')}/{(cart[0].title + ' ' + cart[0].version).toLowerCase().split(' ').join('_')}">{cart[0].title + ' ' + cart[0].version}</a>
+                            <div class="color">{cart[1].title}</div>
+                        </td>
+                        <td class="price">
+                            <span class="price-num counter">
+                                <div class="counter-arrows">
+                                    <div on:click={() => changeNumOfItems(i, cart[2] + 1)}><i class="fas fa-chevron-up"></i></div>
+                                    <div on:click={() => changeNumOfItems(i, cart[2] - 1)}><i class="fas fa-chevron-down"></i></div>
+                                </div> 
+                                {cart[2]}x
+                                {#if cart[0].discount_bollean}
+                                    {cart[0].discount_price.toString().split('.').join(',')} €
+                                    {#if width > 400}
+                                        <b class="old-price">{cart[0].price.toString().split('.').join(',')} €</b>
+                                    {/if}
+                                {:else}
+                                    {cart[0].price.toString().split('.').join(',')} €
+                                {/if}
+                                <span class="icons">
+                                    <span class="remove-from-cart icon">
+                                        <i class="fas fa-trash" on:click="{() => removeItemFromCart(i)}"></i>
+                                    </span>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                {:else}
+                    Tvoj košík je prázdny
+                    <a href="#/obchod" class="button-a">
+                        Prezerať obchod
+                    </a>
+                {/each}
+                {#if cart_list.length > 0}
+                    <tr class="subtotal">
+                        <td>Medisúčet</td>
+                        <td>
+                            {totalSum.toFixed(2).toString().split('.').join(',')} €
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Doprava</td>
+                        <td>{shipping.toFixed(2).toString().split('.').join(',')} €</td>
+                    </tr>
+                    <tr class="total">
+                        <td>Spolu</td>
+                        <td>{(totalSum + shipping).toFixed(2).toString().split('.').join(',')} €</td>
+                    </tr>
+                {/if}
+            </table>
+        {/if}
         {#if cart_list.length > 0}
             <div class="button-container">
                 <a href="#/login" class="button-a b-login">
@@ -309,5 +374,79 @@
     }
     .b-login{
         width: 350px;
+    }
+    @media only screen and (max-width: 1000px){
+        table{
+            font-size: .8em;
+        }
+    }
+    @media only screen and (max-width: 840px){
+        td, th {
+            padding-left: 10px;
+        }
+        td:nth-child(1){
+            width: 30%;
+        }
+        td:nth-child(2){
+            width: 15%;
+        }
+        td:nth-child(3){
+            width: 20%;
+        }
+        td:nth-child(4){
+            width: 15%;
+        }
+        td:nth-child(5){
+            width: 20%;
+        }
+        .color{
+            color: #7e7e7e;
+            font-weight: 500;
+        }
+    }
+    @media only screen and (max-width: 750px){
+        .title{
+            margin-top: 80px;
+        }
+    }
+    @media only screen and (max-width: 630px){
+        .counter{
+            display: block;
+            width: 100%;
+        }
+        .counter-arrows{
+            opacity: 1;
+            right: 2px;
+        }
+        .icons{
+            opacity: 1;
+        }
+        td:nth-child(1){
+            width: 50%;
+        }
+        td:nth-child(2){
+            width: 50%;
+        }
+    }
+    @media only screen and (max-width: 500px){
+        .title{
+            font-size: 1.5em;
+        }
+        .nav{
+            padding: 0 10px;
+            font-size: 1em;
+            line-height: 1.5em;
+            margin-top: 20px;
+        }
+        .b-login{
+            width: 240px;
+            font-size: .8em;
+            line-height: 40px;
+        }
+    }
+    @media only screen and (max-width: 400px){
+        .button-container{
+            padding-left: 20px;
+        }
     }
 </style>

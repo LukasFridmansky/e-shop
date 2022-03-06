@@ -97,7 +97,7 @@
 	<nav class="{scroll_position > 150 ? 'scrolled' : ''}">
 		<div class="container navigation">
 			<div class="logo">
-				<a href="./">
+				<a href="./#">
 					<i class="fas fa-bolt"></i>
 					Electro<span class="x-blue">X</span>
 				</a>

@@ -102,4 +102,25 @@
         border: 1px solid var(--blue-font-color);
         transition: .5s;
     }
+    @media only screen and (max-width: 750px){
+        .title{
+            margin-top: 80px;
+        }
+        select{
+            margin-top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    @media only screen and (max-width: 520px){
+        .title{
+            font-size: 1.5em;
+        }
+        .nav{
+            padding: 0 10px;
+            font-size: 1em;
+            line-height: 1.5em;
+            margin-top: 20px;
+        }
+    }
 </style>

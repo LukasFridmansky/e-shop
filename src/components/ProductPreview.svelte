@@ -341,4 +341,9 @@
         color: var(--primary-color);
         transition: .5s;
     }
+    @media only screen and (max-width: 900px){
+        .container-preview{
+            display: none;
+        }
+    }
 </style>

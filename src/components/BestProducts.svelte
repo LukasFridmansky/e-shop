@@ -135,5 +135,60 @@
         height: 240px;
         width: auto;
     }
-        
+    @media only screen and (max-width: 1100px){
+        .best-product {
+            height: 200px;
+            font-size: .8em;
+        }
+        .information-card {
+            height: 150px;
+            margin-top: 25px;
+        }
+        .btn-price {
+            width: 200px;
+        }
+        .shop-btn {
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .price {
+            font-size: 1em;
+        }
+        .right-image img {
+            height: 180px;
+        }
+    }
+    @media only screen and (max-width: 900px){
+        .best-product {
+            width: 500px;
+        }
+    }
+    @media only screen and (max-width: 410px){
+        .best-product {
+            height: 160px;
+            width: 100%;
+            font-size: .8em;
+        }
+        .information-card {
+            height: 100px;
+            margin-top: 30px;
+            font-size: .6em;
+        }
+        .btn-price {
+            width: 150px;
+        }
+        .shop-btn {
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .price {
+            font-size: 1em;
+            line-height: 30px;
+        }
+        .right-image img {
+            height: 120px;
+        }
+    }
 </style>

@@ -126,7 +126,7 @@
             padding: 0;
         }
     }
-    @media only screen and (max-width: 1280px) {
+    @media only screen and (max-width: 1320px) {
         .sale-card{
             margin: 10px;
         }

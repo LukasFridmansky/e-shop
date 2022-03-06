@@ -75,7 +75,8 @@
 	}
 	.cart-container{
 		width: 320px;
-		height: 100%;
+		min-height: 100vh;
+		max-height: 100vh;
 		background: var(--secondary-color);
 		position: absolute;
 		top: 0;
@@ -174,4 +175,9 @@
 		color: var(--secondary-color);
 		transition: .5s;
 	}
+	@media only screen and (max-width: 1000px){
+		.trash{
+			opacity: 1;
+		}
+		}
 </style>

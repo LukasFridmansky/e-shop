@@ -49,6 +49,17 @@
     .back-to-top i {
         color: var(--primary-color);
     }
+    @media only screen and (max-width: 750px){
+        .back-to-top {
+            bottom: 15px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            font-size: 1em;
+            z-index: 100;
+        }
+    }
 </style>
 
 <svelte:window on:scroll={handleOnScroll} />

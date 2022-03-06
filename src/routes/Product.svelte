@@ -51,7 +51,7 @@
         <div class="product-container">
             <div class="left-container">
                 <div class="product-images">
-                    <img src="{product[0].image_urls[img]}" alt="">
+                    <img src="{product[0].image_urls[img]}" alt="{product[0].title + ' ' + product[0].version}">
                     {#if product[0].discount_bollean}
                         <div class="sale-box">Zľava</div>
                     {/if}
@@ -75,40 +75,58 @@
                     {/if}
                 </div>
                 <div class="short-description">{product[0].short_description}</div>
-                <div class="producer product-info">Výrobca: <b>{product[0].producer}</b></div>
-                <div class="availability product-info">Dostupnosť: <b>{product[0].availability}</b></div>
-                <div class="category product-info">Typ produktu: <b>{category[0].title}</b></div>
-                <div class="color-title product-info"><b>Farba:</b></div>
-                <div class="color">
-                    <form>
-                        {#each product[0].colors as color}
-                            <label style="--radio-color: {color.hex}">
-                                <div class="description">{color.title}<i class="fas fa-caret-down arrow"></i></div>
-                                <input type="radio" name="color" bind:group={selected_color} value="{color}">
-                                <span class="design"></span>
-                            </label>
-                        {/each}
-                    </form>
-                </div>
-                <div class="info-links">
-                    <div class="shipping link"><a href="#/shipping"><i class="fas fa-truck"></i> Doprava</a></div>
-                    <div class="question link"><a href="#/kontakt"><i class="fas fa-envelope"></i> Opýtajte sa k tomuto produktu</a></div>
-                </div>
-                <div class="add-to-card-counter">
-                    <div class="counter">
-                        {count}
-                        <div class="counter-arrows">
-                            <div on:click={() => count < 10 ? count += 1 : count}><i class="fas fa-chevron-up"></i></div>
-                            <div on:click={() => count > 1 ? count -= 1 : count}><i class="fas fa-chevron-down"></i></div>
+                <div class="wrapper">
+                    <div>
+                        <div class="producer product-info">Výrobca: <b>{product[0].producer}</b></div>
+                        <div class="availability product-info">Dostupnosť: <b>{product[0].availability}</b></div>
+                        <div class="category product-info">Typ produktu: <b>{category[0].title}</b></div>
+                        <div class="color-title product-info"><b>Farba:</b></div>
+                        <div class="color">
+                            <form>
+                                {#each product[0].colors as color}
+                                    <label style="--radio-color: {color.hex}">
+                                        <div class="description">{color.title}<i class="fas fa-caret-down arrow"></i></div>
+                                        <input type="radio" name="color" bind:group={selected_color} value="{color}">
+                                        <span class="design"></span>
+                                    </label>
+                                {/each}
+                            </form>
                         </div>
                     </div>
-                    <div class="add-to-card" on:click="{addToCart(product[0], selected_color, count)}">
-                        <i class="fas fa-cart-plus"></i> Pridať do košíka
+                    <div>
+                        <div class="info-links">
+                            <div class="shipping link"><a href="#/shipping"><i class="fas fa-truck"></i> Doprava</a></div>
+                            <div class="question link"><a href="#/kontakt"><i class="fas fa-envelope"></i> Opýtajte sa k tomuto produktu</a></div>
+                        </div>
+                        <div class="add-to-card-counter">
+                            <div class="counter">
+                                {count}
+                                <div class="counter-arrows">
+                                    <div on:click={() => count < 10 ? count += 1 : count}><i class="fas fa-chevron-up"></i></div>
+                                    <div on:click={() => count > 1 ? count -= 1 : count}><i class="fas fa-chevron-down"></i></div>
+                                </div>
+                            </div>
+                            <div class="add-to-card" on:click="{addToCart(product[0], selected_color, count)}">
+                                <i class="fas fa-cart-plus"></i> Pridať do košíka
+                            </div>
+                        </div>
+                        <div class="add-to-wishlist" on:click="{() => addToWishlist(product[0])}">
+                            <i class="fas fa-heart"></i> Pridať do wishlistu
+                        </div>
                     </div>
                 </div>
-                <div class="add-to-wishlist" on:click="{() => addToWishlist(product[0])}">
-                    <i class="fas fa-heart"></i> Pridať do wishlistu
-                </div>
+            </div>
+        </div>
+        <div class="description-of-product">
+            <div class="title-description">
+                {product[0].description_title}
+            </div>
+            <div class="lines">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="full-description">
+                {product[0].description}
             </div>
         </div>
     </div>
@@ -406,5 +424,167 @@
     .add-to-wishlist:hover i{
         color: var(--blue-font-color);
         transition: .5s;
+    }
+    .description-of-product{
+        padding: 100px 0;
+    }
+    .title-description{
+        font-size: 2em;
+        font-weight: 600;
+        padding-bottom: 10px;
+    }
+    .lines {
+        display: flex;
+    }
+
+    .line:first-child {
+        width: 10%;
+        height: 1px;
+        background-color: var(--blue-font-color);
+    }
+
+    .line:last-child {
+        width: 90%;
+        height: 1px;
+        background-color: var(--grey-font-color);
+    }
+    .full-description{
+        padding-top: 20px;
+        width: 80%;
+        font-size: 1.1em;
+        font-weight: 400;
+        line-height: 1.7em;
+    }
+    @media only screen and (max-width: 1150px){
+        .left-container{
+            width: 40%;
+        }
+        .product-images{
+            width: 100%;
+            height: calc((100vw - 100px)*0.4);
+        }
+    }
+    @media only screen and (max-width: 1000px){
+        .product-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .left-container{
+            width: 50%;
+        }
+        .product-information{
+            width: 100%;
+            padding: 0 50px;
+            margin: 0;
+            margin-top: 50px;
+        }
+        
+        .description-of-product{
+            padding: 80px 50px;
+        }
+        .full-description{
+            width: 100%;
+        }
+        .product-images{
+            width: 100%;
+            height: calc((100vw - 100px)*0.5);
+        }
+        .wrapper{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    @media only screen and (max-width: 800px){
+        .product-information{
+            width: 100%;
+            padding: 0 30px;
+            font-size: .8em;
+        }
+        
+        .description-of-product{
+            padding: 80px 30px;
+            font-size: .8em;
+        }
+        .short-description{
+            width: 100%;
+        }
+        .counter-arrows{
+            opacity: 1;
+        }
+    }
+    @media only screen and (max-width: 750px){
+        .title{
+            margin-top: 80px;
+        }
+    }
+    @media only screen and (max-width: 670px){
+        .left-container{
+            width: 80%;
+        }
+        .product-images{
+            width: 100%;
+            height: calc((100vw - 100px)*0.8);
+        }
+        .product-information{
+            padding: 0 20px;
+        }
+        .wrapper{
+            display: block;
+        }
+        .description-of-product{
+            padding: 80px 20px;
+        }
+    }
+    @media only screen and (max-width: 520px){
+        .title{
+            font-size: 1.5em;
+        }
+        .nav{
+            padding: 0 10px;
+            font-size: 1em;
+            line-height: 1.5em;
+            margin-top: 20px;
+        }
+        .left-container{
+            width: 80%;
+        }
+        .product-images{
+            width: 100%;
+            height: calc((100vw - 40px)*0.8);
+        }
+        .info-links{
+            display: block;
+        }
+        .link{
+            line-height: 1.6em;
+        }
+        .add-to-card-counter{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .counter{
+            width: 100px;
+            height: 40px;
+            font-size: 1.2em;
+            line-height: 40px;
+            margin-bottom: 15px;
+        }
+        .add-to-card{
+            width: 140px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .arrows{
+            width: 70px;
+            height: 30px;
+        }
+        .arrows i{
+            font-size: .8em;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+        }
     }
 </style>
