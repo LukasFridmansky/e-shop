@@ -30,6 +30,7 @@
         position: relative;
     }
     .error-container{
+        width: 100%;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -37,19 +38,22 @@
     }
     .flex-container{
         display: flex;
+        justify-content: center;
     }
     .code{
         color: var(--blue-font-color);
         border-right: 3px solid;
-        font-size: 55px;
-        padding: 0 10px 0 10px;
+        font-size: 3.5em;
+        padding: 0 10px;
+        line-height: 60px;
         text-align: center;
     }
     .message{
         color: var(--blue-font-color);
-        font-size: 40px;
+        font-size: 3em;
+        line-height: 60px;
         text-align: center;
-        padding: 10px;
+        padding: 0 10px;
     }
     .button{
 		background: var(--blue-font-color);
@@ -79,4 +83,18 @@
 		color: var(--secondary-color);
 		transition: .5s;
 	}
+    @media only screen and (max-width: 600px){
+        .flex-container{
+            font-size: .7em;
+        }
+        .button-a{
+            width: 200px;
+            font-size: .8em;
+        }
+    }
+    @media only screen and (max-width: 410px){
+        .flex-container{
+            font-size: .5em;
+        }
+    }
 </style>

@@ -36,9 +36,9 @@
     padding: 0;
     box-sizing: border-box;
     color: var(--font-color);
-    transition: color .5s;
-    transition: background .5s;
+    transition: .5s;
     font-family: 'Roboto', sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 html {

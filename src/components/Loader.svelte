@@ -153,4 +153,12 @@
             height: 20px;
         }
     }
+    @media only screen and (max-width: 600px){
+        .logo-conatiner{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            user-select: none;
+        }
+    }
 </style>
