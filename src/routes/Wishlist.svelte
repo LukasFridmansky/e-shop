@@ -201,7 +201,7 @@
     @media only screen and (max-width: 500px){
         .icons{
             opacity: 1;
-            font-size: .3em;
+            font-size: .9em;
         }
     }
     @media only screen and (max-width: 400px){

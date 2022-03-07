@@ -571,6 +571,9 @@
             line-height: 40px;
             margin-bottom: 15px;
         }
+        .counter-arrows{
+            font-size: 1em;
+        }
         .add-to-card{
             width: 140px;
             height: 40px;

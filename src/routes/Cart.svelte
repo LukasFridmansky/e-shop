@@ -416,10 +416,12 @@
         }
         .counter-arrows{
             opacity: 1;
+            font-size: 1em;
             right: 2px;
         }
         .icons{
             opacity: 1;
+            font-size: 1em;
         }
         td:nth-child(1){
             width: 50%;

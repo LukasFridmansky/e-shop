@@ -8,6 +8,10 @@
     
 </script>
 
+<svelte:head>
+    <title>Domov</title>
+</svelte:head>
+
 <main>
     <div class="slider">
         <div class="container slider-con">

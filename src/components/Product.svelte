@@ -250,6 +250,9 @@
             height: 30px;
             line-height: 30px;
         }
+        .links .description{
+            font-size: 1em;
+        }
         .description .arrow{
             bottom: -6px;
         }
