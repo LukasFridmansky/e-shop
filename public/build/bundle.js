@@ -3169,7 +3169,7 @@ var app = (function (exports) {
     	let a_href_value;
     	let mounted;
     	let dispose;
-    	let if_block0 = /*product*/ ctx[2].discount_bollean && create_if_block_2$3(ctx);
+    	let if_block0 = /*product*/ ctx[2].discount_bollean && create_if_block_2$4(ctx);
 
     	function select_block_type(ctx, dirty) {
     		if (/*product*/ ctx[2].discount_bollean) return create_if_block_1$7;
@@ -3409,7 +3409,7 @@ var app = (function (exports) {
 
     			if (/*product*/ ctx[2].discount_bollean) {
     				if (if_block0) ; else {
-    					if_block0 = create_if_block_2$3(ctx);
+    					if_block0 = create_if_block_2$4(ctx);
     					if_block0.c();
     					if_block0.m(div2, null);
     				}
@@ -3487,7 +3487,7 @@ var app = (function (exports) {
     }
 
     // (33:24) {#if product.discount_bollean}
-    function create_if_block_2$3(ctx) {
+    function create_if_block_2$4(ctx) {
     	let div;
 
     	const block = {
@@ -3507,7 +3507,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$3.name,
+    		id: create_if_block_2$4.name,
     		type: "if",
     		source: "(33:24) {#if product.discount_bollean}",
     		ctx
@@ -5192,7 +5192,7 @@ var app = (function (exports) {
     }
 
     // (55:20) {#if product[0].discount_bollean}
-    function create_if_block_2$2(ctx) {
+    function create_if_block_2$3(ctx) {
     	let div;
 
     	const block = {
@@ -5212,7 +5212,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$2.name,
+    		id: create_if_block_2$3.name,
     		type: "if",
     		source: "(55:20) {#if product[0].discount_bollean}",
     		ctx
@@ -5553,7 +5553,7 @@ var app = (function (exports) {
     	let mounted;
     	let dispose;
     	document.title = title_value = /*product*/ ctx[5][0].title + ' ' + /*product*/ ctx[5][0].version;
-    	let if_block0 = /*product*/ ctx[5][0].discount_bollean && create_if_block_2$2(ctx);
+    	let if_block0 = /*product*/ ctx[5][0].discount_bollean && create_if_block_2$3(ctx);
     	let if_block1 = /*product*/ ctx[5][0].image_urls.length > 1 && create_if_block_1$5(ctx);
 
     	function select_block_type(ctx, dirty) {
@@ -6849,7 +6849,7 @@ var app = (function (exports) {
     		each_1_else = create_else_block_2(ctx);
     	}
 
-    	let if_block1 = /*cart_list*/ ctx[1].length > 0 && create_if_block_2$1(ctx);
+    	let if_block1 = /*cart_list*/ ctx[1].length > 0 && create_if_block_2$2(ctx);
 
     	const block = {
     		c: function create() {
@@ -6937,7 +6937,7 @@ var app = (function (exports) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block_2$1(ctx);
+    					if_block1 = create_if_block_2$2(ctx);
     					if_block1.c();
     					if_block1.m(table, null);
     				}
@@ -7706,7 +7706,7 @@ var app = (function (exports) {
     }
 
     // (88:32) {#if cart[0].discount_bollean}
-    function create_if_block_3(ctx) {
+    function create_if_block_3$1(ctx) {
     	let t0_value = (/*cart*/ ctx[14][0].discount_price * /*cart*/ ctx[14][2]).toFixed(2).toString().split('.').join(',') + "";
     	let t0;
     	let t1;
@@ -7731,7 +7731,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3.name,
+    		id: create_if_block_3$1.name,
     		type: "if",
     		source: "(88:32) {#if cart[0].discount_bollean}",
     		ctx
@@ -7793,7 +7793,7 @@ var app = (function (exports) {
     	}
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*cart*/ ctx[14][0].discount_bollean) return create_if_block_3;
+    		if (/*cart*/ ctx[14][0].discount_bollean) return create_if_block_3$1;
     		return create_else_block$4;
     	}
 
@@ -7966,7 +7966,7 @@ var app = (function (exports) {
     }
 
     // (107:16) {#if cart_list.length > 0}
-    function create_if_block_2$1(ctx) {
+    function create_if_block_2$2(ctx) {
     	let tr0;
     	let td0;
     	let t1;
@@ -8153,7 +8153,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$1.name,
+    		id: create_if_block_2$2.name,
     		type: "if",
     		source: "(107:16) {#if cart_list.length > 0}",
     		ctx
@@ -9102,14 +9102,14 @@ var app = (function (exports) {
     }
 
     // (59:16) {#if searched_items_categories.length != 0}
-    function create_if_block_1$2(ctx) {
+    function create_if_block_2$1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			div.textContent = "Kategórie";
-    			attr_dev(div, "class", "results-title svelte-1qqqwqi");
+    			attr_dev(div, "class", "results-title svelte-8sqe7w");
     			add_location(div, file$5, 59, 20, 2088);
     		},
     		m: function mount(target, anchor) {
@@ -9122,7 +9122,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$2.name,
+    		id: create_if_block_2$1.name,
     		type: "if",
     		source: "(59:16) {#if searched_items_categories.length != 0}",
     		ctx
@@ -9150,14 +9150,14 @@ var app = (function (exports) {
     			t0 = space();
     			div1 = element("div");
     			t1 = text(t1_value);
-    			attr_dev(i, "class", "fas fa-folder-open svelte-1qqqwqi");
+    			attr_dev(i, "class", "fas fa-folder-open svelte-8sqe7w");
     			add_location(i, file$5, 65, 51, 2427);
-    			attr_dev(div0, "class", "category-icon svelte-1qqqwqi");
+    			attr_dev(div0, "class", "category-icon svelte-8sqe7w");
     			add_location(div0, file$5, 65, 24, 2400);
-    			attr_dev(div1, "class", "result-title svelte-1qqqwqi");
+    			attr_dev(div1, "class", "result-title svelte-8sqe7w");
     			add_location(div1, file$5, 66, 24, 2493);
     			attr_dev(a, "href", a_href_value = "#/obchod/" + /*category*/ ctx[9].title.toLowerCase().split(' ').join('_'));
-    			attr_dev(a, "class", "category svelte-1qqqwqi");
+    			attr_dev(a, "class", "category svelte-8sqe7w");
     			add_location(a, file$5, 64, 20, 2286);
     		},
     		m: function mount(target, anchor) {
@@ -9192,14 +9192,14 @@ var app = (function (exports) {
     }
 
     // (72:16) {#if searched_items_products.length != 0}
-    function create_if_block$3(ctx) {
+    function create_if_block_1$2(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			div.textContent = "Produkty";
-    			attr_dev(div, "class", "results-title svelte-1qqqwqi");
+    			attr_dev(div, "class", "results-title svelte-8sqe7w");
     			add_location(div, file$5, 72, 20, 2729);
     		},
     		m: function mount(target, anchor) {
@@ -9212,7 +9212,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$3.name,
+    		id: create_if_block_1$2.name,
     		type: "if",
     		source: "(72:16) {#if searched_items_products.length != 0}",
     		ctx
@@ -9232,7 +9232,6 @@ var app = (function (exports) {
     	let div1;
     	let t1_value = /*product*/ ctx[6].title + ' ' + /*product*/ ctx[6].version + "";
     	let t1;
-    	let t2;
     	let a_href_value;
 
     	const block = {
@@ -9243,17 +9242,16 @@ var app = (function (exports) {
     			t0 = space();
     			div1 = element("div");
     			t1 = text(t1_value);
-    			t2 = space();
     			if (!src_url_equal(img.src, img_src_value = /*product*/ ctx[6].image_urls[0])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*product*/ ctx[6].title + ' ' + /*product*/ ctx[6].version);
-    			attr_dev(img, "class", "svelte-1qqqwqi");
+    			attr_dev(img, "class", "svelte-8sqe7w");
     			add_location(img, file$5, 79, 28, 3188);
-    			attr_dev(div0, "class", "product-img svelte-1qqqwqi");
+    			attr_dev(div0, "class", "product-img svelte-8sqe7w");
     			add_location(div0, file$5, 78, 24, 3133);
-    			attr_dev(div1, "class", "result-title svelte-1qqqwqi");
+    			attr_dev(div1, "class", "result-title svelte-8sqe7w");
     			add_location(div1, file$5, 81, 24, 3327);
     			attr_dev(a, "href", a_href_value = "#/obchod/" + categories[/*product*/ ctx[6].category].title.toLowerCase().split(' ').join('_') + "/" + (/*product*/ ctx[6].title + ' ' + /*product*/ ctx[6].version).toLowerCase().split(' ').join('_'));
-    			attr_dev(a, "class", "product svelte-1qqqwqi");
+    			attr_dev(a, "class", "product svelte-8sqe7w");
     			add_location(a, file$5, 77, 20, 2923);
     		},
     		m: function mount(target, anchor) {
@@ -9263,7 +9261,6 @@ var app = (function (exports) {
     			append_dev(a, t0);
     			append_dev(a, div1);
     			append_dev(div1, t1);
-    			append_dev(a, t2);
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*searched_items_products*/ 4 && !src_url_equal(img.src, img_src_value = /*product*/ ctx[6].image_urls[0])) {
@@ -9296,6 +9293,36 @@ var app = (function (exports) {
     	return block;
     }
 
+    // (87:16) {#if searched_items_categories.length == 0 && searched_items_products == 0}
+    function create_if_block$3(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "Neboli najdené žiadne výsledky";
+    			attr_dev(div, "class", "nothing-title svelte-8sqe7w");
+    			add_location(div, file$5, 87, 20, 3620);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$3.name,
+    		type: "if",
+    		source: "(87:16) {#if searched_items_categories.length == 0 && searched_items_products == 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$5(ctx) {
     	let title_value;
     	let t0;
@@ -9314,8 +9341,9 @@ var app = (function (exports) {
     	let t6;
     	let t7;
     	let t8;
+    	let t9;
     	document.title = title_value = "Výsledky vyhľadadvnia pre: " + /*search_value*/ ctx[0];
-    	let if_block0 = /*searched_items_categories*/ ctx[1].length != 0 && create_if_block_1$2(ctx);
+    	let if_block0 = /*searched_items_categories*/ ctx[1].length != 0 && create_if_block_2$1(ctx);
     	let each_value_1 = /*searched_items_categories*/ ctx[1];
     	validate_each_argument(each_value_1);
     	let each_blocks_1 = [];
@@ -9324,7 +9352,7 @@ var app = (function (exports) {
     		each_blocks_1[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
     	}
 
-    	let if_block1 = /*searched_items_products*/ ctx[2].length != 0 && create_if_block$3(ctx);
+    	let if_block1 = /*searched_items_products*/ ctx[2].length != 0 && create_if_block_1$2(ctx);
     	let each_value = /*searched_items_products*/ ctx[2];
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -9332,6 +9360,8 @@ var app = (function (exports) {
     	for (let i = 0; i < each_value.length; i += 1) {
     		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
     	}
+
+    	let if_block2 = /*searched_items_categories*/ ctx[1].length == 0 && /*searched_items_products*/ ctx[2] == 0 && create_if_block$3(ctx);
 
     	const block = {
     		c: function create() {
@@ -9364,20 +9394,22 @@ var app = (function (exports) {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(div0, "class", "title svelte-1qqqwqi");
+    			t9 = space();
+    			if (if_block2) if_block2.c();
+    			attr_dev(div0, "class", "title svelte-8sqe7w");
     			add_location(div0, file$5, 49, 12, 1679);
-    			attr_dev(div1, "class", "title-container svelte-1qqqwqi");
+    			attr_dev(div1, "class", "title-container svelte-8sqe7w");
     			add_location(div1, file$5, 48, 8, 1636);
-    			attr_dev(div2, "class", "button svelte-1qqqwqi");
+    			attr_dev(div2, "class", "button svelte-8sqe7w");
     			add_location(div2, file$5, 53, 16, 1857);
     			attr_dev(a, "href", "./#");
-    			attr_dev(a, "class", "button-a svelte-1qqqwqi");
+    			attr_dev(a, "class", "button-a svelte-8sqe7w");
     			add_location(a, file$5, 52, 12, 1808);
-    			attr_dev(div3, "class", "results svelte-1qqqwqi");
+    			attr_dev(div3, "class", "results svelte-8sqe7w");
     			add_location(div3, file$5, 57, 12, 1984);
     			attr_dev(div4, "class", "container");
     			add_location(div4, file$5, 51, 8, 1771);
-    			attr_dev(div5, "class", "search-container svelte-1qqqwqi");
+    			attr_dev(div5, "class", "search-container svelte-8sqe7w");
     			add_location(div5, file$5, 47, 4, 1596);
     			add_location(main, file$5, 46, 0, 1584);
     		},
@@ -9412,6 +9444,9 @@ var app = (function (exports) {
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div3, null);
     			}
+
+    			append_dev(div3, t9);
+    			if (if_block2) if_block2.m(div3, null);
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*search_value*/ 1 && title_value !== (title_value = "Výsledky vyhľadadvnia pre: " + /*search_value*/ ctx[0])) {
@@ -9422,7 +9457,7 @@ var app = (function (exports) {
 
     			if (/*searched_items_categories*/ ctx[1].length != 0) {
     				if (if_block0) ; else {
-    					if_block0 = create_if_block_1$2(ctx);
+    					if_block0 = create_if_block_2$1(ctx);
     					if_block0.c();
     					if_block0.m(div3, t6);
     				}
@@ -9457,7 +9492,7 @@ var app = (function (exports) {
 
     			if (/*searched_items_products*/ ctx[2].length != 0) {
     				if (if_block1) ; else {
-    					if_block1 = create_if_block$3(ctx);
+    					if_block1 = create_if_block_1$2(ctx);
     					if_block1.c();
     					if_block1.m(div3, t8);
     				}
@@ -9479,7 +9514,7 @@ var app = (function (exports) {
     					} else {
     						each_blocks[i] = create_each_block$3(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(div3, null);
+    						each_blocks[i].m(div3, t9);
     					}
     				}
 
@@ -9488,6 +9523,17 @@ var app = (function (exports) {
     				}
 
     				each_blocks.length = each_value.length;
+    			}
+
+    			if (/*searched_items_categories*/ ctx[1].length == 0 && /*searched_items_products*/ ctx[2] == 0) {
+    				if (if_block2) ; else {
+    					if_block2 = create_if_block$3(ctx);
+    					if_block2.c();
+    					if_block2.m(div3, null);
+    				}
+    			} else if (if_block2) {
+    				if_block2.d(1);
+    				if_block2 = null;
     			}
     		},
     		i: noop,
@@ -9499,6 +9545,7 @@ var app = (function (exports) {
     			destroy_each(each_blocks_1, detaching);
     			if (if_block1) if_block1.d();
     			destroy_each(each_blocks, detaching);
+    			if (if_block2) if_block2.d();
     		}
     	};
 
@@ -10477,12 +10524,12 @@ var app = (function (exports) {
     		c: function create() {
     			a = element("a");
     			i = element("i");
-    			attr_dev(i, "class", "fas fa-search svelte-8d11yt");
-    			add_location(i, file$2, 74, 24, 2785);
+    			attr_dev(i, "class", "fas fa-search svelte-1phem1b");
+    			add_location(i, file$2, 74, 24, 2784);
     			attr_dev(a, "href", a_href_value = "./#/vyhladavanie=/" + /*search_value*/ ctx[0]);
-    			attr_dev(a, "class", "icon svelte-8d11yt");
+    			attr_dev(a, "class", "icon svelte-1phem1b");
     			attr_dev(a, "type", "submit");
-    			add_location(a, file$2, 73, 20, 2638);
+    			add_location(a, file$2, 73, 20, 2637);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -10521,7 +10568,7 @@ var app = (function (exports) {
     }
 
     // (69:16) {#if search_value.length == 0}
-    function create_if_block_2(ctx) {
+    function create_if_block_3(ctx) {
     	let div;
     	let i;
     	let mounted;
@@ -10531,10 +10578,10 @@ var app = (function (exports) {
     		c: function create() {
     			div = element("div");
     			i = element("i");
-    			attr_dev(i, "class", "fas fa-search svelte-8d11yt");
-    			add_location(i, file$2, 70, 24, 2534);
-    			attr_dev(div, "class", "icon svelte-8d11yt");
-    			add_location(div, file$2, 69, 20, 2466);
+    			attr_dev(i, "class", "fas fa-search svelte-1phem1b");
+    			add_location(i, file$2, 70, 24, 2533);
+    			attr_dev(div, "class", "icon svelte-1phem1b");
+    			add_location(div, file$2, 69, 20, 2465);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -10555,7 +10602,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2.name,
+    		id: create_if_block_3.name,
     		type: "if",
     		source: "(69:16) {#if search_value.length == 0}",
     		ctx
@@ -10565,15 +10612,15 @@ var app = (function (exports) {
     }
 
     // (81:12) {#if searched_items_categories.length != 0}
-    function create_if_block_1(ctx) {
+    function create_if_block_2(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			div.textContent = "Kategórie";
-    			attr_dev(div, "class", "results-title svelte-8d11yt");
-    			add_location(div, file$2, 81, 16, 3006);
+    			attr_dev(div, "class", "results-title svelte-1phem1b");
+    			add_location(div, file$2, 81, 16, 3005);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -10585,7 +10632,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1.name,
+    		id: create_if_block_2.name,
     		type: "if",
     		source: "(81:12) {#if searched_items_categories.length != 0}",
     		ctx
@@ -10615,15 +10662,15 @@ var app = (function (exports) {
     			t0 = space();
     			div1 = element("div");
     			t1 = text(t1_value);
-    			attr_dev(i, "class", "fas fa-folder-open svelte-8d11yt");
-    			add_location(i, file$2, 87, 47, 3372);
-    			attr_dev(div0, "class", "category-icon svelte-8d11yt");
-    			add_location(div0, file$2, 87, 20, 3345);
-    			attr_dev(div1, "class", "result-title svelte-8d11yt");
-    			add_location(div1, file$2, 88, 20, 3434);
+    			attr_dev(i, "class", "fas fa-folder-open svelte-1phem1b");
+    			add_location(i, file$2, 87, 47, 3371);
+    			attr_dev(div0, "class", "category-icon svelte-1phem1b");
+    			add_location(div0, file$2, 87, 20, 3344);
+    			attr_dev(div1, "class", "result-title svelte-1phem1b");
+    			add_location(div1, file$2, 88, 20, 3433);
     			attr_dev(a, "href", a_href_value = "#/obchod/" + /*category*/ ctx[15].title.toLowerCase().split(' ').join('_'));
-    			attr_dev(a, "class", "category svelte-8d11yt");
-    			add_location(a, file$2, 86, 16, 3184);
+    			attr_dev(a, "class", "category svelte-1phem1b");
+    			add_location(a, file$2, 86, 16, 3183);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -10668,15 +10715,15 @@ var app = (function (exports) {
     }
 
     // (94:12) {#if searched_items_products.length != 0}
-    function create_if_block$1(ctx) {
+    function create_if_block_1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			div.textContent = "Produkty";
-    			attr_dev(div, "class", "results-title svelte-8d11yt");
-    			add_location(div, file$2, 94, 16, 3646);
+    			attr_dev(div, "class", "results-title svelte-1phem1b");
+    			add_location(div, file$2, 94, 16, 3645);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -10688,7 +10735,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$1.name,
+    		id: create_if_block_1.name,
     		type: "if",
     		source: "(94:12) {#if searched_items_products.length != 0}",
     		ctx
@@ -10708,7 +10755,6 @@ var app = (function (exports) {
     	let div1;
     	let t1_value = /*product*/ ctx[12].title + ' ' + /*product*/ ctx[12].version + "";
     	let t1;
-    	let t2;
     	let a_href_value;
     	let mounted;
     	let dispose;
@@ -10721,18 +10767,17 @@ var app = (function (exports) {
     			t0 = space();
     			div1 = element("div");
     			t1 = text(t1_value);
-    			t2 = space();
     			if (!src_url_equal(img.src, img_src_value = /*product*/ ctx[12].image_urls[0])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*product*/ ctx[12].title + ' ' + /*product*/ ctx[12].version);
-    			attr_dev(img, "class", "svelte-8d11yt");
-    			add_location(img, file$2, 101, 24, 4128);
-    			attr_dev(div0, "class", "product-img svelte-8d11yt");
-    			add_location(div0, file$2, 100, 20, 4077);
-    			attr_dev(div1, "class", "result-title svelte-8d11yt");
-    			add_location(div1, file$2, 103, 20, 4259);
+    			attr_dev(img, "class", "svelte-1phem1b");
+    			add_location(img, file$2, 101, 24, 4127);
+    			attr_dev(div0, "class", "product-img svelte-1phem1b");
+    			add_location(div0, file$2, 100, 20, 4076);
+    			attr_dev(div1, "class", "result-title svelte-1phem1b");
+    			add_location(div1, file$2, 103, 20, 4258);
     			attr_dev(a, "href", a_href_value = "#/obchod/" + categories[/*product*/ ctx[12].category].title.toLowerCase().split(' ').join('_') + "/" + (/*product*/ ctx[12].title + ' ' + /*product*/ ctx[12].version).toLowerCase().split(' ').join('_'));
-    			attr_dev(a, "class", "product svelte-8d11yt");
-    			add_location(a, file$2, 99, 16, 3820);
+    			attr_dev(a, "class", "product svelte-1phem1b");
+    			add_location(a, file$2, 99, 16, 3819);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -10741,7 +10786,6 @@ var app = (function (exports) {
     			append_dev(a, t0);
     			append_dev(a, div1);
     			append_dev(div1, t1);
-    			append_dev(a, t2);
 
     			if (!mounted) {
     				dispose = [
@@ -10785,6 +10829,36 @@ var app = (function (exports) {
     	return block;
     }
 
+    // (109:12) {#if searched_items_categories.length == 0 && searched_items_products == 0 && search_value != 0}
+    function create_if_block$1(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "Neboli najdené žiadne výsledky";
+    			attr_dev(div, "class", "nothing-title svelte-1phem1b");
+    			add_location(div, file$2, 109, 16, 4548);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(109:12) {#if searched_items_categories.length == 0 && searched_items_products == 0 && search_value != 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$2(ctx) {
     	let main;
     	let div0;
@@ -10803,6 +10877,7 @@ var app = (function (exports) {
     	let t5;
     	let t6;
     	let t7;
+    	let t8;
     	let div4;
     	let i;
     	let div5_class_value;
@@ -10811,13 +10886,13 @@ var app = (function (exports) {
     	let dispose;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*search_value*/ ctx[0].length == 0) return create_if_block_2;
+    		if (/*search_value*/ ctx[0].length == 0) return create_if_block_3;
     		return create_else_block$1;
     	}
 
     	let current_block_type = select_block_type(ctx);
     	let if_block0 = current_block_type(ctx);
-    	let if_block1 = /*searched_items_categories*/ ctx[2].length != 0 && create_if_block_1(ctx);
+    	let if_block1 = /*searched_items_categories*/ ctx[2].length != 0 && create_if_block_2(ctx);
     	let each_value_1 = /*searched_items_categories*/ ctx[2];
     	validate_each_argument(each_value_1);
     	let each_blocks_1 = [];
@@ -10826,7 +10901,7 @@ var app = (function (exports) {
     		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
-    	let if_block2 = /*searched_items_products*/ ctx[3].length != 0 && create_if_block$1(ctx);
+    	let if_block2 = /*searched_items_products*/ ctx[3].length != 0 && create_if_block_1(ctx);
     	let each_value = /*searched_items_products*/ ctx[3];
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -10834,6 +10909,8 @@ var app = (function (exports) {
     	for (let i = 0; i < each_value.length; i += 1) {
     		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
     	}
+
+    	let if_block3 = /*searched_items_categories*/ ctx[2].length == 0 && /*searched_items_products*/ ctx[3] == 0 && /*search_value*/ ctx[0] != 0 && create_if_block$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -10866,30 +10943,32 @@ var app = (function (exports) {
     			}
 
     			t7 = space();
+    			if (if_block3) if_block3.c();
+    			t8 = space();
     			div4 = element("div");
     			i = element("i");
-    			attr_dev(div0, "class", "background-1 background svelte-8d11yt");
-    			add_location(div0, file$2, 62, 4, 2013);
-    			attr_dev(div1, "class", "background-2 background svelte-8d11yt");
-    			add_location(div1, file$2, 63, 4, 2062);
+    			attr_dev(div0, "class", "background-1 background svelte-1phem1b");
+    			add_location(div0, file$2, 62, 4, 2012);
+    			attr_dev(div1, "class", "background-2 background svelte-1phem1b");
+    			add_location(div1, file$2, 63, 4, 2061);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", "Vyhľadavať...");
-    			attr_dev(input, "class", input_class_value = "" + (null_to_empty(/*red_text*/ ctx[4] ? 'red' : '') + " svelte-8d11yt"));
-    			add_location(input, file$2, 67, 16, 2290);
-    			attr_dev(div2, "class", "input svelte-8d11yt");
-    			add_location(div2, file$2, 66, 12, 2253);
+    			attr_dev(input, "class", input_class_value = "" + (null_to_empty(/*red_text*/ ctx[4] ? 'red' : '') + " svelte-1phem1b"));
+    			add_location(input, file$2, 67, 16, 2289);
+    			attr_dev(div2, "class", "input svelte-1phem1b");
+    			add_location(div2, file$2, 66, 12, 2252);
     			attr_dev(form, "action", "javascript:void(0);");
-    			add_location(form, file$2, 65, 8, 2204);
-    			attr_dev(div3, "class", "results svelte-8d11yt");
-    			add_location(div3, file$2, 79, 8, 2910);
-    			attr_dev(i, "class", "fas fa-times svelte-8d11yt");
-    			add_location(i, file$2, 110, 12, 4511);
-    			attr_dev(div4, "class", "quit svelte-8d11yt");
-    			add_location(div4, file$2, 109, 8, 4447);
-    			attr_dev(div5, "class", div5_class_value = "search-container background " + (/*search_value*/ ctx[0].length > 0 ? 'active' : '') + " svelte-8d11yt");
-    			add_location(div5, file$2, 64, 4, 2111);
-    			attr_dev(main, "class", main_class_value = "search " + (/*show_search*/ ctx[1] ? 'active' : '') + " svelte-8d11yt");
-    			add_location(main, file$2, 61, 0, 1931);
+    			add_location(form, file$2, 65, 8, 2203);
+    			attr_dev(div3, "class", "results svelte-1phem1b");
+    			add_location(div3, file$2, 79, 8, 2909);
+    			attr_dev(i, "class", "fas fa-times svelte-1phem1b");
+    			add_location(i, file$2, 113, 12, 4720);
+    			attr_dev(div4, "class", "quit svelte-1phem1b");
+    			add_location(div4, file$2, 112, 8, 4656);
+    			attr_dev(div5, "class", div5_class_value = "search-container background " + (/*search_value*/ ctx[0].length > 0 ? 'active' : '') + " svelte-1phem1b");
+    			add_location(div5, file$2, 64, 4, 2110);
+    			attr_dev(main, "class", main_class_value = "search " + (/*show_search*/ ctx[1] ? 'active' : '') + " svelte-1phem1b");
+    			add_location(main, file$2, 61, 0, 1930);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -10924,7 +11003,9 @@ var app = (function (exports) {
     				each_blocks[i].m(div3, null);
     			}
 
-    			append_dev(div5, t7);
+    			append_dev(div3, t7);
+    			if (if_block3) if_block3.m(div3, null);
+    			append_dev(div5, t8);
     			append_dev(div5, div4);
     			append_dev(div4, i);
 
@@ -10939,7 +11020,7 @@ var app = (function (exports) {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*red_text*/ 16 && input_class_value !== (input_class_value = "" + (null_to_empty(/*red_text*/ ctx[4] ? 'red' : '') + " svelte-8d11yt"))) {
+    			if (dirty & /*red_text*/ 16 && input_class_value !== (input_class_value = "" + (null_to_empty(/*red_text*/ ctx[4] ? 'red' : '') + " svelte-1phem1b"))) {
     				attr_dev(input, "class", input_class_value);
     			}
 
@@ -10961,7 +11042,7 @@ var app = (function (exports) {
 
     			if (/*searched_items_categories*/ ctx[2].length != 0) {
     				if (if_block1) ; else {
-    					if_block1 = create_if_block_1(ctx);
+    					if_block1 = create_if_block_2(ctx);
     					if_block1.c();
     					if_block1.m(div3, t4);
     				}
@@ -10996,7 +11077,7 @@ var app = (function (exports) {
 
     			if (/*searched_items_products*/ ctx[3].length != 0) {
     				if (if_block2) ; else {
-    					if_block2 = create_if_block$1(ctx);
+    					if_block2 = create_if_block_1(ctx);
     					if_block2.c();
     					if_block2.m(div3, t6);
     				}
@@ -11018,7 +11099,7 @@ var app = (function (exports) {
     					} else {
     						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(div3, null);
+    						each_blocks[i].m(div3, t7);
     					}
     				}
 
@@ -11029,11 +11110,22 @@ var app = (function (exports) {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*search_value*/ 1 && div5_class_value !== (div5_class_value = "search-container background " + (/*search_value*/ ctx[0].length > 0 ? 'active' : '') + " svelte-8d11yt")) {
+    			if (/*searched_items_categories*/ ctx[2].length == 0 && /*searched_items_products*/ ctx[3] == 0 && /*search_value*/ ctx[0] != 0) {
+    				if (if_block3) ; else {
+    					if_block3 = create_if_block$1(ctx);
+    					if_block3.c();
+    					if_block3.m(div3, null);
+    				}
+    			} else if (if_block3) {
+    				if_block3.d(1);
+    				if_block3 = null;
+    			}
+
+    			if (dirty & /*search_value*/ 1 && div5_class_value !== (div5_class_value = "search-container background " + (/*search_value*/ ctx[0].length > 0 ? 'active' : '') + " svelte-1phem1b")) {
     				attr_dev(div5, "class", div5_class_value);
     			}
 
-    			if (dirty & /*show_search*/ 2 && main_class_value !== (main_class_value = "search " + (/*show_search*/ ctx[1] ? 'active' : '') + " svelte-8d11yt")) {
+    			if (dirty & /*show_search*/ 2 && main_class_value !== (main_class_value = "search " + (/*show_search*/ ctx[1] ? 'active' : '') + " svelte-1phem1b")) {
     				attr_dev(main, "class", main_class_value);
     			}
     		},
@@ -11046,6 +11138,7 @@ var app = (function (exports) {
     			destroy_each(each_blocks_1, detaching);
     			if (if_block2) if_block2.d();
     			destroy_each(each_blocks, detaching);
+    			if (if_block3) if_block3.d();
     			mounted = false;
     			run_all(dispose);
     		}
@@ -11074,7 +11167,7 @@ var app = (function (exports) {
     			case 'Enter':
     				if (search_value.length > 0) {
     					hideSearch();
-    					window.location.href = "/#/vyhladavanie=/" + search_value;
+    					window.location.href = "#/vyhladavanie=/" + search_value;
     				} else {
     					emptyValue();
     				}

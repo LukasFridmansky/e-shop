@@ -84,6 +84,9 @@
                         </div>
                     </a>
                 {/each}
+                {#if searched_items_categories.length == 0 && searched_items_products == 0}
+                    <div class="nothing-title">Neboli najdené žiadne výsledky</div>
+                {/if}
             </div>
         </div>
     </div>
@@ -180,6 +183,11 @@
     .product-img img{
         width: auto;
         height: 100%;
+    }
+    .nothing-title{
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-top: 15px;
     }
     @media only screen and (max-width: 750px){
         .title-container{

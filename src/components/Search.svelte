@@ -13,7 +13,7 @@
         case 'Enter':
             if (search_value.length > 0) {
                 hideSearch();
-                window.location.href = "/#/vyhladavanie=/" + search_value;
+                window.location.href = "#/vyhladavanie=/" + search_value;
             }
             else{
                 emptyValue();
@@ -106,6 +106,9 @@
                     </div>
                 </a>
             {/each}
+            {#if searched_items_categories.length == 0 && searched_items_products == 0 && search_value != 0}
+                <div class="nothing-title">Neboli najdené žiadne výsledky</div>
+            {/if}
         </div>
         <div class="quit" on:click="{() => hideSearch()}">
             <i class="fas fa-times"></i>
@@ -297,6 +300,12 @@
     .quit:hover i{
         color: var(--blue-font-color);
         transition: .5s;
+    }
+    .nothing-title{
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-top: 15px;
+        color: var(--primary-color);
     }
     @media only screen and (max-width: 600px){
         .input{
