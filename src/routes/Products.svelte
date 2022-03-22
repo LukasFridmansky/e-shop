@@ -27,10 +27,10 @@
             products_filtered = products_filtered.sort((a, b) => (a.id > b.id) ? 1 : (a.id === b.id) ? 1 : -1);
         }
         else if (selected == "2") {
-            products_filtered = products_filtered.sort((a, b) => (a.price > b.price) ? 1 : (a.price === b.price) ? 1 : -1);
+            products_filtered = products_filtered.sort((a, b) => ((a.discount_bollean ? a.discount_price : a.price) > (b.discount_bollean ? b.discount_price : b.price)) ? 1 : ((a.discount_bollean ? a.discount_price : a.price) === (b.discount_bollean ? b.discount_price : b.price)) ? 1 : -1);
         }
         else if (selected == "3") {
-            products_filtered = products_filtered.sort((a, b) => (a.price < b.price) ? 1 : (a.price === b.price) ? 1 : -1);
+            products_filtered = products_filtered.sort((a, b) => ((a.discount_bollean ? a.discount_price : a.price) < (b.discount_bollean ? b.discount_price : b.price)) ? 1 : ((a.discount_bollean ? a.discount_price : a.price) === (b.discount_bollean ? b.discount_price : b.price)) ? 1 : -1);
         }
         else if (selected == "4") {
             products_filtered = products_filtered.sort((a, b) => (a.title > b.title) ? 1 : (a.title === b.title) ? 1 : -1);

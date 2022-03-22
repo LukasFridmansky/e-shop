@@ -5762,41 +5762,41 @@ var app = (function (exports) {
     			t14 = space();
     			create_component(product.$$.fragment);
     			attr_dev(div0, "class", "title svelte-s6kyry");
-    			add_location(div0, file$d, 49, 8, 1571);
+    			add_location(div0, file$d, 49, 8, 1907);
     			attr_dev(a0, "href", "./#");
-    			add_location(a0, file$d, 51, 12, 1656);
+    			add_location(a0, file$d, 51, 12, 1992);
     			attr_dev(a1, "href", "./#/obchod");
-    			add_location(a1, file$d, 51, 38, 1682);
+    			add_location(a1, file$d, 51, 38, 2018);
     			attr_dev(span, "class", "blue");
-    			add_location(span, file$d, 51, 72, 1716);
+    			add_location(span, file$d, 51, 72, 2052);
     			attr_dev(div1, "class", "nav svelte-s6kyry");
-    			add_location(div1, file$d, 50, 8, 1625);
+    			add_location(div1, file$d, 50, 8, 1961);
     			option0.__value = "1";
     			option0.value = option0.__value;
-    			add_location(option0, file$d, 56, 20, 1940);
+    			add_location(option0, file$d, 56, 20, 2276);
     			option1.__value = "2";
     			option1.value = option1.__value;
-    			add_location(option1, file$d, 57, 20, 2014);
+    			add_location(option1, file$d, 57, 20, 2350);
     			option2.__value = "3";
     			option2.value = option2.__value;
-    			add_location(option2, file$d, 58, 20, 2090);
+    			add_location(option2, file$d, 58, 20, 2426);
     			option3.__value = "4";
     			option3.value = option3.__value;
-    			add_location(option3, file$d, 59, 20, 2164);
+    			add_location(option3, file$d, 59, 20, 2500);
     			option4.__value = "5";
     			option4.value = option4.__value;
-    			add_location(option4, file$d, 60, 20, 2237);
+    			add_location(option4, file$d, 60, 20, 2573);
     			attr_dev(select, "class", "svelte-s6kyry");
     			if (/*selected*/ ctx[1] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[5].call(select));
-    			add_location(select, file$d, 55, 16, 1888);
+    			add_location(select, file$d, 55, 16, 2224);
     			attr_dev(form, "class", "svelte-s6kyry");
-    			add_location(form, file$d, 54, 12, 1821);
+    			add_location(form, file$d, 54, 12, 2157);
     			attr_dev(div2, "class", "filter");
-    			add_location(div2, file$d, 53, 8, 1787);
+    			add_location(div2, file$d, 53, 8, 2123);
     			attr_dev(div3, "class", "container");
-    			add_location(div3, file$d, 48, 4, 1538);
+    			add_location(div3, file$d, 48, 4, 1874);
     			attr_dev(main, "class", "svelte-s6kyry");
-    			add_location(main, file$d, 47, 0, 1526);
+    			add_location(main, file$d, 47, 0, 1862);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5895,9 +5895,17 @@ var app = (function (exports) {
     		if (selected == "1") {
     			$$invalidate(0, products_filtered = products_filtered.sort((a, b) => a.id > b.id ? 1 : a.id === b.id ? 1 : -1));
     		} else if (selected == "2") {
-    			$$invalidate(0, products_filtered = products_filtered.sort((a, b) => a.price > b.price ? 1 : a.price === b.price ? 1 : -1));
+    			$$invalidate(0, products_filtered = products_filtered.sort((a, b) => (a.discount_bollean ? a.discount_price : a.price) > (b.discount_bollean ? b.discount_price : b.price)
+    			? 1
+    			: (a.discount_bollean ? a.discount_price : a.price) === (b.discount_bollean ? b.discount_price : b.price)
+    				? 1
+    				: -1));
     		} else if (selected == "3") {
-    			$$invalidate(0, products_filtered = products_filtered.sort((a, b) => a.price < b.price ? 1 : a.price === b.price ? 1 : -1));
+    			$$invalidate(0, products_filtered = products_filtered.sort((a, b) => (a.discount_bollean ? a.discount_price : a.price) < (b.discount_bollean ? b.discount_price : b.price)
+    			? 1
+    			: (a.discount_bollean ? a.discount_price : a.price) === (b.discount_bollean ? b.discount_price : b.price)
+    				? 1
+    				: -1));
     		} else if (selected == "4") {
     			$$invalidate(0, products_filtered = products_filtered.sort((a, b) => a.title > b.title ? 1 : a.title === b.title ? 1 : -1));
     		} else if (selected == "5") {
@@ -12819,27 +12827,27 @@ var app = (function (exports) {
     			t6 = space();
     			div6 = element("div");
     			attr_dev(i, "class", "fas fa-bolt svelte-xh8f1a");
-    			add_location(i, file$2, 21, 5, 450);
+    			add_location(i, file$2, 21, 5, 448);
     			attr_dev(span, "class", "x-blue svelte-xh8f1a");
-    			add_location(span, file$2, 22, 12, 491);
+    			add_location(span, file$2, 22, 12, 489);
     			attr_dev(div0, "class", "logo svelte-xh8f1a");
-    			add_location(div0, file$2, 20, 16, 425);
+    			add_location(div0, file$2, 20, 16, 423);
     			attr_dev(div1, "class", "logo-conatiner svelte-xh8f1a");
-    			add_location(div1, file$2, 19, 12, 379);
+    			add_location(div1, file$2, 19, 12, 377);
     			attr_dev(div2, "class", "dot svelte-xh8f1a");
-    			add_location(div2, file$2, 26, 16, 610);
+    			add_location(div2, file$2, 26, 16, 608);
     			attr_dev(div3, "class", "dot svelte-xh8f1a");
-    			add_location(div3, file$2, 27, 16, 651);
+    			add_location(div3, file$2, 27, 16, 649);
     			attr_dev(div4, "class", "dot svelte-xh8f1a");
-    			add_location(div4, file$2, 28, 16, 692);
+    			add_location(div4, file$2, 28, 16, 690);
     			attr_dev(div5, "class", "dot svelte-xh8f1a");
-    			add_location(div5, file$2, 29, 16, 733);
+    			add_location(div5, file$2, 29, 16, 731);
     			attr_dev(div6, "class", "dot svelte-xh8f1a");
-    			add_location(div6, file$2, 30, 16, 774);
+    			add_location(div6, file$2, 30, 16, 772);
     			attr_dev(div7, "class", "container svelte-xh8f1a");
-    			add_location(div7, file$2, 25, 12, 569);
+    			add_location(div7, file$2, 25, 12, 567);
     			attr_dev(div8, "class", "body svelte-xh8f1a");
-    			add_location(div8, file$2, 18, 8, 347);
+    			add_location(div8, file$2, 18, 8, 345);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div8, anchor);
@@ -12899,7 +12907,7 @@ var app = (function (exports) {
     		c: function create() {
     			main = element("main");
     			if_block.c();
-    			add_location(main, file$2, 16, 0, 306);
+    			add_location(main, file$2, 16, 0, 304);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12970,10 +12978,11 @@ var app = (function (exports) {
     	function stopLoading() {
     		setTimeout(
     			() => {
-    				$$invalidate(0, isPageLoaded = true); //window.stop();
+    				$$invalidate(0, isPageLoaded = true);
+    				window.stop();
     			},
     			3000
-    		); //window.stop();
+    		);
     	}
 
     	stopLoading();
