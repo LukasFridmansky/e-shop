@@ -16,6 +16,7 @@
 	import Cart from "./components/Cart.svelte";
 	import Search from "./components/Search.svelte";
 	import Loader from "./components/Loader.svelte";
+	import Newsletter from "./components/Newsletter.svelte";
 
 	import {hamburgerMenu} from './main'
 	
@@ -68,6 +69,9 @@
 
 <main>
 	<Loader />
+	{#if !localStorage.getItem('newsletter')}
+		<Newsletter />
+	{/if}
 	<Search {random_num_search} />
 	<Cart {show} {random_num} {cart} {totalSum} />
 	<header>
@@ -94,7 +98,7 @@
 			</div>
 		</div>
 	</header>
-	<nav class="{scroll_position > 150 ? 'scrolled' : ''}">
+	<nav class="{scroll_position > 50 ? 'scrolled' : ''}">
 		<div class="container navigation">
 			<div class="logo">
 				<a href="./#">

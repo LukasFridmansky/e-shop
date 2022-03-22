@@ -267,12 +267,14 @@
     .sales {
         background: var(--secondary-color);
         padding: 10px 0 25px 0;
+        padding-top: 40px;
     }
 
     .sponsors {
         height: 120px;
         display: flex;
         justify-content: space-between;
+        margin: 20px auto;
     }
 
     .sponsor {

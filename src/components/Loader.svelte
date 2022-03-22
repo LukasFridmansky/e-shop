@@ -4,7 +4,7 @@
     function stopLoading() {
         setTimeout(() => {
             isPageLoaded = true;
-            window.stop();
+            //window.stop();
         }, 3000);
     }
     stopLoading();

@@ -1,5 +1,5 @@
 <script>
-    import Product from '../components/Product.svelte';
+    import Gallery from '../components/Gallery.svelte';
 
     import products from "../products";
     import categories from '../categories'
@@ -30,9 +30,19 @@
         location.replace("#/NotFound");
     }
 
+    let show = false;
+    let random_num = Math.random();
+
     let selected_color = product[0].colors[0];
     let count = 1;
     let img = 0;
+
+    function showGallery(){
+        if (window.innerWidth > 600) {
+            show = true;
+            random_num = Math.random()
+        }
+    }
 
 </script>
 
@@ -41,6 +51,7 @@
 </svelte:head>
 
 <main>
+    <Gallery active_img="{img}" show="{show}" {random_num} images="{product[0].image_urls}" product_title={product[0].title + ' ' + product[0].version}/>
     <div class="title-container">
         <div class="title">{product[0].title + ' ' + product[0].version}</div>
         <div class="nav">
@@ -50,7 +61,7 @@
     <div class="container">
         <div class="product-container">
             <div class="left-container">
-                <div class="product-images">
+                <div class="product-images" on:click="{showGallery}">
                     <img src="{product[0].image_urls[img]}" alt="{product[0].title + ' ' + product[0].version}">
                     {#if product[0].discount_bollean}
                         <div class="sale-box">Zľava</div>
@@ -159,7 +170,10 @@
         width: 500px;
         height: 500px;
         overflow: hidden;
+        background: #fff;
         position: relative;
+        text-align: center;
+        cursor: pointer;
     }
     .product-images img{
         width: auto;
@@ -310,9 +324,9 @@
         color: var(--primary-color);
         position: absolute;
         left: 50%;
+        transform: translateX(-50%);
+        min-width: 50px;
         top: -35px;
-        margin-left: -25px;
-        width: 50px;
     }
     label .description .arrow{
         position: absolute;

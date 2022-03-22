@@ -6,7 +6,7 @@
     import Sale from '../components/Sale.svelte';
     import Product from '../components/Product.svelte';
 
-    let most_sold_products = [products[0], products[1], products[2], products[3]];
+    let most_sold_products = [products[3], products[12], products[23], products[37]];
 </script>
 
 <svelte:head>
@@ -19,7 +19,7 @@
             <a href="./#">Domov</a> / <span class="blue">Obchod</span>
         </div>
     </div>
-    <BestProducts best_products="{[products[0], products[5]]}" />
+    <BestProducts best_products="{[products[0], products[10]]}" />
     <div class="container">
         <div class="title">Kategórie</div>
         <div class="lines">
