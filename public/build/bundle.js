@@ -2398,7 +2398,7 @@ var app = (function (exports) {
             producer: 'Lenovo',
             availability: 'Posledné kusy',
             colors: [{
-                title: 'Čierná',
+                title: 'Čierna',
                 hex: '#000'
             }],
             description_title: 'Lenovo Legion 5 15IMH05H, čierna',
@@ -4745,7 +4745,7 @@ var app = (function (exports) {
     	return child_ctx;
     }
 
-    // (29:20) {#if product.discount_bollean}
+    // (30:20) {#if product.discount_bollean}
     function create_if_block_1$7(ctx) {
     	let div;
 
@@ -4754,7 +4754,7 @@ var app = (function (exports) {
     			div = element("div");
     			div.textContent = "Zľava";
     			attr_dev(div, "class", "sale-box svelte-lvnaf6");
-    			add_location(div, file$f, 29, 24, 962);
+    			add_location(div, file$f, 30, 24, 968);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4768,14 +4768,14 @@ var app = (function (exports) {
     		block,
     		id: create_if_block_1$7.name,
     		type: "if",
-    		source: "(29:20) {#if product.discount_bollean}",
+    		source: "(30:20) {#if product.discount_bollean}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (48:20) {:else}
+    // (49:20) {:else}
     function create_else_block$6(ctx) {
     	let div;
     	let t0_value = /*product*/ ctx[6].price.toFixed(2).toString().split('.').join(',') + "";
@@ -4788,7 +4788,7 @@ var app = (function (exports) {
     			t0 = text(t0_value);
     			t1 = text(" €");
     			attr_dev(div, "class", "new-price svelte-lvnaf6");
-    			add_location(div, file$f, 48, 24, 2659);
+    			add_location(div, file$f, 49, 24, 2665);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4807,14 +4807,14 @@ var app = (function (exports) {
     		block,
     		id: create_else_block$6.name,
     		type: "else",
-    		source: "(48:20) {:else}",
+    		source: "(49:20) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (45:20) {#if product.discount_bollean}
+    // (46:20) {#if product.discount_bollean}
     function create_if_block$9(ctx) {
     	let div0;
     	let t0_value = /*product*/ ctx[6].price.toFixed(2).toString().split('.').join(',') + "";
@@ -4836,9 +4836,9 @@ var app = (function (exports) {
     			t3 = text(t3_value);
     			t4 = text(" €");
     			attr_dev(div0, "class", "old-price svelte-lvnaf6");
-    			add_location(div0, file$f, 45, 24, 2391);
+    			add_location(div0, file$f, 46, 24, 2397);
     			attr_dev(div1, "class", "new-price svelte-lvnaf6");
-    			add_location(div1, file$f, 46, 24, 2506);
+    			add_location(div1, file$f, 47, 24, 2512);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -4864,14 +4864,14 @@ var app = (function (exports) {
     		block,
     		id: create_if_block$9.name,
     		type: "if",
-    		source: "(45:20) {#if product.discount_bollean}",
+    		source: "(46:20) {#if product.discount_bollean}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (25:8) {#each products as product}
+    // (26:8) {#each products as product}
     function create_each_block$9(ctx) {
     	let div12;
     	let div9;
@@ -4969,50 +4969,50 @@ var app = (function (exports) {
     			if_block1.c();
     			t13 = space();
     			attr_dev(div0, "class", "image-box-background svelte-lvnaf6");
-    			add_location(div0, file$f, 27, 20, 844);
+    			add_location(div0, file$f, 28, 20, 850);
     			if (!src_url_equal(img.src, img_src_value = /*product*/ ctx[6].image_urls[0])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*product*/ ctx[6].title);
     			attr_dev(img, "class", "svelte-lvnaf6");
-    			add_location(img, file$f, 32, 24, 1095);
+    			add_location(img, file$f, 33, 24, 1101);
     			attr_dev(div1, "class", "product-img svelte-lvnaf6");
-    			add_location(div1, file$f, 31, 20, 1044);
+    			add_location(div1, file$f, 32, 20, 1050);
     			attr_dev(i0, "class", "fas fa-caret-down arrow svelte-lvnaf6");
-    			add_location(i0, file$f, 35, 151, 1374);
+    			add_location(i0, file$f, 36, 151, 1380);
     			attr_dev(div2, "class", "description svelte-lvnaf6");
-    			add_location(div2, file$f, 35, 110, 1333);
+    			add_location(div2, file$f, 36, 110, 1339);
     			attr_dev(i1, "class", "fas fa-cart-plus svelte-lvnaf6");
-    			add_location(i1, file$f, 35, 196, 1419);
+    			add_location(i1, file$f, 36, 196, 1425);
     			attr_dev(div3, "class", "add-to-basket link svelte-lvnaf6");
-    			add_location(div3, file$f, 35, 24, 1247);
+    			add_location(div3, file$f, 36, 24, 1253);
     			attr_dev(i2, "class", "fas fa-caret-down arrow svelte-lvnaf6");
-    			add_location(i2, file$f, 36, 144, 1603);
+    			add_location(i2, file$f, 37, 144, 1609);
     			attr_dev(div4, "class", "description svelte-lvnaf6");
-    			add_location(div4, file$f, 36, 100, 1559);
+    			add_location(div4, file$f, 37, 100, 1565);
     			attr_dev(i3, "class", "fas fa-heart svelte-lvnaf6");
-    			add_location(i3, file$f, 36, 189, 1648);
+    			add_location(i3, file$f, 37, 189, 1654);
     			attr_dev(div5, "class", "add-to-wishlist link svelte-lvnaf6");
-    			add_location(div5, file$f, 36, 24, 1483);
+    			add_location(div5, file$f, 37, 24, 1489);
     			attr_dev(i4, "class", "fas fa-caret-down arrow svelte-lvnaf6");
-    			add_location(i4, file$f, 37, 138, 1822);
+    			add_location(i4, file$f, 38, 138, 1828);
     			attr_dev(div6, "class", "description svelte-lvnaf6");
-    			add_location(div6, file$f, 37, 99, 1783);
+    			add_location(div6, file$f, 38, 99, 1789);
     			attr_dev(i5, "class", "fas fa-search-plus svelte-lvnaf6");
-    			add_location(i5, file$f, 37, 183, 1867);
+    			add_location(i5, file$f, 38, 183, 1873);
     			attr_dev(div7, "class", "show-details link svelte-lvnaf6");
-    			add_location(div7, file$f, 37, 24, 1708);
+    			add_location(div7, file$f, 38, 24, 1714);
     			attr_dev(div8, "class", "links svelte-lvnaf6");
-    			add_location(div8, file$f, 34, 20, 1202);
+    			add_location(div8, file$f, 35, 20, 1208);
     			attr_dev(div9, "class", "image-box svelte-lvnaf6");
-    			add_location(div9, file$f, 26, 16, 799);
+    			add_location(div9, file$f, 27, 16, 805);
     			attr_dev(div10, "class", "product-title svelte-lvnaf6");
-    			add_location(div10, file$f, 41, 20, 2188);
+    			add_location(div10, file$f, 42, 20, 2194);
     			attr_dev(a, "href", a_href_value = "#/obchod/" + categories[/*product*/ ctx[6].category].title.toLowerCase().split(' ').join('_') + "/" + (/*product*/ ctx[6].title + ' ' + /*product*/ ctx[6].version).toLowerCase().split(' ').join('_'));
     			attr_dev(a, "class", "product-link svelte-lvnaf6");
-    			add_location(a, file$f, 40, 16, 1977);
+    			add_location(a, file$f, 41, 16, 1983);
     			attr_dev(div11, "class", "price svelte-lvnaf6");
-    			add_location(div11, file$f, 43, 16, 2294);
+    			add_location(div11, file$f, 44, 16, 2300);
     			attr_dev(div12, "class", "product svelte-lvnaf6");
-    			add_location(div12, file$f, 25, 12, 760);
+    			add_location(div12, file$f, 26, 12, 766);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div12, anchor);
@@ -5135,7 +5135,7 @@ var app = (function (exports) {
     		block,
     		id: create_each_block$9.name,
     		type: "each",
-    		source: "(25:8) {#each products as product}",
+    		source: "(26:8) {#each products as product}",
     		ctx
     	});
 
@@ -5179,7 +5179,7 @@ var app = (function (exports) {
     			}
 
     			attr_dev(div, "class", "products container svelte-lvnaf6");
-    			add_location(div, file$f, 23, 4, 677);
+    			add_location(div, file$f, 24, 4, 683);
     			add_location(main, file$f, 21, 0, 527);
     		},
     		l: function claim(nodes) {
@@ -12981,7 +12981,7 @@ var app = (function (exports) {
     				$$invalidate(0, isPageLoaded = true);
     				window.stop();
     			},
-    			3000
+    			4000
     		);
     	}
 
