@@ -628,7 +628,7 @@ export default [{
         producer: 'Lenovo',
         availability: 'Posledné kusy',
         colors: [{
-            title: 'Čierná',
+            title: 'Čierna',
             hex: '#000'
         }],
         description_title: 'Lenovo Legion 5 15IMH05H, čierna',
