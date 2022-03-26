@@ -21,6 +21,7 @@
 
 <main>
     <ProductPreview product="{allProducts[product_index]}" {show} {random_num} selected_color="{allProducts[product_index].colors[0]}"/>
+    
     <div class="products container">
         {#each products as product}
             <div class="product">
